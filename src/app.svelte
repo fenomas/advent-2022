@@ -57,7 +57,7 @@
       }
       setOutput(part, out, performance.now() - t)
       busy[part] = false
-    }, 1)
+    })
   }
   var busy = [false, false, false]
 
@@ -119,20 +119,20 @@
 
     <div class="label">
       <h4>Output 1:</h4>
-      <span class="time">{time1}</span>
+      <div class="time">{time1}</div>
     </div>
     <textarea name="output1" id="output1" bind:value={output1} rows="1" />
 
     <div class="label">
       <h4>Output 2:</h4>
-      <span class="time">{time2}</span>
+      <div class="time">{time2}</div>
     </div>
     <textarea name="output2" id="output2" bind:value={output2} rows="1" />
 
     <div class="label" style="align-self: flex-start;">
       <h4>Input:</h4>
     </div>
-    <textarea name="input" id="input" bind:value={input} rows="8" />
+    <textarea name="input" id="input" bind:value={input} rows="14" />
   </div>
 </div>
 
@@ -146,7 +146,7 @@
     margin: 3em auto;
     width: 90%;
     min-width: 20em;
-    max-width: 35em;
+    max-width: 34em;
   }
 
   .layout {
@@ -154,10 +154,11 @@
     grid-template: auto / max-content 1fr;
     align-items: center;
     justify-items: flex-start;
+    gap: 0.6em;
   }
 
   .label {
-    margin: 1em;
+    margin: 0.7em;
   }
   .label > h4 {
     margin: 0;
@@ -166,31 +167,35 @@
   .button {
     display: inline-block;
     margin: 0.2em;
-    border: solid 1px #789;
     border-radius: 5px;
-    padding: 4px 0.4em;
+    padding: 4px 0.4em 3px;
     cursor: pointer;
-    background-color: #def;
+    color: #090;
+    border: solid 1px #090;
   }
 
   .button:hover {
-    background-color: #cde;
+    box-shadow: 0 0 4px 2px #090;
   }
 
   .button.current {
-    background-color: #456;
-    color: #fff;
+    background-color: #090;
+    color: #112;
   }
 
   .time {
     font-size: 80%;
+    position: absolute;
   }
 
   textarea {
     font-family: monospace;
     font-size: 110%;
-    width: 90%;
+    width: 95%;
     padding: 0.4em;
     border-radius: 5px;
+    color: #ccc;
+    border-color: #777;
+    background-color: #10101a;
   }
 </style>
