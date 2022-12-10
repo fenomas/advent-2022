@@ -85,6 +85,11 @@
     if (part === 2) time2 = time
   }
 
+  function getOutputRows(str) {
+    var lines = String(str || '').split('\n').length
+    return Math.min(lines, Math.max(lines, 1, 10))
+  }
+
   setTimeout(() => {
     setDay(dayNumList[dayNumList.length - 1])
     onInput()
@@ -121,13 +126,23 @@
       <h4>Output 1:</h4>
       <div class="time">{time1}</div>
     </div>
-    <textarea name="output1" id="output1" bind:value={output1} rows="1" />
+    <textarea
+      name="output1"
+      id="output1"
+      bind:value={output1}
+      rows={getOutputRows(output1)}
+    />
 
     <div class="label">
       <h4>Output 2:</h4>
       <div class="time">{time2}</div>
     </div>
-    <textarea name="output2" id="output2" bind:value={output2} rows="1" />
+    <textarea
+      name="output2"
+      id="output2"
+      bind:value={output2}
+      rows={getOutputRows(output2)}
+    />
 
     <div class="label" style="align-self: flex-start;">
       <h4>Input:</h4>

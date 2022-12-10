@@ -2,37 +2,23 @@
 
 export function part1(input = '') {
 
-    var lines = input.split('\n')
-    var i = 0
-    var getCmd = () => {
-        if (i >= lines.length) return ['']
-        return lines[i++].trim().split(/\s+/)
-    }
-
     var sumStrengths = 0
     var checks = { 20: true, 60: true, 100: true, 140: true, 180: true, 220: true }
-    var update = (cycle, regValue) => {
-        if (cycle in checks) sumStrengths += regValue * cycle
+    var update = (cycle, reg) => {
+        if (cycle in checks) sumStrengths += reg * cycle
     }
 
     var cycle = 1
-    var regX = 1
-    var busy = 0
-    var cmd = ''
-    var arg = ''
-    var runTimes = { noop: 1, addx: 2 }
-    for (var cycle = 1; ; cycle++) {
-        if (busy === 0) {
-            [cmd, arg] = getCmd()
-            if (cmd === '') break
-            busy = runTimes[cmd]
+    var regx = 1
+    input.split('\n').forEach(line => {
+        var [cmd, arg] = line.trim().split(/\s+/)
+        var time = (cmd === 'addx') ? 2 : 1
+        while (time-- > 0) {
+            update(cycle, regx)
+            cycle++
         }
-        update(cycle, regX)
-        busy--
-        if (busy === 0 && cmd === 'addx') {
-            regX += parseInt(arg)
-        }
-    }
+        if (cmd === 'addx') regx += parseInt(arg)
+    })
 
     return sumStrengths
 }
@@ -43,40 +29,25 @@ export function part1(input = '') {
 
 export function part2(input = '') {
 
-    var lines = input.split('\n')
-    var i = 0
-    var getCmd = () => {
-        if (i >= lines.length) return ['']
-        return lines[i++].trim().split(/\s+/)
-    }
-
     var output = ''
-    var update = (cycle, regValue) => {
+    var update = (cycle, reg) => {
         var col = (cycle - 1) % 40
-        var dx = Math.abs(col - regValue)
+        if (col === 0 && cycle > 1) output += '\n'
+        var dx = Math.abs(col - reg)
         output += (dx < 2) ? '#' : '.'
-        if (col % 40 === 39) output += '\n'
     }
 
     var cycle = 1
-    var regX = 1
-    var busy = 0
-    var cmd = ''
-    var arg = ''
-    var runTimes = { noop: 1, addx: 2 }
-    for (var cycle = 1; ; cycle++) {
-        if (busy === 0) {
-            [cmd, arg] = getCmd()
-            if (cmd === '') break
-            busy = runTimes[cmd]
+    var regx = 1
+    input.split('\n').forEach(line => {
+        var [cmd, arg] = line.trim().split(/\s+/)
+        var time = (cmd === 'addx') ? 2 : 1
+        while (time-- > 0) {
+            update(cycle, regx)
+            cycle++
         }
-        update(cycle, regX)
-        busy--
-        if (busy === 0 && cmd === 'addx') {
-            regX += parseInt(arg)
-        }
-    }
+        if (cmd === 'addx') regx += parseInt(arg)
+    })
 
-    console.log(output)
-    return 'Check the console!'
+    return output
 }
