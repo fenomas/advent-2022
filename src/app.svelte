@@ -54,6 +54,8 @@
         out = fn(input)
       } catch (err) {
         out = String(err)
+        var re = /:(\d+:\d+)\)/.exec(err.stack || '')
+        if (re) out = `(${re[1]}) ${out}`
       }
       setOutput(part, out, performance.now() - t)
       busy[part] = false
