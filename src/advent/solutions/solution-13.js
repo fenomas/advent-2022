@@ -55,9 +55,9 @@ function compare(a, b) {
 
 
 
-function parseListEasyWay(str) {
-    return eval(str)
-}
+// function parseListEasyWay(str) {
+//     return eval(str)
+// }
 
 // so you get your money's worth:
 function parseListHardWay(str) {
