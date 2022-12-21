@@ -1,32 +1,35 @@
-(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const o of document.querySelectorAll('link[rel="modulepreload"]'))r(o);new MutationObserver(o=>{for(const s of o)if(s.type==="childList")for(const a of s.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&r(a)}).observe(document,{childList:!0,subtree:!0});function c(o){const s={};return o.integrity&&(s.integrity=o.integrity),o.referrerpolicy&&(s.referrerPolicy=o.referrerpolicy),o.crossorigin==="use-credentials"?s.credentials="include":o.crossorigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function r(o){if(o.ep)return;o.ep=!0;const s=c(o);fetch(o.href,s)}})();function H(){}function bn(t){return t()}function ln(){return Object.create(null)}function y(t){t.forEach(bn)}function gn(t){return typeof t=="function"}function Xn(t,n){return t!=t?n==n:t!==n||t&&typeof t=="object"||typeof t=="function"}function yn(t){return Object.keys(t).length===0}function i(t,n){t.appendChild(n)}function Bn(t,n,c){t.insertBefore(n,c||null)}function tn(t){t.parentNode&&t.parentNode.removeChild(t)}function Fn(t,n){for(let c=0;c<t.length;c+=1)t[c]&&t[c].d(n)}function D(t){return document.createElement(t)}function E(t){return document.createTextNode(t)}function _(){return E(" ")}function G(t,n,c,r){return t.addEventListener(n,c,r),()=>t.removeEventListener(n,c,r)}function A(t,n,c){c==null?t.removeAttribute(n):t.getAttribute(n)!==c&&t.setAttribute(n,c)}function Gn(t){return Array.from(t.childNodes)}function I(t,n){n=""+n,t.wholeText!==n&&(t.data=n)}function X(t,n){t.value=n??""}function Pn(t,n,c,r){c===null?t.style.removeProperty(n):t.style.setProperty(n,c,r?"important":"")}function mn(t,n,c){t.classList[c?"add":"remove"](n)}let on;function P(t){on=t}const F=[],vn=[],x=[],dn=[],Jn=Promise.resolve();let K=!1;function Qn(){K||(K=!0,Jn.then(jn))}function nn(t){x.push(t)}const O=new Set;let N=0;function jn(){const t=on;do{for(;N<F.length;){const n=F[N];N++,P(n),Hn(n.$$)}for(P(null),F.length=0,N=0;vn.length;)vn.pop()();for(let n=0;n<x.length;n+=1){const c=x[n];O.has(c)||(O.add(c),c())}x.length=0}while(F.length);for(;dn.length;)dn.pop()();K=!1,O.clear(),P(t)}function Hn(t){if(t.fragment!==null){t.update(),y(t.before_update);const n=t.dirty;t.dirty=[-1],t.fragment&&t.fragment.p(t.ctx,n),t.after_update.forEach(nn)}}const Nn=new Set;function Wn(t,n){t&&t.i&&(Nn.delete(t),t.i(n))}function xn(t,n,c,r){const{fragment:o,after_update:s}=t.$$;o&&o.m(n,c),r||nn(()=>{const a=t.$$.on_mount.map(bn).filter(gn);t.$$.on_destroy?t.$$.on_destroy.push(...a):y(a),t.$$.on_mount=[]}),s.forEach(nn)}function En(t,n){const c=t.$$;c.fragment!==null&&(y(c.on_destroy),c.fragment&&c.fragment.d(n),c.on_destroy=c.fragment=null,c.ctx=[])}function kn(t,n){t.$$.dirty[0]===-1&&(F.push(t),Qn(),t.$$.dirty.fill(0)),t.$$.dirty[n/31|0]|=1<<n%31}function On(t,n,c,r,o,s,a,e=[-1]){const l=on;P(t);const m=t.$$={fragment:null,ctx:[],props:s,update:H,not_equal:o,bound:ln(),on_mount:[],on_destroy:[],on_disconnect:[],before_update:[],after_update:[],context:new Map(n.context||(l?l.$$.context:[])),callbacks:ln(),dirty:e,skip_bound:!1,root:n.target||l.$$.root};a&&a(m.root);let v=!1;if(m.ctx=c?c(t,n.props||{},(d,Y,...f)=>{const p=f.length?f[0]:Y;return m.ctx&&o(m.ctx[d],m.ctx[d]=p)&&(!m.skip_bound&&m.bound[d]&&m.bound[d](p),v&&kn(t,d)),Y}):[],m.update(),v=!0,y(m.before_update),m.fragment=r?r(m.ctx):!1,n.target){if(n.hydrate){const d=Gn(n.target);m.fragment&&m.fragment.l(d),d.forEach(tn)}else m.fragment&&m.fragment.c();n.intro&&Wn(t.$$.fragment),xn(t,n.target,n.anchor,n.customElement),jn()}P(l)}class In{$destroy(){En(this,1),this.$destroy=H}$on(n,c){if(!gn(c))return H;const r=this.$$.callbacks[n]||(this.$$.callbacks[n]=[]);return r.push(c),()=>{const o=r.indexOf(c);o!==-1&&r.splice(o,1)}}$set(n){this.$$set&&!yn(n)&&(this.$$.skip_bound=!0,this.$$set(n),this.$$.skip_bound=!1)}}function Kn(t=""){return wn(t).reduce((n,c)=>Math.max(n,c),0)}function n1(t=""){for(var n=wn(t).sort((o,s)=>s-o),c=0,r=0;r<Math.min(3,n.length);r++)c+=n[r];return c}function wn(t){var n=[0];return t.split(`
-`).forEach(c=>{c?n[n.length-1]+=parseInt(c):n.push(0)}),n}const c1=Object.freeze(Object.defineProperty({__proto__:null,part1:Kn,part2:n1},Symbol.toStringTag,{value:"Module"}));function t1(t=""){var n={"A X":4,"B X":1,"C X":7,"A Y":8,"B Y":5,"C Y":2,"A Z":3,"B Z":9,"C Z":6};return t.split(`
-`).map(c=>n[c]).reduce((c,r)=>c+r)}function o1(t=""){var n={"A X":3,"B X":1,"C X":2,"A Y":4,"B Y":5,"C Y":6,"A Z":8,"B Z":9,"C Z":7};return t.split(`
-`).map(c=>n[c]).reduce((c,r)=>c+r)}const r1=Object.freeze(Object.defineProperty({__proto__:null,part1:t1,part2:o1},Symbol.toStringTag,{value:"Module"}));function a1(t=""){var n=0;return t.split(`
-`).forEach(c=>{c=c.trim();for(var r={},o=c.length/2,s=0;s<o;s++)r[c.charAt(s)]=!0;for(var a=o;a<c.length;a++)if(r[c.charAt(a)]){n+=Ln(c,a);return}}),n}function e1(t=""){var n,c,r=0;return t.split(`
-`).forEach((o,s)=>{o=o.trim();var a=s%3;if(a===0){n={};for(var e of o)n[e]=!0}else if(a===1){c={};for(var e of o)n[e]&&(c[e]=!0)}else for(var e of o)if(c[e]){r+=Ln(e,0);return}}),r}function Ln(t,n){var c=t.charCodeAt(n);return c>95?c-96:c-38}const s1=Object.freeze(Object.defineProperty({__proto__:null,part1:a1,part2:e1},Symbol.toStringTag,{value:"Module"}));function l1(t=""){var n=0;return t.split(`
-`).forEach(c=>{var[r,o]=c.split(","),[s,a]=r.split("-").map(m=>parseInt(m)),[e,l]=o.split("-").map(m=>parseInt(m));s<e&&l>a||e<s&&a>l||n++}),n}function m1(t=""){var n=0;return t.split(`
-`).forEach(c=>{var[r,o]=c.split(","),[s,a]=r.split("-").map(m=>parseInt(m)),[e,l]=o.split("-").map(m=>parseInt(m));a<e||s>l||n++}),n}const v1=Object.freeze(Object.defineProperty({__proto__:null,part1:l1,part2:m1},Symbol.toStringTag,{value:"Module"}));function d1(t=""){var n=[];return t.split(`
-`).forEach(c=>{if(c.includes("["))for(var r=1;r<c.length;r+=4){var o=(r-1)/4;n[o]||(n[o]=[]);var s=c.charAt(r);s!==" "&&n[o].unshift(s)}if(c.includes("move")){var a=/move (\d+) from (\d+) to (\d+)/.exec(c);if(!a)return;for(var e=parseInt(a[1]),l=parseInt(a[2])-1,m=parseInt(a[3])-1,r=0;r<e;r++){var v=n[l].pop();n[m].push(v)}}}),n.map(c=>c[c.length-1]).join("")}function f1(t=""){var n=[];return t.split(`
-`).forEach(c=>{if(c.includes("["))for(var r=1;r<c.length;r+=4){var o=(r-1)/4;n[o]||(n[o]=[]);var s=c.charAt(r);s!==" "&&n[o].unshift(s)}if(c.includes("move")){var a=/move (\d+) from (\d+) to (\d+)/.exec(c);if(!a)return;var e=parseInt(a[1]),l=parseInt(a[2])-1,m=parseInt(a[3])-1,v=n[l],d=v.splice(v.length-e);n[m]=n[m].concat(d)}}),n.map(c=>c[c.length-1]).join("")}const Y1=Object.freeze(Object.defineProperty({__proto__:null,part1:d1,part2:f1},Symbol.toStringTag,{value:"Module"}));function p1(t=""){return un(t,4)}function h1(t=""){return un(t,14)}function un(t,n){for(var c=0,r=0;r<t.length;r++){if(c++,c===n)return r+1;for(var o=1;o<n-c+1;o++)if(t[r]===t[r+o]){c=0;break}}return-1}const i1=Object.freeze(Object.defineProperty({__proto__:null,part1:p1,part2:h1},Symbol.toStringTag,{value:"Module"}));function A1(t=""){var n=Dn(t),c=rn(n),r=0;return c.forEach(o=>{o.size<1e5&&(r+=o.size)}),r}function C1(t=""){var n=Dn(t),c=rn(n),r=7e7-n.size,o=3e7-r,s=1/0;return c.forEach(a=>{a.size>o&&a.size<s&&(s=a.size)}),s}function cn(t){this.parent=t,this.children={},this.size=0}function b1(t="a",n="1"){this.name=t,this.size=parseInt(n)}function Dn(t){var n=new cn(null),c=n;return t.split(`
-`).forEach(r=>{if(r=r.trim(),/^\$ cd /.test(r)){var o=r.substring(5);o==="/"?c=n:o===".."?c=c.parent:c=c.children[o]}else if(!/^\$ ls/.test(r))if(/^dir /.test(r)){var s=r.substring(4);c.children[s]=c.children[s]||new cn(c)}else if(/^\d+ \S+$/.test(r)){var[a,e]=r.split(" ");c.children[e]=c.children[e]||new b1(e,a)}else console.log("err",r);if(!c)return console.log("err",c,n),""}),n}function rn(t,n=[]){n.push(t);var c=0;for(var r in t.children){var o=t.children[r];o instanceof cn&&rn(o,n),c+=o.size}return t.size=c,n}const g1=Object.freeze(Object.defineProperty({__proto__:null,part1:A1,part2:C1},Symbol.toStringTag,{value:"Module"}));function B1(t=""){var n=[];t.split(`
-`).forEach((a,e)=>{n[e]=[],a.split("").forEach(l=>{var m=parseInt(l);n[e].push({ht:m,viz:!1})})});var c=(a,e=1)=>{for(var l=-1,m=0;m<a.length;m++){var v=e>0?a[m]:a[a.length-m-1];v.ht>l&&(v.viz=!0,l=v.ht)}};n.forEach(a=>c(a)),n.forEach(a=>c(a,-1));for(var r=0;r<n[0].length;r++){var o=n.map(a=>a[r]);c(o),c(o,-1)}var s=0;return n.forEach(a=>{a.forEach(e=>{e.viz&&s++})}),s}function j1(t=""){var n=[];t.split(`
-`).forEach((a,e)=>{n[e]=[],a.split("").forEach(l=>{var m=parseInt(l);n[e].push({ht:m,score:1})})});var c=0,r=a=>{for(var e=0;e<a.length;e++){for(var l=a[e],m=0,v=e-1;v>=0;v--){var d=a[v];if(m++,d.ht>=l.ht)break}for(var Y=0,f=e+1;f<a.length;f++){var p=a[f];if(Y++,p.ht>=l.ht)break}l.score*=m,l.score*=Y,l.score>c&&(c=l.score)}};n.forEach(a=>r(a));for(var o=0;o<n[0].length;o++){var s=n.map(a=>a[o]);r(s)}return c}const w1=Object.freeze(Object.defineProperty({__proto__:null,part1:B1,part2:j1},Symbol.toStringTag,{value:"Module"}));function L1(t=""){var n=[0,0],c=[0,0],r={},o=a=>r[a.join(",")]=!0,s={R:[1,0],L:[-1,0],U:[0,1],D:[0,-1]};return o(c),t.split(`
-`).forEach((a,e)=>{for(var[l,m]=a.trim().split(/\s+/),v=s[l],d=parseInt(m),Y=0;Y<d;Y++)n[0]+=v[0],n[1]+=v[1],Rn(n,c),o(c)}),Object.keys(r).length}function Rn(t,n){var c=t[0]-n[0],r=t[1]-n[1],o=t[0]>n[0]?1:-1,s=t[1]>n[1]?1:-1;c===0||r===0?(Math.abs(c)>1&&(n[0]+=o),Math.abs(r)>1&&(n[1]+=s)):(Math.abs(c)>1||Math.abs(r)>1)&&(n[0]+=o,n[1]+=s)}function u1(t=""){var n=Array.from(Array(10)).map(s=>[0,0]),c={},r=s=>c[s.join(",")]=!0,o={R:[1,0],L:[-1,0],U:[0,1],D:[0,-1]};return r(n[0]),t.split(`
-`).forEach((s,a)=>{for(var[e,l]=s.trim().split(/\s+/),m=o[e],v=parseInt(l),d=0;d<v;d++){n[0][0]+=m[0],n[0][1]+=m[1];for(var a=1;a<n.length;a++)Rn(n[a-1],n[a]);r(n[n.length-1])}}),Object.keys(c).length}const D1=Object.freeze(Object.defineProperty({__proto__:null,part1:L1,part2:u1},Symbol.toStringTag,{value:"Module"}));function R1(t=""){var n=0,c={20:!0,60:!0,100:!0,140:!0,180:!0,220:!0},r=(a,e)=>{a in c&&(n+=e*a)},o=1,s=1;return t.split(`
-`).forEach(a=>{for(var[e,l]=a.trim().split(/\s+/),m=e==="addx"?2:1;m-- >0;)r(o,s),o++;e==="addx"&&(s+=parseInt(l))}),n}function q1(t=""){var n="",c=(s,a)=>{var e=(s-1)%40;e===0&&s>1&&(n+=`
-`);var l=Math.abs(e-a);n+=l<2?"#":"."},r=1,o=1;return t.split(`
-`).forEach(s=>{for(var[a,e]=s.trim().split(/\s+/),l=a==="addx"?2:1;l-- >0;)c(r,o),r++;a==="addx"&&(o+=parseInt(e))}),n}const z1=Object.freeze(Object.defineProperty({__proto__:null,part1:R1,part2:q1},Symbol.toStringTag,{value:"Module"}));function Z1(){this.items=[],this.op=()=>{},this.div=1,this.next=[0,0],this.count=0}function qn(t){var n=[],c=null;return t.split(`
-`).forEach(r=>{var o=r.trim().split(/\s+/);if(o[0]==="Monkey")c=new Z1,n.push(c);else if(o[0]==="Starting")c.items=o.slice(2).map(e=>parseInt(e));else if(o[0]==="Operation:"){var s=o.pop(),a=o.pop();c.op=(()=>{if(s==="old"){if(a==="+")return l=>l+l;if(a==="*")return l=>l*l;throw"unhandled"}var e=parseInt(s);if(!isNaN(e)){if(a==="+")return l=>l+e;if(a==="*")return l=>l*e}throw"unhandled"})()}else o[0]==="Test:"?c.div=parseInt(o.pop()):o[1]==="true:"?c.next[0]=parseInt(o.pop()):o[1]==="false:"&&(c.next[1]=parseInt(o.pop()))}),n}function $1(t=""){for(var n=qn(t),c=0;c<20;c++)n.forEach(r=>{r.items.forEach(o=>{r.count++,o=r.op(o),o=Math.floor(o/3);var s=o%r.div===0?0:1,a=r.next[s];n[a].items.push(o)}),r.items=[]});return n.sort((r,o)=>o.count-r.count),n[0].count*n[1].count}function U1(t=""){for(var n=qn(t),c=n.reduce((o,s)=>o*s.div,1),r=0;r<1e4;r++)n.forEach(o=>{o.items.forEach(s=>{o.count++,s=o.op(s),s=s%c;var a=s%o.div===0?0:1,e=o.next[a];n[e].items.push(s)}),o.items=[]});return n.sort((o,s)=>s.count-o.count),n[0].count*n[1].count}const _1=Object.freeze(Object.defineProperty({__proto__:null,part1:$1,part2:U1},Symbol.toStringTag,{value:"Module"}));function zn(t){var n=[-1,-1],c=[-1,-1],r=[];t.split(`
-`).forEach((s,a)=>{var e=s.trim().split("").map((l,m)=>{var v=l.charCodeAt(0)-96,d=9999;return l==="S"&&(n=[m,a],v=1),l==="E"&&(c=[m,a],v=26),{ht:v,steps:d}});r.push(e)});var o=(s,a)=>s<0||s>=r[0].length||a<0||a>=r.length?null:r[a][s];return{start:n,end:c,getData:o}}function S1(t=""){var{start:n,end:c,getData:r}=zn(t);r(...n).steps=0;for(var o=[n],s=(m,v,d,Y)=>{var f=r(m,v);if(f){if(f.ht>d+1||f.steps<=Y)return;f.steps=Y,o.push([m,v])}};o.length>0;){var[a,e]=o.pop(),l=r(a,e);s(a-1,e,l.ht,l.steps+1),s(a+1,e,l.ht,l.steps+1),s(a,e-1,l.ht,l.steps+1),s(a,e+1,l.ht,l.steps+1)}return r(c[0],c[1]).steps}function T1(t=""){var{end:n,getData:c}=zn(t);c(...n).steps=0;for(var r=[n],o=9999,s=(m,v,d,Y)=>{var f=c(m,v);if(f){if(f.ht<d-1||f.steps<=Y)return;f.steps=Y,r.push([m,v]),f.ht===1&&(o=Math.min(o,f.steps))}};r.length>0;){var[a,e]=r.pop(),l=c(a,e);s(a-1,e,l.ht,l.steps+1),s(a+1,e,l.ht,l.steps+1),s(a,e-1,l.ht,l.steps+1),s(a,e+1,l.ht,l.steps+1)}return o}const M1=Object.freeze(Object.defineProperty({__proto__:null,part1:S1,part2:T1},Symbol.toStringTag,{value:"Module"}));function V1(t=""){var n=t.split(`
-`).map(r=>r.trim()).filter(r=>r).map(Zn),c=0;return n.forEach((r,o)=>{if(o%2!==0){var s=J(n[o-1],r);s<0&&(c+=(o+1)/2)}}),c}function X1(t=""){t+=`
+(function(){const n=document.createElement("link").relList;if(n&&n.supports&&n.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))o(r);new MutationObserver(r=>{for(const d of r)if(d.type==="childList")for(const a of d.addedNodes)a.tagName==="LINK"&&a.rel==="modulepreload"&&o(a)}).observe(document,{childList:!0,subtree:!0});function c(r){const d={};return r.integrity&&(d.integrity=r.integrity),r.referrerpolicy&&(d.referrerPolicy=r.referrerpolicy),r.crossorigin==="use-credentials"?d.credentials="include":r.crossorigin==="anonymous"?d.credentials="omit":d.credentials="same-origin",d}function o(r){if(r.ep)return;r.ep=!0;const d=c(r);fetch(r.href,d)}})();function O(){}function $n(t){return t()}function jn(){return Object.create(null)}function Q(t){t.forEach($n)}function _n(t){return typeof t=="function"}function Kn(t,n){return t!=t?n==n:t!==n||t&&typeof t=="object"||typeof t=="function"}function n1(t){return Object.keys(t).length===0}function g(t,n){t.appendChild(n)}function Un(t,n,c){t.insertBefore(n,c||null)}function vn(t){t.parentNode&&t.parentNode.removeChild(t)}function c1(t,n){for(let c=0;c<t.length;c+=1)t[c]&&t[c].d(n)}function A(t){return document.createElement(t)}function rn(t){return document.createTextNode(t)}function _(){return rn(" ")}function M(t,n,c,o){return t.addEventListener(n,c,o),()=>t.removeEventListener(n,c,o)}function Y(t,n,c){c==null?t.removeAttribute(n):t.getAttribute(n)!==c&&t.setAttribute(n,c)}function t1(t){return Array.from(t.childNodes)}function an(t,n){n=""+n,t.wholeText!==n&&(t.data=n)}function H(t,n){t.value=n??""}function r1(t,n,c,o){c===null?t.style.removeProperty(n):t.style.setProperty(n,c,o?"important":"")}function y(t,n,c){t.classList[c?"add":"remove"](n)}let en;function E(t){en=t}const W=[],zn=[],tn=[],qn=[],o1=Promise.resolve();let dn=!1;function s1(){dn||(dn=!0,o1.then(Sn))}function ln(t){tn.push(t)}const sn=new Set;let nn=0;function Sn(){const t=en;do{for(;nn<W.length;){const n=W[nn];nn++,E(n),a1(n.$$)}for(E(null),W.length=0,nn=0;zn.length;)zn.pop()();for(let n=0;n<tn.length;n+=1){const c=tn[n];sn.has(c)||(sn.add(c),c())}tn.length=0}while(W.length);for(;qn.length;)qn.pop()();dn=!1,sn.clear(),E(t)}function a1(t){if(t.fragment!==null){t.update(),Q(t.before_update);const n=t.dirty;t.dirty=[-1],t.fragment&&t.fragment.p(t.ctx,n),t.after_update.forEach(ln)}}const d1=new Set;function l1(t,n){t&&t.i&&(d1.delete(t),t.i(n))}function m1(t,n,c,o){const{fragment:r,after_update:d}=t.$$;r&&r.m(n,c),o||ln(()=>{const a=t.$$.on_mount.map($n).filter(_n);t.$$.on_destroy?t.$$.on_destroy.push(...a):Q(a),t.$$.on_mount=[]}),d.forEach(ln)}function v1(t,n){const c=t.$$;c.fragment!==null&&(Q(c.on_destroy),c.fragment&&c.fragment.d(n),c.on_destroy=c.fragment=null,c.ctx=[])}function e1(t,n){t.$$.dirty[0]===-1&&(W.push(t),s1(),t.$$.dirty.fill(0)),t.$$.dirty[n/31|0]|=1<<n%31}function f1(t,n,c,o,r,d,a,s=[-1]){const l=en;E(t);const m=t.$$={fragment:null,ctx:[],props:d,update:O,not_equal:r,bound:jn(),on_mount:[],on_destroy:[],on_disconnect:[],before_update:[],after_update:[],context:new Map(n.context||(l?l.$$.context:[])),callbacks:jn(),dirty:s,skip_bound:!1,root:n.target||l.$$.root};a&&a(m.root);let v=!1;if(m.ctx=c?c(t,n.props||{},(e,p,...f)=>{const h=f.length?f[0]:p;return m.ctx&&r(m.ctx[e],m.ctx[e]=h)&&(!m.skip_bound&&m.bound[e]&&m.bound[e](h),v&&e1(t,e)),p}):[],m.update(),v=!0,Q(m.before_update),m.fragment=o?o(m.ctx):!1,n.target){if(n.hydrate){const e=t1(n.target);m.fragment&&m.fragment.l(e),e.forEach(vn)}else m.fragment&&m.fragment.c();n.intro&&l1(t.$$.fragment),m1(t,n.target,n.anchor,n.customElement),Sn()}E(l)}class p1{$destroy(){v1(this,1),this.$destroy=O}$on(n,c){if(!_n(c))return O;const o=this.$$.callbacks[n]||(this.$$.callbacks[n]=[]);return o.push(c),()=>{const r=o.indexOf(c);r!==-1&&o.splice(r,1)}}$set(n){this.$$set&&!n1(n)&&(this.$$.skip_bound=!0,this.$$set(n),this.$$.skip_bound=!1)}}var h1=[24e3,70509,45e3,208567];function b1(t=""){return yn(t).reduce((n,c)=>Math.max(n,c),0)}function g1(t=""){for(var n=yn(t).sort((r,d)=>d-r),c=0,o=0;o<Math.min(3,n.length);o++)c+=n[o];return c}function yn(t){var n=[0];return t.split(`
+`).forEach(c=>{c?n[n.length-1]+=parseInt(c):n.push(0)}),n}const w1=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:h1,part1:b1,part2:g1},Symbol.toStringTag,{value:"Module"}));var Y1=[15,13565,12,12424];function j1(t=""){var n={"A X":4,"B X":1,"C X":7,"A Y":8,"B Y":5,"C Y":2,"A Z":3,"B Z":9,"C Z":6};return t.split(`
+`).map(c=>n[c]).reduce((c,o)=>c+o)}function z1(t=""){var n={"A X":3,"B X":1,"C X":2,"A Y":4,"B Y":5,"C Y":6,"A Z":8,"B Z":9,"C Z":7};return t.split(`
+`).map(c=>n[c]).reduce((c,o)=>c+o)}const q1=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:Y1,part1:j1,part2:z1},Symbol.toStringTag,{value:"Module"}));var i1=[157,8493,70,2552];function A1(t=""){var n=0;return t.split(`
+`).forEach(c=>{c=c.trim();for(var o={},r=c.length/2,d=0;d<r;d++)o[c.charAt(d)]=!0;for(var a=r;a<c.length;a++)if(o[c.charAt(a)]){n+=Tn(c,a);return}}),n}function C1(t=""){var n,c,o=0;return t.split(`
+`).forEach((r,d)=>{r=r.trim();var a=d%3;if(a===0){n={};for(var s of r)n[s]=!0}else if(a===1){c={};for(var s of r)n[s]&&(c[s]=!0)}else for(var s of r)if(c[s]){o+=Tn(s,0);return}}),o}function Tn(t,n){var c=t.charCodeAt(n);return c>95?c-96:c-38}const B1=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:i1,part1:A1,part2:C1},Symbol.toStringTag,{value:"Module"}));var u1=[2,580,4,895];function L1(t=""){var n=0;return t.split(`
+`).forEach(c=>{var[o,r]=c.split(","),[d,a]=o.split("-").map(m=>parseInt(m)),[s,l]=r.split("-").map(m=>parseInt(m));d<s&&l>a||s<d&&a>l||n++}),n}function D1(t=""){var n=0;return t.split(`
+`).forEach(c=>{var[o,r]=c.split(","),[d,a]=o.split("-").map(m=>parseInt(m)),[s,l]=r.split("-").map(m=>parseInt(m));a<s||d>l||n++}),n}const R1=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:u1,part1:L1,part2:D1},Symbol.toStringTag,{value:"Module"}));var Z1=["CMZ","HBTMTBSDC","MCD","PQTJRSHWS"];function $1(t=""){var n=[];return t.split(`
+`).forEach(c=>{if(c.includes("["))for(var o=1;o<c.length;o+=4){var r=(o-1)/4;n[r]||(n[r]=[]);var d=c.charAt(o);d!==" "&&n[r].unshift(d)}if(c.includes("move")){var a=/move (\d+) from (\d+) to (\d+)/.exec(c);if(!a)return;for(var s=parseInt(a[1]),l=parseInt(a[2])-1,m=parseInt(a[3])-1,o=0;o<s;o++){var v=n[l].pop();n[m].push(v)}}}),n.map(c=>c[c.length-1]).join("")}function _1(t=""){var n=[];return t.split(`
+`).forEach(c=>{if(c.includes("["))for(var o=1;o<c.length;o+=4){var r=(o-1)/4;n[r]||(n[r]=[]);var d=c.charAt(o);d!==" "&&n[r].unshift(d)}if(c.includes("move")){var a=/move (\d+) from (\d+) to (\d+)/.exec(c);if(!a)return;var s=parseInt(a[1]),l=parseInt(a[2])-1,m=parseInt(a[3])-1,v=n[l],e=v.splice(v.length-s);n[m]=n[m].concat(e)}}),n.map(c=>c[c.length-1]).join("")}const U1=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:Z1,part1:$1,part2:_1},Symbol.toStringTag,{value:"Module"}));var S1=[7,1093,19,3534];function y1(t=""){return Mn(t,4)}function T1(t=""){return Mn(t,14)}function Mn(t,n){for(var c=0,o=0;o<t.length;o++){if(c++,c===n)return o+1;for(var r=1;r<n-c+1;r++)if(t[o]===t[o+r]){c=0;break}}return-1}const M1=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:S1,part1:y1,part2:T1},Symbol.toStringTag,{value:"Module"}));var x1=[95437,1325919,24933642,2050735];function V1(t=""){var n=xn(t),c=fn(n),o=0;return c.forEach(r=>{r.size<1e5&&(o+=r.size)}),o}function X1(t=""){var n=xn(t),c=fn(n),o=7e7-n.size,r=3e7-o,d=1/0;return c.forEach(a=>{a.size>r&&a.size<d&&(d=a.size)}),d}function mn(t){this.parent=t,this.children={},this.size=0}function F1(t="a",n="1"){this.name=t,this.size=parseInt(n)}function xn(t){var n=new mn(null),c=n;return t.split(`
+`).forEach(o=>{if(o=o.trim(),/^\$ cd /.test(o)){var r=o.substring(5);r==="/"?c=n:r===".."?c=c.parent:c=c.children[r]}else if(!/^\$ ls/.test(o))if(/^dir /.test(o)){var d=o.substring(4);c.children[d]=c.children[d]||new mn(c)}else if(/^\d+ \S+$/.test(o)){var[a,s]=o.split(" ");c.children[s]=c.children[s]||new F1(s,a)}else console.log("err",o);if(!c)return console.log("err",c,n),""}),n}function fn(t,n=[]){n.push(t);var c=0;for(var o in t.children){var r=t.children[o];r instanceof mn&&fn(r,n),c+=r.size}return t.size=c,n}const G1=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:x1,part1:V1,part2:X1},Symbol.toStringTag,{value:"Module"}));var P1=[21,1733,8,284648];function J1(t=""){var n=[];t.split(`
+`).forEach((a,s)=>{n[s]=[],a.split("").forEach(l=>{var m=parseInt(l);n[s].push({ht:m,viz:!1})})});var c=(a,s=1)=>{for(var l=-1,m=0;m<a.length;m++){var v=s>0?a[m]:a[a.length-m-1];v.ht>l&&(v.viz=!0,l=v.ht)}};n.forEach(a=>c(a)),n.forEach(a=>c(a,-1));for(var o=0;o<n[0].length;o++){var r=n.map(a=>a[o]);c(r),c(r,-1)}var d=0;return n.forEach(a=>{a.forEach(s=>{s.viz&&d++})}),d}function H1(t=""){var n=[];t.split(`
+`).forEach((a,s)=>{n[s]=[],a.split("").forEach(l=>{var m=parseInt(l);n[s].push({ht:m,score:1})})});var c=0,o=a=>{for(var s=0;s<a.length;s++){for(var l=a[s],m=0,v=s-1;v>=0;v--){var e=a[v];if(m++,e.ht>=l.ht)break}for(var p=0,f=s+1;f<a.length;f++){var h=a[f];if(p++,h.ht>=l.ht)break}l.score*=m,l.score*=p,l.score>c&&(c=l.score)}};n.forEach(a=>o(a));for(var r=0;r<n[0].length;r++){var d=n.map(a=>a[r]);o(d)}return c}const Q1=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:P1,part1:J1,part2:H1},Symbol.toStringTag,{value:"Module"}));var N1=[13,6563,1,2653];function W1(t=""){var n=[0,0],c=[0,0],o={},r=a=>o[a.join(",")]=!0,d={R:[1,0],L:[-1,0],U:[0,1],D:[0,-1]};return r(c),t.split(`
+`).forEach((a,s)=>{for(var[l,m]=a.trim().split(/\s+/),v=d[l],e=parseInt(m),p=0;p<e;p++)n[0]+=v[0],n[1]+=v[1],Vn(n,c),r(c)}),Object.keys(o).length}function Vn(t,n){var c=t[0]-n[0],o=t[1]-n[1],r=t[0]>n[0]?1:-1,d=t[1]>n[1]?1:-1;c===0||o===0?(Math.abs(c)>1&&(n[0]+=r),Math.abs(o)>1&&(n[1]+=d)):(Math.abs(c)>1||Math.abs(o)>1)&&(n[0]+=r,n[1]+=d)}function E1(t=""){var n=Array.from(Array(10)).map(d=>[0,0]),c={},o=d=>c[d.join(",")]=!0,r={R:[1,0],L:[-1,0],U:[0,1],D:[0,-1]};return o(n[0]),t.split(`
+`).forEach((d,a)=>{for(var[s,l]=d.trim().split(/\s+/),m=r[s],v=parseInt(l),e=0;e<v;e++){n[0][0]+=m[0],n[0][1]+=m[1];for(var a=1;a<n.length;a++)Vn(n[a-1],n[a]);o(n[n.length-1])}}),Object.keys(c).length}const k1=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:N1,part1:W1,part2:E1},Symbol.toStringTag,{value:"Module"}));var I1=[13140,15880];function O1(t=""){var n=0,c={20:!0,60:!0,100:!0,140:!0,180:!0,220:!0},o=(a,s)=>{a in c&&(n+=s*a)},r=1,d=1;return t.split(`
+`).forEach(a=>{for(var[s,l]=a.trim().split(/\s+/),m=s==="addx"?2:1;m-- >0;)o(r,d),r++;s==="addx"&&(d+=parseInt(l))}),n}function K1(t=""){var n="",c=(d,a)=>{var s=(d-1)%40;s===0&&d>1&&(n+=`
+`);var l=Math.abs(s-a);n+=l<2?"#":"."},o=1,r=1;return t.split(`
+`).forEach(d=>{for(var[a,s]=d.trim().split(/\s+/),l=a==="addx"?2:1;l-- >0;)c(o,r),o++;a==="addx"&&(r+=parseInt(s))}),n}const n2=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:I1,part1:O1,part2:K1},Symbol.toStringTag,{value:"Module"}));var c2=[10605,61503,2713310158,14081365540];function t2(){this.items=[],this.op=()=>{},this.div=1,this.next=[0,0],this.count=0}function Xn(t){var n=[],c=null;return t.split(`
+`).forEach(o=>{var r=o.trim().split(/\s+/);if(r[0]==="Monkey")c=new t2,n.push(c);else if(r[0]==="Starting")c.items=r.slice(2).map(s=>parseInt(s));else if(r[0]==="Operation:"){var d=r.pop(),a=r.pop();c.op=(()=>{if(d==="old"){if(a==="+")return l=>l+l;if(a==="*")return l=>l*l;throw"unhandled"}var s=parseInt(d);if(!isNaN(s)){if(a==="+")return l=>l+s;if(a==="*")return l=>l*s}throw"unhandled"})()}else r[0]==="Test:"?c.div=parseInt(r.pop()):r[1]==="true:"?c.next[0]=parseInt(r.pop()):r[1]==="false:"&&(c.next[1]=parseInt(r.pop()))}),n}function r2(t=""){for(var n=Xn(t),c=0;c<20;c++)n.forEach(o=>{o.items.forEach(r=>{o.count++,r=o.op(r),r=Math.floor(r/3);var d=r%o.div===0?0:1,a=o.next[d];n[a].items.push(r)}),o.items=[]});return n.sort((o,r)=>r.count-o.count),n[0].count*n[1].count}function o2(t=""){for(var n=Xn(t),c=n.reduce((r,d)=>r*d.div,1),o=0;o<1e4;o++)n.forEach(r=>{r.items.forEach(d=>{r.count++,d=r.op(d),d=d%c;var a=d%r.div===0?0:1,s=r.next[a];n[s].items.push(d)}),r.items=[]});return n.sort((r,d)=>d.count-r.count),n[0].count*n[1].count}const s2=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:c2,part1:r2,part2:o2},Symbol.toStringTag,{value:"Module"}));var a2=[31,420,29,414];function Fn(t){var n=[-1,-1],c=[-1,-1],o=[];t.split(`
+`).forEach((d,a)=>{var s=d.trim().split("").map((l,m)=>{var v=l.charCodeAt(0)-96,e=9999;return l==="S"&&(n=[m,a],v=1),l==="E"&&(c=[m,a],v=26),{ht:v,steps:e}});o.push(s)});var r=(d,a)=>d<0||d>=o[0].length||a<0||a>=o.length?null:o[a][d];return{start:n,end:c,getData:r}}function d2(t=""){var{start:n,end:c,getData:o}=Fn(t);o(...n).steps=0;for(var r=[n],d=(m,v,e,p)=>{var f=o(m,v);if(f){if(f.ht>e+1||f.steps<=p)return;f.steps=p,r.push([m,v])}};r.length>0;){var[a,s]=r.pop(),l=o(a,s);d(a-1,s,l.ht,l.steps+1),d(a+1,s,l.ht,l.steps+1),d(a,s-1,l.ht,l.steps+1),d(a,s+1,l.ht,l.steps+1)}return o(c[0],c[1]).steps}function l2(t=""){var{end:n,getData:c}=Fn(t);c(...n).steps=0;for(var o=[n],r=9999,d=(m,v,e,p)=>{var f=c(m,v);if(f){if(f.ht<e-1||f.steps<=p)return;f.steps=p,o.push([m,v]),f.ht===1&&(r=Math.min(r,f.steps))}};o.length>0;){var[a,s]=o.pop(),l=c(a,s);d(a-1,s,l.ht,l.steps+1),d(a+1,s,l.ht,l.steps+1),d(a,s-1,l.ht,l.steps+1),d(a,s+1,l.ht,l.steps+1)}return r}const m2=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:a2,part1:d2,part2:l2},Symbol.toStringTag,{value:"Module"}));var v2=[13,6395,140,24921];function e2(t=""){var n=t.split(`
+`).map(o=>o.trim()).filter(o=>o).map(Gn),c=0;return n.forEach((o,r)=>{if(r%2!==0){var d=k(n[r-1],o);d<0&&(c+=(r+1)/2)}}),c}function f2(t=""){t+=`
   [[2]]  
   [[6]] `;var n=t.split(`
-`).map(r=>r.trim()).filter(r=>r).map(Zn).sort(J),c=1;return n.forEach((r,o)=>{if(r.length===1&&r[0].length===1){var s=r[0][0];(s===2||s===6)&&(c*=o+1)}}),c}function J(t,n){if(typeof t=="number")return typeof n=="number"?t-n:J([t],n);if(typeof n=="number")return J(t,[n]);for(var c=Math.min(t.length,n.length),r=0;r<c;r++){var o=J(t[r],n[r]);if(o!==0)return o}return t.length-n.length}function Zn(t){if(t[0]!=="[")throw["err-1",t].join(" ");for(var n=[],c=[n],r=1;r<t.length-1;r++){var o=t[r];if(o!==","){if(o==="]"){c.pop();continue}var s=c[c.length-1];if(o==="["){var a=[];s.push(a),c.push(a);continue}var e=/^\d+/.exec(t.substring(r));if(!e)throw["err-2",r,t].join(" ");s.push(parseInt(e[0])),r+=e.length-1}}return n}const y1=Object.freeze(Object.defineProperty({__proto__:null,part1:V1,part2:X1},Symbol.toStringTag,{value:"Module"}));function F1(t=""){for(var n=new $n(t),c=0;c<99999;c++)if(n.sandComesToRestAt(500,0)>n.maxY)return c;throw"err"}function G1(t=""){for(var n=new $n(t),c=0;c<99999;c++)if(n.sandComesToRestAt(500,0)<0)return c;throw"err"}function $n(t){var n=[],c=-99999,a=99999,r=(e,l)=>{n[e]||(n[e]=[]),n[e][l]=!0,c=Math.max(c,l)},o=(e,l)=>l>=a?!0:n[e]&&n[e][l]||!1,s=(e,l,m,v)=>{for(var d=e===m?0:e<m?1:-1,Y=l===v?0:l<v?1:-1,f=Math.max(Math.abs(e-m),Math.abs(l-v)),p=0;p<=f;p++)r(e,l),e+=d,l+=Y};t.split(`
-`).forEach(e=>{var l;e.split("->").forEach((m,v)=>{var d=m.split(",").map(Y=>parseInt(Y));l&&s(...l,...d),l=d})}),this.maxY=c;var a=c+2;this.sandComesToRestAt=(e,l)=>{if(o(e,l))return l-1;for(var m=0;m<99999;m++){if(!o(e,l+1)){l++;continue}if(!o(e-1,l+1)){e--,l++;continue}if(!o(e+1,l+1)){e++,l++;continue}return r(e,l),l}}}const P1=Object.freeze(Object.defineProperty({__proto__:null,part1:F1,part2:G1},Symbol.toStringTag,{value:"Module"}));function J1(t=""){var n=Un(t),c=2e6,r=1/0,o=-1/0;return n.forEach(({sx:s,sy:a,dist:e})=>{var l=e-Math.abs(a-c);l<0||(r=Math.min(r,s-l),o=Math.max(o,s+l))}),o-r}function Q1(t=""){for(var n=Un(t),c=4e6,r=0;r<=c;r++)for(var o=0;o<=c;o++){var s=n.some(({sx:a,sy:e,dist:l})=>{var m=l-Math.abs(e-r);if(!(m<0)){var v=Math.abs(a-o);if(!(v>m))return o=a+m,!0}});if(!!s&&!(o>c))return 4e6*o+r}return"no hits"}function Un(t){return t.trim().split(`
-`).map(n=>{var c=/Sensor at x=(.+), y=(.+): closest beacon is at x=(.+), y=(.+)/.exec(n.trim());if(!c)throw"?";var[,r,o,s,a]=c.map(l=>parseInt(l)),e=Math.abs(s-r)+Math.abs(a-o);return{sx:r,sy:o,dist:e}})}const H1=Object.freeze(Object.defineProperty({__proto__:null,part1:J1,part2:Q1},Symbol.toStringTag,{value:"Module"}));function N1(t=""){var{rates:n,distances:c}=_n(t),r=Object.keys(n).filter(d=>n[d]>0),o=[],s=(d,Y,f,p)=>{o.push({t:d,tot:Y,loc:f,done:p})},a=0;for(s(0,0,"AA","");o.length>0;){var{t:e,tot:l,loc:m,done:v}=o.pop();r.forEach(d=>{if(!v.includes(d)){var Y=e+c[m][d]+1;if(!(Y>=30)){var f=n[d]*(30-Y),p=l+f;p>a&&(a=p),s(Y,p,d,v+","+d)}}})}return a}function W1(t=""){var{rates:n,distances:c}=_n(t),r=Object.keys(n).filter(B=>n[B]>0),o=[],s=(B,q,h,w,Z,L)=>{o.push({t1:B,t2:q,tot:h,loc1:w,loc2:Z,done:L}),o.length>5e3&&(o.sort((z,M)=>M.tot-z.tot),o.length=4e3)},a=0;s(4,4,0,"AA","AA","");for(var e=0;e<30;e++){var l=o;for(o=[];l.length>0;){var{t1:m,t2:v,tot:d,loc1:Y,loc2:f,done:p}=l.pop(),[C,j]=m<v?[m,v]:[v,m],[U,g]=m<v?[Y,f]:[f,Y];r.forEach(B=>{if(!p.includes(B)){var q=C+c[U][B]+1;if(!(q>=30)){var h=n[B]*(30-q),w=d+h,Z=p+","+B;w>a&&(a=w),s(j,q,w,g,B,Z)}}})}}return a}function _n(t){var n={},c={},r={};t.trim().split(`
-`).forEach(s=>{var a=/Valve (.+) has flow rate=(.+); tunnels? leads? to valves? (.+)/.exec(s.trim());if(!a)throw`?? ${s}`;var[,e,l,m]=a;n[e]=parseInt(l),c[e]=m.split(",").map(v=>v.trim()),r[e]={}});var o=(s,a,e)=>{var l=r[s][a]||999;l<=e||(r[s][a]=e,c[a].forEach(m=>o(s,m,e+1)))};return Object.keys(n).forEach(s=>o(s,s,0)),{rates:n,distances:r}}const x1=Object.freeze(Object.defineProperty({__proto__:null,part1:N1,part2:W1},Symbol.toStringTag,{value:"Module"}));var fn=[["1111"],["010","111","010"],["111","100","100"],["1","1","1","1"],["11","11"]].map(t=>t.map(n=>parseInt(n,2)<<2));function E1(t){for(var n=0;n<t.length;n++){var c=t.length-1-n,r=t[c].toString(2).padStart(7,"#");r=r.split("").map(o=>o==="1"?"#":".").reverse().join(""),console.log("|"+r+"|     "+c)}console.log("                     ")}function Sn(t){var n=t.trim().split("").map(m=>m==="<"?-1:1),c=[],r=0,o=0,s=m=>m>>1,a=m=>m<<1,e=(m,v,d)=>v.every((Y,f)=>(Y&m[d+f])===0),l=2**6;this.rows=c,this.debug=()=>E1(c),this.dropRock=()=>{for(var m=fn[o++%fn.length].slice();c[c.length-1]===0;)c.pop();for(var v=c.length+3;c.length<v+m.length;)c.push(0);for(var d=!0;d;){var Y=n[r++%n.length],f=m.every(C=>Y<1?(C&1)===0:(C&l)===0);if(f){var p=m.map(Y<0?s:a);e(c,p,v)&&(m=p)}d=v>0&&e(c,m,v-1),d&&v--}for(m.forEach((C,j)=>{c[v+j]|=C});c[c.length-1]===0;)c.pop()}}function k1(t=""){for(var n=new Sn(t),c=0;c<2022;c++)n.dropRock();return n.rows.length}function O1(t=""){var n=new Sn(t),c=[0],r=[""],o=0,s=0;n:for(var a=1;a<3e3;a++){n.dropRock();var v=n.rows.length,e=n.rows.slice(-30).join(",");c[a]=v,r[a]=e;for(var l=50;l<a/2;l++)if(r[l]===e){o=l,s=a-l;break n}}if(o===0)throw"?";var m=1e12;m-=o;var v=c[o],d=Math.floor(m/s),Y=c[o+s]-c[o];return v+=Y*d,m%=s,v+=c[o+m]-c[o],v}const I1=Object.freeze(Object.defineProperty({__proto__:null,part1:k1,part2:O1},Symbol.toStringTag,{value:"Module"}));function Tn(t){var n={},c=(e,l,m)=>e|l<<8|m<<16,r=(e,l,m)=>n[c(e,l,m)]||0,o=(e,l,m,v)=>n[c(e,l,m)]=v,s=t.trim().split(`
-`).map(e=>{var[l,m,v]=e.trim().split(",").map(d=>parseInt(d));return[l,m,v]}),a=e=>s.forEach(l=>e(...l));return{get:r,set:o,iter:a}}function K1(t=""){var{get:n,set:c,iter:r}=Tn(t);r((s,a,e)=>c(s,a,e,1));var o=0;return r((s,a,e)=>{n(s-1,a,e)===0&&o++,n(s+1,a,e)===0&&o++,n(s,a-1,e)===0&&o++,n(s,a+1,e)===0&&o++,n(s,a,e-1)===0&&o++,n(s,a,e+1)===0&&o++}),o}function n5(t=""){var{get:n,set:c,iter:r}=Tn(t);r((Y,f,p)=>c(Y,f,p,1));var o=[1/0,1/0,1/0],s=[-1/0,-1/0,-1/0];r((...Y)=>{for(var f=0;f<3;f++)Y[f]<o[f]&&(o[f]=Y[f]),Y[f]>s[f]&&(s[f]=Y[f])});var a=[],e=(...Y)=>{for(var f=0;f<3;f++)if(Y[f]<o[f]-1||Y[f]>s[f]+1)return;n(...Y)===0&&a.push(Y)};for(a.push([o[0]-1,o[1],o[2]]);a.length>0;){var[l,m,v]=a.pop();c(l,m,v,2),e(l+1,m,v),e(l-1,m,v),e(l,m+1,v),e(l,m-1,v),e(l,m,v+1),e(l,m,v-1)}var d=0;return r((Y,f,p)=>{n(Y-1,f,p)===2&&d++,n(Y+1,f,p)===2&&d++,n(Y,f-1,p)===2&&d++,n(Y,f+1,p)===2&&d++,n(Y,f,p-1)===2&&d++,n(Y,f,p+1)===2&&d++}),d}const c5=Object.freeze(Object.defineProperty({__proto__:null,part1:K1,part2:n5},Symbol.toStringTag,{value:"Module"}));var Q={ore:0,clay:1,obsidian:2,geode:3};function Mn(t){var n=[];return t.trim().split(`
-`).forEach(c=>{var r=c.trim().split("Each"),[,o]=/^Blueprint (\d+):/.exec(r.shift())||[],s=Array(4).fill(0).map(a=>Array(4).fill(0));r.forEach(a=>{var[,e,l]=/^(.+) robot costs (.+)\.$/.exec(a.trim())||[],m=s[Q[e]];l.split("and").forEach(v=>{var[,d,Y]=/^(\d+) (.+)$/.exec(v.trim())||[];m[Q[Y]]=parseInt(d)})}),n.push({num:parseInt(o),costs:s})}),n}function t5(t=""){var n=Mn(t);return n.reduce((c,r)=>{var o=Vn(r,24);return c+r.num*o},0)}function o5(t=""){var n=Mn(t);return n.length=Math.min(3,n.length),n.reduce((c,r)=>{var o=Vn(r,32);return c*o},1)}var Yn=t=>t?{have:t.have.slice(),robots:t.robots.slice()}:{have:Array(4).fill(0),robots:Array(4).fill(0)},Vn=(t,n=10)=>{var c=0,r=[-3,-1,5,1e3],o=Array(n+2).fill(0).map(v=>[]),s=Yn();s.robots[Q.ore]=1,o[1].push(s);for(var a=1;a<=n;a++){var e=o[a],l=n+1-a,m=1e3;e.length>m&&(e.forEach(v=>{v.score=r.reduce((d,Y,f)=>{var p=v.have[f]+l*v.robots[f];return d+Y*p})}),e.sort((v,d)=>d.score-v.score),e.length=m),e.forEach(v=>{var d=v.have[Q.geode];d+=l*v.robots[Q.geode],d>c&&(c=d),a!==n&&t.costs.forEach((Y,f)=>{var p=Y.reduce((U,g,B)=>{var q=v.have[B];if(q>=g)return U;var h=v.robots[B];if(h===0)return 1/0;var w=Math.ceil((g-q)/h);return Math.max(U,w)},0),C=a+p+1;if(!(C>n)){var j=Yn(v);j.have.forEach((U,g)=>{if(j.have[g]+=(p+1)*j.robots[g],j.have[g]-=Y[g],j.have[g]<0)throw"??"+g}),j.robots[f]++,o[C].push(j)}})})}return c};const r5=Object.freeze(Object.defineProperty({__proto__:null,part1:t5,part2:o5},Symbol.toStringTag,{value:"Module"})),a5=Object.freeze(Object.defineProperty({__proto__:null},Symbol.toStringTag,{value:"Module"})),e5=Object.freeze(Object.defineProperty({__proto__:null},Symbol.toStringTag,{value:"Module"})),s5=Object.freeze(Object.defineProperty({__proto__:null},Symbol.toStringTag,{value:"Module"})),l5=Object.freeze(Object.defineProperty({__proto__:null},Symbol.toStringTag,{value:"Module"})),m5=Object.freeze(Object.defineProperty({__proto__:null},Symbol.toStringTag,{value:"Module"})),v5=Object.freeze(Object.defineProperty({__proto__:null},Symbol.toStringTag,{value:"Module"})),d5=`5557
+`).map(o=>o.trim()).filter(o=>o).map(Gn).sort(k),c=1;return n.forEach((o,r)=>{if(o.length===1&&o[0].length===1){var d=o[0][0];(d===2||d===6)&&(c*=r+1)}}),c}function k(t,n){if(typeof t=="number")return typeof n=="number"?t-n:k([t],n);if(typeof n=="number")return k(t,[n]);for(var c=Math.min(t.length,n.length),o=0;o<c;o++){var r=k(t[o],n[o]);if(r!==0)return r}return t.length-n.length}function Gn(t){if(t[0]!=="[")throw["err-1",t].join(" ");for(var n=[],c=[n],o=1;o<t.length-1;o++){var r=t[o];if(r!==","){if(r==="]"){c.pop();continue}var d=c[c.length-1];if(r==="["){var a=[];d.push(a),c.push(a);continue}var s=/^\d+/.exec(t.substring(o));if(!s)throw["err-2",o,t].join(" ");d.push(parseInt(s[0])),o+=s.length-1}}return n}const p2=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:v2,part1:e2,part2:f2},Symbol.toStringTag,{value:"Module"}));var h2=[24,638,93,31722];function b2(t=""){for(var n=new Pn(t),c=0;c<99999;c++)if(n.sandComesToRestAt(500,0)>n.maxY)return c;throw"err"}function g2(t=""){for(var n=new Pn(t),c=0;c<99999;c++)if(n.sandComesToRestAt(500,0)<0)return c;throw"err"}function Pn(t){var n=[],c=-99999,a=99999,o=(s,l)=>{n[s]||(n[s]=[]),n[s][l]=!0,c=Math.max(c,l)},r=(s,l)=>l>=a?!0:n[s]&&n[s][l]||!1,d=(s,l,m,v)=>{for(var e=s===m?0:s<m?1:-1,p=l===v?0:l<v?1:-1,f=Math.max(Math.abs(s-m),Math.abs(l-v)),h=0;h<=f;h++)o(s,l),s+=e,l+=p};t.split(`
+`).forEach(s=>{var l;s.split("->").forEach((m,v)=>{var e=m.split(",").map(p=>parseInt(p));l&&d(...l,...e),l=e})}),this.maxY=c;var a=c+2;this.sandComesToRestAt=(s,l)=>{if(r(s,l))return l-1;for(var m=0;m<99999;m++){if(!r(s,l+1)){l++;continue}if(!r(s-1,l+1)){s--,l++;continue}if(!r(s+1,l+1)){s++,l++;continue}return o(s,l),l}}}const w2=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:h2,part1:b2,part2:g2},Symbol.toStringTag,{value:"Module"}));var Y2=[26,6124805,56000011,0xb6b4fbfa17a];function pn(t){return t.trim().split(`
+`).map(n=>{var c=/Sensor at x=(.+), y=(.+): closest beacon is at x=(.+), y=(.+)/.exec(n.trim());if(!c)throw"?";var[,o,r,d,a]=c.map(l=>parseInt(l)),s=Math.abs(d-o)+Math.abs(a-r);return{sx:o,sy:r,dist:s}})}function j2(t=""){var n=pn(t),c=n.every(a=>a.sx<1e3),o=c?10:2e6,r=1/0,d=-1/0;return n.forEach(({sx:a,sy:s,dist:l})=>{var m=l-Math.abs(s-o);m<0||(r=Math.min(r,a-m),d=Math.max(d,a+m))}),d-r}function z2(t=""){var n=pn(t),c=n.every(v=>v.sx<1e3),o=c?20:4e6;n.sort((v,e)=>v.dist-e.dist);for(var r=(v,e,p,f)=>{var h=p>v?1:-1,q=f>e?1:-1,w=Math.max(-v,-e,e-o);w>0&&(v+=h*w,e+=q*w);var u=Math.max(p-o,f-o,-f);u>0&&(p-=h*u,f-=q*u);for(var z=p-v,i=0;i<z;i++){var Z=n.some(({sx:$,sy:U,dist:x})=>{var G=Math.abs($-v),P=Math.abs(U-e);return G+P<=x});if(!Z)return{x:v,y:e};v+=h,e+=q}return null},d=0;d<n.length;d++){var{sx:a,sy:s,dist:l}=n[d];l++;var m=r(a-l,s,a,s-l)||r(a-l,s,a,s+l)||r(a,s-l,a+l,s)||r(a,s+l,a+l,s);if(m)return 4e6*m.x+m.y}return"no hit"}function q2(t=""){var n=pn(t),c=n.every(s=>s.sx<1e3),o=c?20:4e6;n.sort((s,l)=>s.sy-l.sy);for(var r=0;r<=o;r++)for(var d=0;d<=o;d++){var a=n.some(({sx:s,sy:l,dist:m})=>{var v=m-Math.abs(l-r);if(!(v<0)){var e=Math.abs(s-d);if(!(e>v))return d=s+v,!0}});if(!a&&!(d>o))return 4e6*d+r}return"no hits"}const i2=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:Y2,part1:j2,part2:z2,part3:q2},Symbol.toStringTag,{value:"Module"}));var A2=[1651,1737,1707,2216];function Jn(t){var n={},c={},o={};t.trim().split(`
+`).forEach(d=>{var a=/Valve (.+) has flow rate=(.+); tunnels? leads? to valves? (.+)/.exec(d.trim());if(!a)throw`?? ${d}`;var[,s,l,m]=a;n[s]=parseInt(l),c[s]=m.split(",").map(v=>v.trim()),o[s]={}});var r=(d,a,s)=>{var l=o[d][a]||999;l<=s||(o[d][a]=s,c[a].forEach(m=>r(d,m,s+1)))};return Object.keys(n).forEach(d=>r(d,d,0)),{rates:n,distances:o}}function C2(t=""){var{rates:n,distances:c}=Jn(t),o=Object.keys(n).filter(s=>n[s]>0),r=Array(30).fill(0).map(s=>[]),d=(s,l,m,v)=>{r[s].push({t:s,tot:l,loc:m,done:v})},a=0;return d(0,0,"AA",""),r.forEach(s=>{for(s.length>500&&(s.sort((p,f)=>f.tot-p.tot),s.length=500);s.length>0;){var{t:l,tot:m,loc:v,done:e}=s.pop();o.forEach(p=>{if(!e.includes(p)){var f=l+c[v][p]+1;if(!(f>=30)){var h=n[p]*(30-f),q=m+h;q>a&&(a=q),d(f,q,p,e+","+p)}}})}}),a}function B2(t=""){var{rates:n,distances:c}=Jn(t),o=Object.keys(n).filter(s=>n[s]>0),r=Array(30).fill(0).map(s=>[]),d=(s,l,m,v,e,p)=>{var f=Math.min(s,l);r[f].push({t1:s,t2:l,tot:m,loc1:v,loc2:e,done:p})},a=0;return d(4,4,0,"AA","AA",""),r.forEach(s=>{for(s.length>1e3&&(s.sort((z,i)=>i.tot-z.tot),s.length=1e3);s.length>0;){var{t1:l,t2:m,tot:v,loc1:e,loc2:p,done:f}=s.pop(),[h,q]=l<m?[l,m]:[m,l],[w,u]=l<m?[e,p]:[p,e];o.forEach(z=>{if(!f.includes(z)){var i=h+c[w][z]+1;if(!(i>=30)){var Z=n[z]*(30-i),$=v+Z,U=f+","+z;$>a&&(a=$),d(q,i,$,u,z,U)}}})}}),a}const u2=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:A2,part1:C2,part2:B2},Symbol.toStringTag,{value:"Module"}));var L2=[3068,3048,1514285714288,1504093567249],An=[["1111"],["010","111","010"],["111","100","100"],["1","1","1","1"],["11","11"]].map(t=>t.map(n=>parseInt(n,2)<<2));function D2(t){for(var n=0;n<t.length;n++){var c=t.length-1-n,o=t[c].toString(2).padStart(7,"#");o=o.split("").map(r=>r==="1"?"#":".").reverse().join(""),console.log("|"+o+"|     "+c)}console.log("                     ")}function Hn(t){var n=t.trim().split("").map(m=>m==="<"?-1:1),c=[],o=0,r=0,d=m=>m>>1,a=m=>m<<1,s=(m,v,e)=>v.every((p,f)=>(p&m[e+f])===0),l=2**6;this.rows=c,this.debug=()=>D2(c),this.dropRock=()=>{for(var m=An[r++%An.length].slice();c[c.length-1]===0;)c.pop();for(var v=c.length+3;c.length<v+m.length;)c.push(0);for(var e=!0;e;){var p=n[o++%n.length],f=m.every(q=>p<1?(q&1)===0:(q&l)===0);if(f){var h=m.map(p<0?d:a);s(c,h,v)&&(m=h)}e=v>0&&s(c,m,v-1),e&&v--}for(m.forEach((q,w)=>{c[v+w]|=q});c[c.length-1]===0;)c.pop()}}function R2(t=""){for(var n=new Hn(t),c=0;c<2022;c++)n.dropRock();return n.rows.length}function Z2(t=""){var n=new Hn(t),c=[0],o=[""],r=0,d=0;n:for(var a=1;a<3e3;a++){n.dropRock();var v=n.rows.length,s=n.rows.slice(-30).join(",");c[a]=v,o[a]=s;for(var l=50;l<a/2;l++)if(o[l]===s){r=l,d=a-l;break n}}if(r===0)throw"?";var m=1e12;m-=r;var v=c[r],e=Math.floor(m/d),p=c[r+d]-c[r];return v+=p*e,m%=d,v+=c[r+m]-c[r],v}const $2=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:L2,part1:R2,part2:Z2},Symbol.toStringTag,{value:"Module"}));var _2=[64,4300,58,2490];function Qn(t){var n={},c=(s,l,m)=>s|l<<8|m<<16,o=(s,l,m)=>n[c(s,l,m)]||0,r=(s,l,m,v)=>n[c(s,l,m)]=v,d=t.trim().split(`
+`).map(s=>{var[l,m,v]=s.trim().split(",").map(e=>parseInt(e));return[l,m,v]}),a=s=>d.forEach(l=>s(...l));return{get:o,set:r,iter:a}}function U2(t=""){var{get:n,set:c,iter:o}=Qn(t);o((d,a,s)=>c(d,a,s,1));var r=0;return o((d,a,s)=>{n(d-1,a,s)===0&&r++,n(d+1,a,s)===0&&r++,n(d,a-1,s)===0&&r++,n(d,a+1,s)===0&&r++,n(d,a,s-1)===0&&r++,n(d,a,s+1)===0&&r++}),r}function S2(t=""){var{get:n,set:c,iter:o}=Qn(t);o((p,f,h)=>c(p,f,h,1));var r=[1/0,1/0,1/0],d=[-1/0,-1/0,-1/0];o((...p)=>{for(var f=0;f<3;f++)p[f]<r[f]&&(r[f]=p[f]),p[f]>d[f]&&(d[f]=p[f])});var a=[],s=(...p)=>{for(var f=0;f<3;f++)if(p[f]<r[f]-1||p[f]>d[f]+1)return;n(...p)===0&&a.push(p)};for(a.push([r[0]-1,r[1],r[2]]);a.length>0;){var[l,m,v]=a.pop();c(l,m,v,2),s(l+1,m,v),s(l-1,m,v),s(l,m+1,v),s(l,m-1,v),s(l,m,v+1),s(l,m,v-1)}var e=0;return o((p,f,h)=>{n(p-1,f,h)===2&&e++,n(p+1,f,h)===2&&e++,n(p,f-1,h)===2&&e++,n(p,f+1,h)===2&&e++,n(p,f,h-1)===2&&e++,n(p,f,h+1)===2&&e++}),e}const y2=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:_2,part1:U2,part2:S2},Symbol.toStringTag,{value:"Module"}));var T2=[33,1675,62*56,6840],I={ore:0,clay:1,obsidian:2,geode:3};function Nn(t){var n=[];return t.trim().split(`
+`).forEach(c=>{var o=c.trim().split("Each"),[,r]=/^Blueprint (\d+):/.exec(o.shift())||[],d=Array(4).fill(0).map(a=>Array(4).fill(0));o.forEach(a=>{var[,s,l]=/^(.+) robot costs (.+)\.$/.exec(a.trim())||[],m=d[I[s]];l.split("and").forEach(v=>{var[,e,p]=/^(\d+) (.+)$/.exec(v.trim())||[];m[I[p]]=parseInt(e)})}),n.push({num:parseInt(r),costs:d})}),n}function M2(t=""){var n=Nn(t);return n.reduce((c,o)=>{var r=Wn(o,24);return c+o.num*r},0)}function x2(t=""){var n=Nn(t);return n.length=Math.min(3,n.length),n.reduce((c,o)=>{var r=Wn(o,32);return c*r},1)}var Cn=t=>t?{have:t.have.slice(),robots:t.robots.slice()}:{have:Array(4).fill(0),robots:Array(4).fill(0)},Wn=(t,n=10)=>{var c=0,o=[-3,-1,5,1e3],r=Array(n+2).fill(0).map(v=>[]),d=Cn();d.robots[I.ore]=1,r[1].push(d);for(var a=1;a<=n;a++){var s=r[a],l=n+1-a,m=1e3;s.length>m&&(s.forEach(v=>{v.score=o.reduce((e,p,f)=>{var h=v.have[f]+l*v.robots[f];return e+p*h})}),s.sort((v,e)=>e.score-v.score),s.length=m),s.forEach(v=>{var e=v.have[I.geode];e+=l*v.robots[I.geode],e>c&&(c=e),a!==n&&t.costs.forEach((p,f)=>{var h=p.reduce((u,z,i)=>{var Z=v.have[i];if(Z>=z)return u;var $=v.robots[i];if($===0)return 1/0;var U=Math.ceil((z-Z)/$);return Math.max(u,U)},0),q=a+h+1;if(!(q>n)){var w=Cn(v);w.have.forEach((u,z)=>{if(w.have[z]+=(h+1)*w.robots[z],w.have[z]-=p[z],w.have[z]<0)throw"??"+z}),w.robots[f]++,r[q].push(w)}})})}return c};const V2=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:T2,part1:M2,part2:x2},Symbol.toStringTag,{value:"Module"}));var X2=[3,13522,1623178306,0xf90785a221e];function F2(t,n){this.ix=n,this.num=t,this.l=null,this.r=null}var En=t=>{var n=t.map((c,o)=>new F2(c,o));return n.forEach((c,o)=>{c.l=n[(o-1+t.length)%t.length],c.r=n[(o+1)%t.length]}),n},G2=t=>{t.l.r=t.r,t.r.l=t.l},P2=(t,n)=>{t.r=n.r,t.l=n,n.r.l=t,n.r=t},kn=(t,n)=>{var c=n.length-1;n.forEach((o,r)=>{if(o=o%c,Math.abs(o)>c/2&&(o+=o>0?-c:c),o!==0){var d=Math.abs(o),a=t[r];G2(a);var s=a;if(o>0)for(;d-- >0;)s=s.r;else for(;d-- >-1;)s=s.l;P2(a,s)}})};function J2(t=""){var n=t.trim().split(`
+`).map(a=>parseInt(a)),c=En(n);kn(c,n);for(var o=0,r=c.reduce((a,s)=>s.num===0?s:a,null),d=1;d<=3e3;d++)r=r.r,d%1e3===0&&(o+=r.num);return o}function H2(t=""){for(var n=811589153,c=t.trim().split(`
+`).map(s=>n*parseInt(s)),o=En(c),r=0;r<10;r++)kn(o,c);for(var d=0,a=o.reduce((s,l)=>l.num===0?l:s,null),r=1;r<=3e3;r++)a=a.r,r%1e3===0&&(d+=a.num);return d}const Q2=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:X2,part1:J2,part2:H2},Symbol.toStringTag,{value:"Module"}));var N2=[152,81075092088442,301,3349136384441];function In(t){var n={},c=[];return t.trim().split(`
+`).map(o=>{var[,r,d]=/^(.+): (.+)$/.exec(o);/^\d/.test(d)?n[r]=parseInt(d):c.push([r,...d.trim().split(/\s+/)])}),{known:n,todo:c}}function On(t,n){for(var c=t,o=0;n.length>0;){if(o++>1e5)throw"overrun";n=n.filter(r=>{var[d,a,s,l]=r;if(!(a in t)||!(l in t))return!0;s==="+"?c[d]=c[a]+c[l]:s==="-"?c[d]=c[a]-c[l]:s==="*"?c[d]=c[a]*c[l]:s==="/"&&(c[d]=c[a]/c[l])})}}function W2(t=""){var{known:n,todo:c}=In(t);return On(n,c),n.root}function E2(t=""){var{known:n,todo:c}=In(t);c.forEach(p=>{p[0]==="root"&&(p[2]="-")});for(var o=p=>{var f=Object.assign({},n);return f.humn=p,On(f,c.slice()),Math.abs(f.root)},r=100,d=o(r),a=0;a<100;a++){var s=o(r*2);if(s>d)break;r*=2,d=s}for(var l=Math.round(r/2),m=0;m<100;m++){if(d===0)return r;var v=o(r-l);if(v<d)r-=l,d=v;else{var e=o(r+l);e<d&&(r+=l,d=e)}l=Math.ceil(l/2)}return r+"???"}const k2=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:N2,part1:W2,part2:E2},Symbol.toStringTag,{value:"Module"}));var I2=[1,2,3,4];const O2=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:I2},Symbol.toStringTag,{value:"Module"}));var K2=[1,2,3,4];const n5=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:K2},Symbol.toStringTag,{value:"Module"}));var c5=[1,2,3,4];const t5=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:c5},Symbol.toStringTag,{value:"Module"}));var r5=[1,2,3,4];const o5=Object.freeze(Object.defineProperty({__proto__:null,knownAnswers:r5},Symbol.toStringTag,{value:"Module"})),s5=`5557
 6663
 3952
 4750
@@ -2262,7 +2265,7 @@
 1254
 3605
 4191
-1482`,f5=`A Y
+1482`,a5=`A Y
 B Y
 B Z
 B Z
@@ -4761,7 +4764,7 @@ B Y
 A Y
 C Y
 B Y
-A Y`,Y5=`jNNBMTNzvTqhQLhQLMQL
+A Y`,d5=`jNNBMTNzvTqhQLhQLMQL
 VCwnVRCGHHJTdsLtrdhrGdsq
 wFJZTbRcnJCbpwpFccZCBfBvPzfpgfgzzWvjSzNP
 wDWgDfWNTvwvgFfWfddGldJVprrrVdNlrN
@@ -5060,7 +5063,7 @@ cbBczbtbZTcPWzcrTrmRrLGFTQQFmJ
 PBZChtzzcWPcZtBvPjtzBBCfHMMNdDgDpMfVfVpHMqNR
 LJPPCHtgtLDfFfvTLwfv
 pVGWGGjjjplhpGGVjWnldsvrrMFvfDMTWBdFrfFF
-cjlhShjchhjGGmNVjplcQgmTPtHPPJmQgQHgtqgZ`,p5=`8-82,3-96
+cjlhShjchhjGGmNVjplcQgmTPtHPPJmQgQHgtqgZ`,l5=`8-82,3-96
 13-95,99-99
 4-92,5-93
 16-80,16-80
@@ -6059,7 +6062,7 @@ cjlhShjchhjGGmNVjplcQgmTPtHPPJmQgQHgtqgZ`,p5=`8-82,3-96
 79-86,86-91
 4-86,3-87
 47-92,47-92
-18-32,17-33`,h5=`    [H]         [H]         [V]    
+18-32,17-33`,m5=`    [H]         [H]         [V]    
     [V]         [V] [J]     [F] [F]
     [S] [L]     [M] [B]     [L] [J]
     [C] [N] [B] [W] [D]     [D] [M]
@@ -6571,7 +6574,7 @@ move 2 from 1 to 2
 move 1 from 4 to 9
 move 2 from 4 to 6
 move 1 from 4 to 7
-move 6 from 1 to 8`,i5="cvtvbvfbvfbfqfrrtnnmqqmcqqpfplfpphchpcpcfppmwwhhscccjwjnnctcjtjgjbgjjdzjjwzwfffnhhgppjmpmgppppzbzbrzznttfqqhtqqbssrjjffgssnqnsqnsqnnmlmmztmtqmqccqscsshrsrtstrrjwrrswwpnnftfwwwzznsstbbbtzzncnbcnbccwtwctwwjgjcjtccblclgcgjgngwgbggpbbbbbgcczzfsfbbwlwwnqwnwbnwnmmbjjnfnqfqfvvgvqqvcvggpnpssptpnpjjvvpdpqpcqpcqqnhhnqncqclcfcfjcjhjdjqddhndnmmvmfmsmdsdwsdswsnsgsmsrmrjjpzzzzcppczcscsgcczqcqnnpzpbbdqqqqsqlslzljzjdjbjdjvvlhvvnbbjtbbqbdqdggzwgghhdssmttjtttmwtmtjjcpjpjptjpjmpptnntgttjpttljjwtjwwrgrvgrvrmvvrvdrdcdmmvvbpbddfbdbppdccjdjvjpjjgzjzdzfddqcqlccbvbqvqvjqjggqrqdrqrhhwggmvgmgvgrvvzwzddlzlbbdpbdbtbhthnthttjwtwffwvvrccnpcnclcgcrrgdrrgzgmzggzhhftfppnwppqhhmddzhdzzzjqjhqqcgqqmjjwppfrprlrjlrjjlhjlhjjnbnlblbzlbbfjjwfjjdcdndvvbllfmlmfmvmnnlcnncsnslsvlsvlsltslslqsqzssslqlssqrrpdpwdppsfpsprpffchhcvcpvvjpjvjmvvrjrqrzqqqlvvzzggcgrcgcmmvnmmchmmswsvwsvwswnwswdwmwzmmqfqrqtrqqwqlqlmqmsmggpzpjjlvllzplzlbzzbhhglhhwwhfwwpwgwrwlwplppfvflftltffccmcrcgrcgghgmmbrbppwvvghvhphhztzpzzwbbtpppcnpccnvcvbccvfvmffmtmbttdqdrrfnrnffsgstttbhhgmmtffhthllsbllsqsllptpwpvpdpsddsgsrrngnpggwbwwppfqfmqfmfvfzzzldltdtvdvtvtbvtgpvtnvcsdbwjrqwrfzdhwfwnmtrltdhsfzwwfpscrlsffchnfszqdddsztwzcbwdwfnljpfdsqgpnjffqfgsprggfwgvfldvzmnrpnzvfscswnzbljtvshzmcztqqwtzdstsqggqqvvlmspjjcmllcmsndwpllrvlrglphcqjgwzntwqffthrfmfgpcvjvclvdrjrpnwtrlshlnwgbbznpflsfmgvbwmnwjpnqhmdnsmwnmblqzjfzfcslhntnjhbrvvlfbffsbhrtvjltqrqszsrpmdghmhsrqlmrjdsgtsgwggdlqptqrvgmwrpcjrnmmmcdpgjzgghqmshhmddfvfrqwnwvwbvzzpmwzmvvgsqlsgvmtczwnbzrtnzjnpjjghdzsmcgvqpdhltvltbfvgsgzhvqjjnpspngqpvqwvtqrczqzwrclqbnplmvlnvcwdbzlrnwbppvdfzmblnqfpfqlngttrrcjzfjnrnmssdrrvbvhtrfzblzsjbqwbttsshmcmfhrfbfqspvcfmqbwjszmvwqnpszcfhtnqtftvtpvcjrcnlmfnvlpjzspcnmvvshpsdfhtbhgjcmjmtpmtcbwnlgtnvlwlggbnzfrrqljmjrwjtzfmgbllmmjtfhrszfrfpftmpzhzdhfwdbdnwqspjbrlglgdwtfzcrdhwgqltvthbnrqfngjgnddqlcpjflqzvbhmlzsvpvlzdvhspmchrjlzfgnlpwdnszqdqpnrchdrswfwnflslcpfmbfrplsmchbgjhhhlzjlvztpdhslrpmmcthhjwfczjtmbmsvzvsqrvzrcnflqldfnhjzlcsfhgrtqtscnbzqjglgjnqbtprrprrdtqqtlqwdqnmgbglvwtrpnpjqdsmvczbnldvmgmtpmmqbwgjbfsqbjvnjhhlrppptlrjsptpvghbgtvwvsrnggznjsbjpnwpdsqmmjjqjdwshqwzvqgpnlhdldwzmvmdnhrnhpscrbnbdtmfqwlmrlszljpjdqgjpgcdwtqzsbqsndjdslrstjwbbfnjvrjlbrphqspltjzpvsgccfrmqhfhjmlslncpgpflhjlrzqsffrtcgsvzpjmlqjznscgjrjhzfjbbchvgjgvfsrpnzdrstdtsltqldfldvfdjqdwsltcbnnvcgvnjpgdjzsbzgfvgvtmghwfmrmblscfdqlsdgcdbgsphfvvvnffcqwlrvnsrjmvvdrjdljlppsfsrmwwvmsqcgtgtfjhqbqvlsnwdwzhncgprbspjzqnbllwcjnqpfzlhscdtvlldffngwttntsbtlctdfbzjgclgbhhjtlffvtgbdsswczlgmwntrrnnbdtflplfbtqcfrhtgjnrltvzqlcvtdthldqrvjdmlntdjzcncrplgmdbqhlrrfdszrnbrllhgpzzgjnqzrjrtjjntqvdphgvjtbtqfjwvlpprrcvmpjcdmntvtqjvjrhngbtmdtflpqmlmmvjjjpdlcvntlvlgstbblwfwjrbcqjgzvjjzflfhdvgnhpnqprcvmhsrpmgfcgjpdbqpmpvlnmzdngzqcqtdsbbqbdhtgpqmqwtcctsvhwmlhpgzgpwwsqngsrwzghfhzbqcpspfhqbllbvpwgwdnghqnvjtfqtwgvnbfbpcffbwwbfqgqnftpqdtwhmrprpgdlnwrcmdndllwbvlrrjvmwlbgfwgbhtmbqhfvhlhlthbrljwnwcgsdgsbbzgnwzmjfgnfjcqhspjwctntznjptsnbpwtfzmrqwjzrmdthfwdvttrcghbjndfmtswhsmdwwwffmgsvshmlhdbwdscjnvrvqnwttlsmfbssnsscftcrpwfbbplbpmvzmttvbgpnjtqqzcfdfwqdphggwbnhfvssmdjvbvtlrcghltthqrqdbvjnbqpzjcggrbnrswhvdcrmgncsmhsmstmcbwgbfwvzqtdrpjbgljdgcncgcdslhftptnvfhgpsjqqmnsjmqhztnfzqqqhccbnqjlhqcwwbfzgpmbvjszswjlhcqshtqdmwmhpgqgzbwbtchrdwgnvfqcgcmngtddpzfgjrrssdmcnbtpbhfvfbdgzmcbjqtdqrnrdchtrcfpmtnvfczdlnjplwccfmzjwwvdsrcjznrcbczdqwshjgvhjpgdgjvtvmdzncrqgffzhcbwstvltqbrzfbnrrvlntjmzctvnqhdcgvvmmbfplzpwgsdzdtvnwnshnwbwqplbctntslczwhblsnzdcsgltvlfvbtvthvlsmzmfgzhpvrvczdhmcpmgqzbdhbcdbstrrtzgrbhhwwghzlgcdtlcjtjdcwdtqpvpwzrwmhczfsdmwjlgtmzvdbwzdnsztvqzhjpfrqzllgvrsbmhvrlzwtfmpzchftrzlmndpwqgcmhdzmjrjvpbnrcmjvzbzlqngmrzcbdwfcwmlnlqsdgbvmvqcsjtwgvtpmqdtdqfrshmlgnjqdwsrpjcfnfpjzlhslsvppmgprqlpcfztcngmqgrvqvpcszzgtbpcrghmgnvgplctgdljhwjgbzmjrdsccdtrwjrrbttzmpvmzlmqdfwdccfzqztdjmcgrcdwghgmmntdwrclshlgnsmhmltwcczncndtglnqvcvbwlvcgqtzpnqnlllchwjwrlhcdlbjlzvhvtjsttqhvhfqbsqjpfcmpsfshgrrwgprjtfnhsjqqntrjfgjjmjbqwdjlcjjdljpppgvqvgrrwvclbmncmqglhbtjcfrbjmhqgmlpzgljntqvrcggmrgtbrftvhrnjbvzstlnzrqcgncnjhdrnqcnwcrstvdsgnwzjzmqsdtwzzjmfgzpslhqclhtjnrlwwfrqgmhsttfdprhgmphzfdfqntwztltnnfqwgdnnbrlgzmtwqsvhbjjqtcgmghnbchdfgfrdtjnvlgtqdgrfwmgnmpslqmqzdgqztnppbc",A5=`$ cd /
+move 6 from 1 to 8`,v5="cvtvbvfbvfbfqfrrtnnmqqmcqqpfplfpphchpcpcfppmwwhhscccjwjnnctcjtjgjbgjjdzjjwzwfffnhhgppjmpmgppppzbzbrzznttfqqhtqqbssrjjffgssnqnsqnsqnnmlmmztmtqmqccqscsshrsrtstrrjwrrswwpnnftfwwwzznsstbbbtzzncnbcnbccwtwctwwjgjcjtccblclgcgjgngwgbggpbbbbbgcczzfsfbbwlwwnqwnwbnwnmmbjjnfnqfqfvvgvqqvcvggpnpssptpnpjjvvpdpqpcqpcqqnhhnqncqclcfcfjcjhjdjqddhndnmmvmfmsmdsdwsdswsnsgsmsrmrjjpzzzzcppczcscsgcczqcqnnpzpbbdqqqqsqlslzljzjdjbjdjvvlhvvnbbjtbbqbdqdggzwgghhdssmttjtttmwtmtjjcpjpjptjpjmpptnntgttjpttljjwtjwwrgrvgrvrmvvrvdrdcdmmvvbpbddfbdbppdccjdjvjpjjgzjzdzfddqcqlccbvbqvqvjqjggqrqdrqrhhwggmvgmgvgrvvzwzddlzlbbdpbdbtbhthnthttjwtwffwvvrccnpcnclcgcrrgdrrgzgmzggzhhftfppnwppqhhmddzhdzzzjqjhqqcgqqmjjwppfrprlrjlrjjlhjlhjjnbnlblbzlbbfjjwfjjdcdndvvbllfmlmfmvmnnlcnncsnslsvlsvlsltslslqsqzssslqlssqrrpdpwdppsfpsprpffchhcvcpvvjpjvjmvvrjrqrzqqqlvvzzggcgrcgcmmvnmmchmmswsvwsvwswnwswdwmwzmmqfqrqtrqqwqlqlmqmsmggpzpjjlvllzplzlbzzbhhglhhwwhfwwpwgwrwlwplppfvflftltffccmcrcgrcgghgmmbrbppwvvghvhphhztzpzzwbbtpppcnpccnvcvbccvfvmffmtmbttdqdrrfnrnffsgstttbhhgmmtffhthllsbllsqsllptpwpvpdpsddsgsrrngnpggwbwwppfqfmqfmfvfzzzldltdtvdvtvtbvtgpvtnvcsdbwjrqwrfzdhwfwnmtrltdhsfzwwfpscrlsffchnfszqdddsztwzcbwdwfnljpfdsqgpnjffqfgsprggfwgvfldvzmnrpnzvfscswnzbljtvshzmcztqqwtzdstsqggqqvvlmspjjcmllcmsndwpllrvlrglphcqjgwzntwqffthrfmfgpcvjvclvdrjrpnwtrlshlnwgbbznpflsfmgvbwmnwjpnqhmdnsmwnmblqzjfzfcslhntnjhbrvvlfbffsbhrtvjltqrqszsrpmdghmhsrqlmrjdsgtsgwggdlqptqrvgmwrpcjrnmmmcdpgjzgghqmshhmddfvfrqwnwvwbvzzpmwzmvvgsqlsgvmtczwnbzrtnzjnpjjghdzsmcgvqpdhltvltbfvgsgzhvqjjnpspngqpvqwvtqrczqzwrclqbnplmvlnvcwdbzlrnwbppvdfzmblnqfpfqlngttrrcjzfjnrnmssdrrvbvhtrfzblzsjbqwbttsshmcmfhrfbfqspvcfmqbwjszmvwqnpszcfhtnqtftvtpvcjrcnlmfnvlpjzspcnmvvshpsdfhtbhgjcmjmtpmtcbwnlgtnvlwlggbnzfrrqljmjrwjtzfmgbllmmjtfhrszfrfpftmpzhzdhfwdbdnwqspjbrlglgdwtfzcrdhwgqltvthbnrqfngjgnddqlcpjflqzvbhmlzsvpvlzdvhspmchrjlzfgnlpwdnszqdqpnrchdrswfwnflslcpfmbfrplsmchbgjhhhlzjlvztpdhslrpmmcthhjwfczjtmbmsvzvsqrvzrcnflqldfnhjzlcsfhgrtqtscnbzqjglgjnqbtprrprrdtqqtlqwdqnmgbglvwtrpnpjqdsmvczbnldvmgmtpmmqbwgjbfsqbjvnjhhlrppptlrjsptpvghbgtvwvsrnggznjsbjpnwpdsqmmjjqjdwshqwzvqgpnlhdldwzmvmdnhrnhpscrbnbdtmfqwlmrlszljpjdqgjpgcdwtqzsbqsndjdslrstjwbbfnjvrjlbrphqspltjzpvsgccfrmqhfhjmlslncpgpflhjlrzqsffrtcgsvzpjmlqjznscgjrjhzfjbbchvgjgvfsrpnzdrstdtsltqldfldvfdjqdwsltcbnnvcgvnjpgdjzsbzgfvgvtmghwfmrmblscfdqlsdgcdbgsphfvvvnffcqwlrvnsrjmvvdrjdljlppsfsrmwwvmsqcgtgtfjhqbqvlsnwdwzhncgprbspjzqnbllwcjnqpfzlhscdtvlldffngwttntsbtlctdfbzjgclgbhhjtlffvtgbdsswczlgmwntrrnnbdtflplfbtqcfrhtgjnrltvzqlcvtdthldqrvjdmlntdjzcncrplgmdbqhlrrfdszrnbrllhgpzzgjnqzrjrtjjntqvdphgvjtbtqfjwvlpprrcvmpjcdmntvtqjvjrhngbtmdtflpqmlmmvjjjpdlcvntlvlgstbblwfwjrbcqjgzvjjzflfhdvgnhpnqprcvmhsrpmgfcgjpdbqpmpvlnmzdngzqcqtdsbbqbdhtgpqmqwtcctsvhwmlhpgzgpwwsqngsrwzghfhzbqcpspfhqbllbvpwgwdnghqnvjtfqtwgvnbfbpcffbwwbfqgqnftpqdtwhmrprpgdlnwrcmdndllwbvlrrjvmwlbgfwgbhtmbqhfvhlhlthbrljwnwcgsdgsbbzgnwzmjfgnfjcqhspjwctntznjptsnbpwtfzmrqwjzrmdthfwdvttrcghbjndfmtswhsmdwwwffmgsvshmlhdbwdscjnvrvqnwttlsmfbssnsscftcrpwfbbplbpmvzmttvbgpnjtqqzcfdfwqdphggwbnhfvssmdjvbvtlrcghltthqrqdbvjnbqpzjcggrbnrswhvdcrmgncsmhsmstmcbwgbfwvzqtdrpjbgljdgcncgcdslhftptnvfhgpsjqqmnsjmqhztnfzqqqhccbnqjlhqcwwbfzgpmbvjszswjlhcqshtqdmwmhpgqgzbwbtchrdwgnvfqcgcmngtddpzfgjrrssdmcnbtpbhfvfbdgzmcbjqtdqrnrdchtrcfpmtnvfczdlnjplwccfmzjwwvdsrcjznrcbczdqwshjgvhjpgdgjvtvmdzncrqgffzhcbwstvltqbrzfbnrrvlntjmzctvnqhdcgvvmmbfplzpwgsdzdtvnwnshnwbwqplbctntslczwhblsnzdcsgltvlfvbtvthvlsmzmfgzhpvrvczdhmcpmgqzbdhbcdbstrrtzgrbhhwwghzlgcdtlcjtjdcwdtqpvpwzrwmhczfsdmwjlgtmzvdbwzdnsztvqzhjpfrqzllgvrsbmhvrlzwtfmpzchftrzlmndpwqgcmhdzmjrjvpbnrcmjvzbzlqngmrzcbdwfcwmlnlqsdgbvmvqcsjtwgvtpmqdtdqfrshmlgnjqdwsrpjcfnfpjzlhslsvppmgprqlpcfztcngmqgrvqvpcszzgtbpcrghmgnvgplctgdljhwjgbzmjrdsccdtrwjrrbttzmpvmzlmqdfwdccfzqztdjmcgrcdwghgmmntdwrclshlgnsmhmltwcczncndtglnqvcvbwlvcgqtzpnqnlllchwjwrlhcdlbjlzvhvtjsttqhvhfqbsqjpfcmpsfshgrrwgprjtfnhsjqqntrjfgjjmjbqwdjlcjjdljpppgvqvgrrwvclbmncmqglhbtjcfrbjmhqgmlpzgljntqvrcggmrgtbrftvhrnjbvzstlnzrqcgncnjhdrnqcnwcrstvdsgnwzjzmqsdtwzzjmfgzpslhqclhtjnrlwwfrqgmhsttfdprhgmphzfdfqntwztltnnfqwgdnnbrlgzmtwqsvhbjjqtcgmghnbchdfgfrdtjnvlgtqdgrfwmgnmpslqmqzdgqztnppbc",e5=`$ cd /
 $ ls
 dir bqc
 dir mwmlf
@@ -7558,7 +7561,7 @@ $ cd ..
 $ cd ..
 $ cd zdqprndl
 $ ls
-197398 tprth.gjn`,C5=`200111110420341122211300354132530435302054046335421000636521353401523010501311544011230232023001001
+197398 tprth.gjn`,f5=`200111110420341122211300354132530435302054046335421000636521353401523010501311544011230232023001001
 001123300003121013211234033001540045254316444345422662334204234115552314354114453103330103243221310
 311210241230024303554001043402121246540040235623146113624001464225403350221302241333122301333010300
 313220143432400213441134141433022322415401210036504124443562330160631024040400414203001430031231101
@@ -7656,7 +7659,7 @@ $ ls
 112111241131444014044141505223526650511654461416132520260521415306240142233023200144245200332003400
 201333024211020154323024121224536333620215416434241143055243546513406655343432221454411202141430331
 302201134433120410222233512424240422022146032412300446653266600261032310032100210333040211333040002
-202312021141114142554431112520342120400556304244541024562551661211241403030453530144444200321002011`,b5=`U 1
+202312021141114142554431112520342120400556304244541024562551661211241403030453530144444200321002011`,p5=`U 1
 D 2
 U 1
 L 1
@@ -9655,7 +9658,7 @@ L 5
 D 19
 L 8
 U 10
-L 19`,g5=`noop
+L 19`,h5=`noop
 noop
 noop
 addx 3
@@ -9796,7 +9799,7 @@ noop
 noop
 noop
 noop
-noop`,B5=`Monkey 0:
+noop`,b5=`Monkey 0:
   Starting items: 65, 58, 93, 57, 66
   Operation: new = old * 7
   Test: divisible by 19
@@ -9850,7 +9853,7 @@ Monkey 7:
   Operation: new = old + 5
   Test: divisible by 7
     If true: throw to monkey 3
-    If false: throw to monkey 0`,j5=`abcccccccccaaaaaaaaaaccccccccccccaaaaaaaaccaaccccccccccccccccccccccccccccccccccccccccccccaaaaaa
+    If false: throw to monkey 0`,g5=`abcccccccccaaaaaaaaaaccccccccccccaaaaaaaaccaaccccccccccccccccccccccccccccccccccccccccccccaaaaaa
 abccccccccccaaaaaaaaaccccccccccccaaaaaaaaaaaacccccccccccaacccacccccccccccccccccccccccccccaaaaaa
 abcccccccccccaaaaaaacccccccccccccaaaaaaaaaaaaaacccccccccaaacaacccccccccaaaccccccccccccccccaaaaa
 abccccccccccaaaaaaccccccccccccccaaaaaaaaaaaaaaaccccccccccaaaaaccccccccccaaacccccccccccccccccaaa
@@ -10338,7 +10341,7 @@ abccccccccccccccccccccaaaaacccaaaaaaaaaaaacccccccccaacaacccccccccccccccccccccccc
 [[8],[[[]],[],[3,3,[10,7,9,0,6],0],9],[],[[[5,10,5,8,10],[5,1,8,10,8]],6,0,[3],[[]]]]
 
 [[7,[]]]
-[[[],9,[[0,9,1],[6],9,[8,4,10,4,7],[6]]],[3,[2,[0,5],7,9],2],[[[9],7,[1,7],9]]]`,L5=`495,144 -> 499,144
+[[[],9,[[0,9,1],[6],9,[8,4,10,4,7],[6]]],[3,[2,[0,5],7,9],2],[[[9],7,[1,7],9]]]`,Y5=`495,144 -> 499,144
 492,40 -> 492,43 -> 484,43 -> 484,50 -> 499,50 -> 499,43 -> 496,43 -> 496,40
 499,13 -> 499,17 -> 497,17 -> 497,25 -> 505,25 -> 505,17 -> 502,17 -> 502,13
 504,141 -> 508,141
@@ -10461,7 +10464,7 @@ abccccccccccccccccccccaaaaacccaaaaaaaaaaaacccccccccaacaacccccccccccccccccccccccc
 490,77 -> 490,68 -> 490,77 -> 492,77 -> 492,75 -> 492,77 -> 494,77 -> 494,74 -> 494,77 -> 496,77 -> 496,72 -> 496,77
 507,181 -> 507,171 -> 507,181 -> 509,181 -> 509,173 -> 509,181 -> 511,181 -> 511,176 -> 511,181 -> 513,181 -> 513,176 -> 513,181
 499,13 -> 499,17 -> 497,17 -> 497,25 -> 505,25 -> 505,17 -> 502,17 -> 502,13
-500,158 -> 500,159 -> 513,159`,u5=`Sensor at x=3907621, y=2895218: closest beacon is at x=3790542, y=2949630
+500,158 -> 500,159 -> 513,159`,j5=`Sensor at x=3907621, y=2895218: closest beacon is at x=3790542, y=2949630
 Sensor at x=1701067, y=3075142: closest beacon is at x=2275951, y=3717327
 Sensor at x=3532369, y=884718: closest beacon is at x=2733699, y=2000000
 Sensor at x=2362427, y=41763: closest beacon is at x=2999439, y=-958188
@@ -10483,7 +10486,7 @@ Sensor at x=3357940, y=3730208: closest beacon is at x=3691556, y=3980872
 Sensor at x=1242851, y=838744: closest beacon is at x=-109096, y=390805
 Sensor at x=3991401, y=2367688: closest beacon is at x=3790542, y=2949630
 Sensor at x=3292286, y=2624894: closest beacon is at x=3279264, y=2775610
-Sensor at x=2194423, y=3990859: closest beacon is at x=2275951, y=3717327`,D5=`Valve EJ has flow rate=25; tunnel leads to valve MC
+Sensor at x=2194423, y=3990859: closest beacon is at x=2275951, y=3717327`,z5=`Valve EJ has flow rate=25; tunnel leads to valve MC
 Valve WC has flow rate=0; tunnels lead to valves OW, RU
 Valve NP has flow rate=0; tunnels lead to valves VR, KL
 Valve AA has flow rate=0; tunnels lead to valves QT, AP, EZ, AK, XV
@@ -10536,7 +10539,7 @@ Valve TO has flow rate=15; tunnel leads to valve CX
 Valve XP has flow rate=0; tunnels lead to valves AP, XN
 Valve AP has flow rate=0; tunnels lead to valves XP, AA
 Valve RE has flow rate=0; tunnels lead to valves JF, FP
-Valve UI has flow rate=0; tunnels lead to valves AR, CB`,R5=">>>><<<><<<>><<>>>><>>><<<>><<<>><<<<>>>><>>><<>><<<>>>><<<<>>><<><>>><<<<>>>><>><<><<<><<<><<>><><><<<<>>><<<<><<>>>><<>>>><>><<<<>><<<>><<<<>>><<<>>>><<>>><>><>>><>><<>>>><<><><<<>>><<><><<<<>><<<>>><<<<>>>><<><<>>><<<>>><<<><<<<>>>><<<>><><<<>>><<<>>><<<<><<<>>>><<>>><>>><<<<>>>><>><<<<>><<<>>>><<>><>>>><<<>>><<>><<<>>>><>>>><><<>>>><<<>><<>><<>>>><<<>>><<>>><<<<>>><<<<>>>><<<<>>>><>><<<>>><<>><>>><>>><<>>><>>><<<>>><<<<>><<><<<><>>>><<<><>>>><<<<>>><<<<>><><<<<>>><<><<<<>>><<<<>><>><>>><<<><<<<>>>><><><<<>><<<<>><<<>><<<><<<<>>>><<<<>>><<<>>><>><<<<><<<>><<<>><>><<<<><><>>><<>>>><>>><>>><<<<>><<>><<>><<<>><<><<<<>><><<<<>><<>>>><<>>>><>>><<<>><<<<>><<<>>>><<<<>><<<<>>><<>>>><>>><<<<>>><<<<><<><<<><<<<>><<<>><<<><<<>>><<<<>><<<>>><><<>>><>>>><<<<>>>><<<>>><<>><><>>><<<><<>><>><<>>>><<<<><<>><<<<><<>>><<<<>><<<>>><<<>>>><>><<><<<><>><<<>>>><<<<>>><><<<<><<><<<>><<<<>><<<>><>>><<><<><<>>>><<>>>><<>>>><><<>>>><<<<>>><<<>>><<<>>><<<<>>><<<>><<<<><><><<<>><<<<>>>><<<<>>>><<<>>><<>>>><>>>><<<<>><<<><<<>>>><><><<><<<>>><<>>>><>>><>>><<>><>>>><<<>><><<<><<<<>>><<<<><><><>>><>><>>>><>>>><<<<>><<<>>><<<>>>><<<>><<>>>><<<><<<<>><<><<<>>>><<<<>>><><>>><>>>><<<<>><<><<<>>><<>>><<>><<><<>><>>><<<>><<<<>><>>><<><<>><<<<>><<<>><>>>><<<>>><<>><<><>>><<<<>>>><<<<>><<<>>>><><<>><<>>><><<<<>>>><<<<>><>>>><<<>>><<<>>>><<<<>><<><<<<>><><<>>><<<<>>>><<<<>>><<><<<>>><<<<>>><<<<><<<<>>>><<>>>><<>>><<>><<<<><<<>><<<>>>><<<<>>><<<<><>>>><<<<>>>><<<><<<>>>><<>>><<<<>>><<<<><<<>><<<<><>>><>>><<<<>>><>><<>>>><<<>><<><<<>>>><<<>>>><<<>>><<<<>>>><<>>><<<><<<<>>><<<>><<<<><><>><<>>>><<>><<><<>>>><<<>>>><<<<><>><>>><<>>><><<<>>>><<>><<><<<<>>>><<<>>><<<<>>>><<<>><<<<><<<<>><<><>>><>><<>>>><<<<>>>><<<>>><><<><<><>>>><<>>>><<<><>>><<<>><<<<>>><><<<><<>>>><><<>>><<<<>><<>>><<>>>><<<<>>>><<>>><><>>>><<<<>>><<<<>>><<<<>>>><<<>><>>><<<<><<<>><<<<>>><>><<>><<<<><<<><<>>><>>><<<>><<<>>><<>><<><>><<<>>>><>>><<<<>><<>>>><<<>>><<><<<>>>><<<><<<>>>><<<<>>><>>><>><<<>>>><<<<>>><<<>>>><<>><<<<>>>><>><>>><<<>>>><>>>><<>><<<><><<>>><<<>>>><>>>><>>><<><<<<>>>><<<>>>><<<>>><<<<>>><>>>><<<>>>><<<><<<>><<<<><<<><<<<><<<>>>><>><>><<<>><<<><<<><><<<>>><<>>>><<<<>>>><<>>>><>><<<>>><<><<<<><<<<>>>><<>>><<<><>>><>>><<<>>><>><<<<><<<<>>>><<>>>><>><<<<><><><<><<>>>><<>><>><>>>><<>>>><<<<>>>><>><>>><<<>>><<>><<<>>><><<<><<<>><<><<>>>><>>>><<>>>><><<<>>>><<<>>>><<<>>><<>>>><<>>>><<<>>><<<<>>>><<<<>><>>>><<>>><<<>>><<>>>><<<<>><<<>><<><>>>><<<>>><<>>>><<<<>>>><<>><<<>>><>><>><>>><><<>><<<>><<><<>>><>>>><<><>>><<<<><<<<>><>><<<<>>><<<>>>><>><<<>>><<<<>>>><<<>>>><<>><<><<<>>><><>><>><>>>><><<<>>><<>>>><<<<>><><<>>>><<<>>><<>><<<>><<<><<>><<>>><<>>><>><<>>>><<><<<<><<<<>>><<<<>>>><<>>><<>><<<><<<><<<>>><<<<>><>>><<>>><<>>>><<>>>><<>>>><<<>><><<<<><>><<><<<>><<<<>>>><<<<>>>><<<><<<>><<<>>><>><>>>><<<<>>><<<>>><>>>><<<>>>><>><<<><<><<<>>>><<<>>><>>><<<>>><<<><<>>>><<<>><<><<>><<<><<<<>>><<<>><<>>><<<<>><>>>><<>>><<><<<<>><><<>>>><<<><<>><<>><<>>><<<<>>>><<<<>>><<<><<<<>>><<<>>><>>><<>><<<<><>>><<<<>><<<<>>><<><<<<>>><<<>>><<<<>><<<<>>>><><><<>>>><>><<<><><<<<>>><><<<<>>>><><><<<>>><>><<<<><>><<<<>>>><<>>>><<<>>><>>><>>><><>>>><<>><<<>>>><<<>>>><<<>>>><<<<>>>><<<><>><<<<>>>><<><<<<><<<>>>><<><>>>><<><<<>>>><><<<><<>><<<<>><<>><>><<<>><<<>>><>>>><>>>><<><<<>><<<>>>><<<<><<<>>><>><<>>><<>>><<<>>><<>>><>><<>>><<<<><<>><<<<>><<<>><>>>><>><><<<>><<<>><>>><<<<><<<>><<>><<<<>>>><<<<>>><>>><<<>>>><<<>>>><<<>><<<>>>><<<>><<<>><<<<>>><><<>><<<<>><>><<>><<<>><<<>>><<<<>>>><<<><<<<>>>><>>><<<<>>><<>>>><<<<>>><>>>><<<>><>>>><<><<>>><>>>><<>>>><<<>><<<><<<<>>><<<>>><<<>>>><<><>>>><<<>>>><<<<>>>><>>><<<><>><<>>>><<<<>>><>>><<<<>>><<<<>><<<<>><<<>><<>>><<<>>>><><<>>><>>>><<>>><<<<><<><<>>>><<<<>><<<<>>>><<<>><<><<>><<<<>>>><>><<<<>><<<>>><>>>><<<>>>><<><<<<><<<>><<<>>><<<<>>><<<>>><<<>>>><<<>>><><<<>>><>><<<>>><<>>><><<<>>>><<<<>>>><<<><<<<>>><<><<<>>><<<<>><<<>><>>>><<<>><<><<<<>>>><>><<<<>><<<>>><<>>><<<>>><<<>>><<<<>>><<<<><>>><>><><<<<>><<<>>><<<<><<<>>><<>><>><<>>>><<>>>><>>>><<><<>><>>>><<><<<<><<<<>>><>><<>>>><<<<>>><>>><<<<><<>><<><<<>>>><<>>>><<>>>><<<<><<>><>><><<<>><<<<>>><<<><<<>><>><<<>><><>>>><><<<>>><<<<><<<<>>><<<>>>><>>><<>>><<>>>><>>>><><<<<>>>><<<>>>><<<>><<>>><<><<<>>>><<<>>><<<><><>><<<>>><<<>>>><<>><<<<>><><<<<>><<<>><<<<><<>>>><<>>><<>><<>>>><<>>><<>>><<<<>>>><>>><<>>><<<>>><>>>><<<><<<<>><<><<<<>><<<>><<<>>><<<<>><>><<>><<<>>>><<>>><<<>><<>>>><<<<>><<>>>><<<>>><<<<><<<>>>><<<>>><<<>><<><>>>><<<<><<<<>>><<<<>>>><>>><><>>>><<<>>><<<<>>>><>>>><<<>>>><<><<<<>>><<>><<<<>><<<><<><<<>><<<>>><<<>>><<>>>><<<<>>><<>>><<>><><<<<>>><<<<>>>><><<><>><<<>>>><<<><<>>><<>>>><<<>>><>>>><>><>>><<<><>><<<<>>><>>><>><>><<<<>>><<>>><>>>><<<>><<>>><<<>><<<>><<<<><<>>>><>>><>><<<<>>>><><<<><<><<>>><<><<<>>>><<>><<>>><<<>>>><<>>>><<><<>>><>>>><<>><<<>><><>><<<>>>><<>><>><<>>>><<<<>>>><<<<>>>><<<><<>><<<<>>><<<<>>><<<<>>><<<<>><<<<>>><<<>><<>>><<<<>>><<>>>><<<>><>><>>><>>>><>><<<<><><<>>>><>>><<<>>>><<<>>>><<>>><<<<>><>>><<<<>>>><><<<<><<>><>>>><>>><<>>>><><<><<<<>><<<><><<<<>><<>>>><<<<>><>><<>><<>><<><<<>>><><>>><<<>>>><<<<><>>>><><>>>><<<<>>><<>><<>><<<<>>>><<>>>><<<<>>>><><<<><<>>><<<<>>>><<>>>><>>>><<<<>><<<>><<>>><<<<>>>><<<<>>>><<<<>><<<<><>>>><>>><<<<><<<<>>>><<<><<<<><<>>><>>>><<<>>><<<<>>><<>>>><<>>><<<<><<<<>>>><>>>><<<>><<<<>><>>>><>>><<<<>>>><>>>><<>>><<<>>>><>><<<<>>><<>>><<><<<><<<<>><<<<>><<><<<<><<<>>><<>>>><<<><<<<>>><<>><<<<>>>><>><<>>><<<<>>>><<<>>>><><>>><>>><<<<><>><<>>>><>>>><<>>>><<<<><>>>><<<>>>><<<<>>>><>><<<<><<<<>><<<>><<>>><<><<>>><<>><>>>><><<<>>>><<<<><<<>><<<<><<><>>><<>>>><<><<<<>><><<<>>><<<<>>><<<<><<<<>><>>>><<><<<>>><<>><<<<>>>><>>>><>>>><>><<<<><<<>>>><<<>><<<>>>><>>>><<<<>>>><<<>>>><<><<><<>><<><<<>>><<<<>><>>><<><<<<>><<<<>>>><<<<>>><<>>>><>><<<<>><><<<<>><<>><<<<>>>><<>>>><<<<>><>>><<<>><<><>>><<>><<<><<<<>>><>>>><<>><<>>><<>><<><<>>><<<<><<>>>><<>>>><<>><>>>><<>><>><>><<<<>>>><>>>><<<>>>><<<<>>>><<><<>>><><<>>><>>><><<<>><<<<>>><<<><<<<>>>><<<>>>><><>>><<<><<<>>><<<<><<<<>>><<>><<>><><<>>><<<><<<<>><>><<><<<>>><<>>><<>>>><>><>>><<<>><>>>><<<<><<<<>>>><><>>><>><><<<>>>><<<<>><<>><><>>><<<><<><<>>>><<<>>><>>>><<<<>>>><>><<<<><>>>><>>>><<<>>><<><<>>>><<>>><<<>>><<<>>><><<<>><<<<>>>><<>>>><<<<>>><<<>>><<<<><<>><>>>><>>>><<><<<<>><<<<>>><<<<>>><>>><><<>><<<><<<><<<>><<>>>><>><>>><><<<><<><>>>><<<<><<<>>>><><<><>>><<<<>>><<<>><<<<>>><<>>>><>>><>><<>><<<<>><<><<>><>>>><<>>><<<>><><<>>>><<>>><<>><<>><<<>>><<<>>>><<<<><<<<>>><<<>><>>><<<>><<<>>><<<>>>><<<<>><<<<>>><<><<<<>>><><<>>>><<<><<<<>>><<<<>>><<<>>>><<><<<<>>>><>>><<><<<<>>><>>>><<<<>>><><<<>>><>>><<>>>><<<>>><<<<>><<<<>><<>>><<<<>><>>>><<<<>>>><<<<>>><>><<>>>><<<<>>>><<<<>><<<>>><<<>>><>>><>>>><>><><>><<><<><><<>><>>><<<><<<>><<<>><<<>>><>><<>>>><<>><<<>>>><><<<><<>><<<<><<<><<>>>><>><<><<>><<>>><<<><>>><<<>>>><<<<>><<>>>><<<>>>><><>>><><<<<><<>>><>><<<><<<>>>><><>>>><>>>><<<<>>><><<<>><<<>>><<>>><<<><<<<>><<>>>><<<>>>><<>><<><<<>>>><<>>><<<>><><<><<<<>>><><>>>><<>><><<<<>>>><>>>><<<<><<>>>><<>>>><<<<><>><<<>>>><<<<><<<<>>><<<>><<<<><<<>>><>>>><<<<>>><<<>>><<>>><<>><<<><<<>>><<<>>>><<<><<<<>>><<<>><>>>><>><<<<>>>><><<<>><<>>>><<<<>>><><>><<>><>>><<<>>><>>>><<<<><><<<<>><<>>>><<<<>>><<><<<<>>><<<>>>><<<<><>>><>><><<>><<<><>>><<<><><<>><<<>><<<<><<<>>>><><><<<<><<<>>>><>>>><<>>><<>>><<<>><<>>><<<><<>>>><><<><><>>><<<>><<<<><<<><<>><<><<<>>>><<>>>><<><>>>><<>>><<<<><<<<><<<<>><<<<>>>><<><<<><>>><<<<>>><<<>><<<<>>>><<<>>>><<<>><<><><><><<><<<<><<<>><<<>><<<>><>><<<<>><<>>><<><<>>><<<><<<<>><<<>>>><<>>>><>>><<><>><<<<>>><>><<<>>><<<><<>>>><<<<>>><<<<>>><<<<>>><>>><>>><>><<>>>><<<><<<><<<>><<<>><<<>><<<>>><>>><<>>><<<<><>>><<<<><<<>>><<<>>>><<<<>>><<>><>>><>>><>><<<<>>><<<<><><<<><<>><<<>>>><<<>>><<><>>><<>><>>><<<>>>><<<>>>><<<><>>>><<><<><<<<>>><<<<><<><<>>>><<<>><<<<>>>><<<<>>>><><<<<>><<>>><<<<>>>><<>>><<<>>><>>><>>>><<<>><><<>>><<<>>><<><<<><<<<><<<<><>><<>>><<<<>>>><<<><<><<<<>>>><<<>><<<<><<>><<<><<<>><<<>>>><<<<>>><<<>><<<<><<<>>><<<<>><<>>>><<<>><<><<<<><<<>><>>><>>><<>>>><<<<><<<><<<<>><<<<>>>><><>>><<>>>><<>>><>><<>>><<<>>>><<<>><>>><<>><<><<<>>><<<><<<>>>><<>>>><<<<>>><<>>>><<<>>>><<><>>><<>>><<>>><<<>>><><<><<<<>><<>><><<<>>>><<<>>><<<><><<<<><<<<><<>>>><>>><>>><<<>>><<>>><<<<>>>><<<><<><<<<><<<><<<<>>><>>>><>>>><<<>>><<<<>>>><<<>><<>><<>>><<>><><<>>><<<>>><<>><<<<>><<<>>><<>><<<<>><>><><>>><><<<<>>>><<>>>><<<>><><<<<>><<<<><<<>><<<<>><><<<><<>><<<>>>><>><<<>>><><<<<>><<>><<>>>><<>><<<<>><<<<>><<>><<<<><<<<>>><<<><<<<>>>><<><>><<<<><>>><<<<><<><<<<>><>><<><<<>>>><<<<>>>><<<<><<>>>><<<<><<<><<>><>><<<>>>><>><<>>><<<<><<>>><<><<<<>><<><<<>><>><<<>>>><<<<><<<<>><>><<<>><<<>>><<>>><<<<>>><<>>><<<<><<<<>><<<<>>><<<>><><<<><>><<<<><<<<>><<<<><<<>>>><<><<><>>><<<<>><<<<>>>><>>><>><<>><<>><<<<>><>>>><<<<>>>><<<>>>><<>><><<<<>>><<<<>>>><<<>>><<><>>><<<<>>>><<<<>>>><<><>>>><<<<><<<><<<<>>><<<<><<<>>>><<<<>><<<>>><<<>>>><<><<><>>>><>>>><<<<>><>><<>>><<<><><<>>><<<>><<>>><<<><<<>>><<>>><<>>>><<<><>>>><><<<>>><>><<<>><<><<<>>><>>><<<<>>>><<<>>><>>><<>><<<>>><>><<>><>>>><<<<><<<>>>><><<<<><<<<><<<<><<>>>><<>>>><<>><<<<>><<<>>><<><<<>>>><<<<>>>><<<>>>><<<><<<>>>><<>>>><<<<>><>><<>>>><>>>><<<>><<<>><>>>><<<>>><>><>>>><>><<<<>><<>>><>><<>>><<<<>><><<<>><<<<>>><>>>><<<<>>><<<><<<>><<><<>>>><>>><<<><<>><<<><<>>>><><<<<>><<<>>><<>>><>>>><>>><>>>><<<><>><<<>>>><>>><<<>>><<><<>><<<<><<><>><<<>>><<<>>><<<>>>><<<><<<<>>><<<<><<<><<<>>>><<>>><>>>><<<>><<>>>><<><<<<><<<<>><<>>><<><<>><<><>>>><>><<<<>>><<<<>>>><<<><<<<>>>><>>>><<<><<>><<>>><<<<>><<>><<>>>><>>><>>><<>><>>><<>><<<<>>><><<>>><<<<>><<<>>><<<>><><<<<>><<<<>>><<<>><<<>>><>>>><<<>>>><<>>><>><>><<<<>>>><<<>>>><<>><<<<>>><<<<>>><><>><<><>>>><<<<>><<>>><>>>><<<><<<<>>>><>>><<<<>>>><<><<<<>>><<<<>>><<<<>>>><><<>><<>><<<>><<><<<>>>><<<>>>><<>><<<<>><>><<<>>>><<<<><<<>>>><<<>>><<<<>>>><<>>>><<<><<<<>>>><><>><<>>><<<<><><<>>>><<<>>>><<<><<<<>><<<<>>><<<><<<>><<><<<>>>><<>>><>><>><<>>>><><<><<<<>>><<>>>><<<<>>><<<<><><<<><<<>>><<><<>>>><<<>>><<<>><<>>>><<<<>>>><>><<>>><<>>>><<<><<>>>><<<>>>><<<<>>>><<<<><<<<><<<><<<<>>>><<>>><<>>><<>><<><<>>><<<>>>><>><<<><<>>>><<>><<><<<>>>><>><>>>><<>>>><><>><<<<><<<<>>><<<><<>><<>>><<<<>>>><>>>><<><<<>>><<<>>>><<>>><<>><<>",q5=`19,8,6
+Valve UI has flow rate=0; tunnels lead to valves AR, CB`,q5=">>>><<<><<<>><<>>>><>>><<<>><<<>><<<<>>>><>>><<>><<<>>>><<<<>>><<><>>><<<<>>>><>><<><<<><<<><<>><><><<<<>>><<<<><<>>>><<>>>><>><<<<>><<<>><<<<>>><<<>>>><<>>><>><>>><>><<>>>><<><><<<>>><<><><<<<>><<<>>><<<<>>>><<><<>>><<<>>><<<><<<<>>>><<<>><><<<>>><<<>>><<<<><<<>>>><<>>><>>><<<<>>>><>><<<<>><<<>>>><<>><>>>><<<>>><<>><<<>>>><>>>><><<>>>><<<>><<>><<>>>><<<>>><<>>><<<<>>><<<<>>>><<<<>>>><>><<<>>><<>><>>><>>><<>>><>>><<<>>><<<<>><<><<<><>>>><<<><>>>><<<<>>><<<<>><><<<<>>><<><<<<>>><<<<>><>><>>><<<><<<<>>>><><><<<>><<<<>><<<>><<<><<<<>>>><<<<>>><<<>>><>><<<<><<<>><<<>><>><<<<><><>>><<>>>><>>><>>><<<<>><<>><<>><<<>><<><<<<>><><<<<>><<>>>><<>>>><>>><<<>><<<<>><<<>>>><<<<>><<<<>>><<>>>><>>><<<<>>><<<<><<><<<><<<<>><<<>><<<><<<>>><<<<>><<<>>><><<>>><>>>><<<<>>>><<<>>><<>><><>>><<<><<>><>><<>>>><<<<><<>><<<<><<>>><<<<>><<<>>><<<>>>><>><<><<<><>><<<>>>><<<<>>><><<<<><<><<<>><<<<>><<<>><>>><<><<><<>>>><<>>>><<>>>><><<>>>><<<<>>><<<>>><<<>>><<<<>>><<<>><<<<><><><<<>><<<<>>>><<<<>>>><<<>>><<>>>><>>>><<<<>><<<><<<>>>><><><<><<<>>><<>>>><>>><>>><<>><>>>><<<>><><<<><<<<>>><<<<><><><>>><>><>>>><>>>><<<<>><<<>>><<<>>>><<<>><<>>>><<<><<<<>><<><<<>>>><<<<>>><><>>><>>>><<<<>><<><<<>>><<>>><<>><<><<>><>>><<<>><<<<>><>>><<><<>><<<<>><<<>><>>>><<<>>><<>><<><>>><<<<>>>><<<<>><<<>>>><><<>><<>>><><<<<>>>><<<<>><>>>><<<>>><<<>>>><<<<>><<><<<<>><><<>>><<<<>>>><<<<>>><<><<<>>><<<<>>><<<<><<<<>>>><<>>>><<>>><<>><<<<><<<>><<<>>>><<<<>>><<<<><>>>><<<<>>>><<<><<<>>>><<>>><<<<>>><<<<><<<>><<<<><>>><>>><<<<>>><>><<>>>><<<>><<><<<>>>><<<>>>><<<>>><<<<>>>><<>>><<<><<<<>>><<<>><<<<><><>><<>>>><<>><<><<>>>><<<>>>><<<<><>><>>><<>>><><<<>>>><<>><<><<<<>>>><<<>>><<<<>>>><<<>><<<<><<<<>><<><>>><>><<>>>><<<<>>>><<<>>><><<><<><>>>><<>>>><<<><>>><<<>><<<<>>><><<<><<>>>><><<>>><<<<>><<>>><<>>>><<<<>>>><<>>><><>>>><<<<>>><<<<>>><<<<>>>><<<>><>>><<<<><<<>><<<<>>><>><<>><<<<><<<><<>>><>>><<<>><<<>>><<>><<><>><<<>>>><>>><<<<>><<>>>><<<>>><<><<<>>>><<<><<<>>>><<<<>>><>>><>><<<>>>><<<<>>><<<>>>><<>><<<<>>>><>><>>><<<>>>><>>>><<>><<<><><<>>><<<>>>><>>>><>>><<><<<<>>>><<<>>>><<<>>><<<<>>><>>>><<<>>>><<<><<<>><<<<><<<><<<<><<<>>>><>><>><<<>><<<><<<><><<<>>><<>>>><<<<>>>><<>>>><>><<<>>><<><<<<><<<<>>>><<>>><<<><>>><>>><<<>>><>><<<<><<<<>>>><<>>>><>><<<<><><><<><<>>>><<>><>><>>>><<>>>><<<<>>>><>><>>><<<>>><<>><<<>>><><<<><<<>><<><<>>>><>>>><<>>>><><<<>>>><<<>>>><<<>>><<>>>><<>>>><<<>>><<<<>>>><<<<>><>>>><<>>><<<>>><<>>>><<<<>><<<>><<><>>>><<<>>><<>>>><<<<>>>><<>><<<>>><>><>><>>><><<>><<<>><<><<>>><>>>><<><>>><<<<><<<<>><>><<<<>>><<<>>>><>><<<>>><<<<>>>><<<>>>><<>><<><<<>>><><>><>><>>>><><<<>>><<>>>><<<<>><><<>>>><<<>>><<>><<<>><<<><<>><<>>><<>>><>><<>>>><<><<<<><<<<>>><<<<>>>><<>>><<>><<<><<<><<<>>><<<<>><>>><<>>><<>>>><<>>>><<>>>><<<>><><<<<><>><<><<<>><<<<>>>><<<<>>>><<<><<<>><<<>>><>><>>>><<<<>>><<<>>><>>>><<<>>>><>><<<><<><<<>>>><<<>>><>>><<<>>><<<><<>>>><<<>><<><<>><<<><<<<>>><<<>><<>>><<<<>><>>>><<>>><<><<<<>><><<>>>><<<><<>><<>><<>>><<<<>>>><<<<>>><<<><<<<>>><<<>>><>>><<>><<<<><>>><<<<>><<<<>>><<><<<<>>><<<>>><<<<>><<<<>>>><><><<>>>><>><<<><><<<<>>><><<<<>>>><><><<<>>><>><<<<><>><<<<>>>><<>>>><<<>>><>>><>>><><>>>><<>><<<>>>><<<>>>><<<>>>><<<<>>>><<<><>><<<<>>>><<><<<<><<<>>>><<><>>>><<><<<>>>><><<<><<>><<<<>><<>><>><<<>><<<>>><>>>><>>>><<><<<>><<<>>>><<<<><<<>>><>><<>>><<>>><<<>>><<>>><>><<>>><<<<><<>><<<<>><<<>><>>>><>><><<<>><<<>><>>><<<<><<<>><<>><<<<>>>><<<<>>><>>><<<>>>><<<>>>><<<>><<<>>>><<<>><<<>><<<<>>><><<>><<<<>><>><<>><<<>><<<>>><<<<>>>><<<><<<<>>>><>>><<<<>>><<>>>><<<<>>><>>>><<<>><>>>><<><<>>><>>>><<>>>><<<>><<<><<<<>>><<<>>><<<>>>><<><>>>><<<>>>><<<<>>>><>>><<<><>><<>>>><<<<>>><>>><<<<>>><<<<>><<<<>><<<>><<>>><<<>>>><><<>>><>>>><<>>><<<<><<><<>>>><<<<>><<<<>>>><<<>><<><<>><<<<>>>><>><<<<>><<<>>><>>>><<<>>>><<><<<<><<<>><<<>>><<<<>>><<<>>><<<>>>><<<>>><><<<>>><>><<<>>><<>>><><<<>>>><<<<>>>><<<><<<<>>><<><<<>>><<<<>><<<>><>>>><<<>><<><<<<>>>><>><<<<>><<<>>><<>>><<<>>><<<>>><<<<>>><<<<><>>><>><><<<<>><<<>>><<<<><<<>>><<>><>><<>>>><<>>>><>>>><<><<>><>>>><<><<<<><<<<>>><>><<>>>><<<<>>><>>><<<<><<>><<><<<>>>><<>>>><<>>>><<<<><<>><>><><<<>><<<<>>><<<><<<>><>><<<>><><>>>><><<<>>><<<<><<<<>>><<<>>>><>>><<>>><<>>>><>>>><><<<<>>>><<<>>>><<<>><<>>><<><<<>>>><<<>>><<<><><>><<<>>><<<>>>><<>><<<<>><><<<<>><<<>><<<<><<>>>><<>>><<>><<>>>><<>>><<>>><<<<>>>><>>><<>>><<<>>><>>>><<<><<<<>><<><<<<>><<<>><<<>>><<<<>><>><<>><<<>>>><<>>><<<>><<>>>><<<<>><<>>>><<<>>><<<<><<<>>>><<<>>><<<>><<><>>>><<<<><<<<>>><<<<>>>><>>><><>>>><<<>>><<<<>>>><>>>><<<>>>><<><<<<>>><<>><<<<>><<<><<><<<>><<<>>><<<>>><<>>>><<<<>>><<>>><<>><><<<<>>><<<<>>>><><<><>><<<>>>><<<><<>>><<>>>><<<>>><>>>><>><>>><<<><>><<<<>>><>>><>><>><<<<>>><<>>><>>>><<<>><<>>><<<>><<<>><<<<><<>>>><>>><>><<<<>>>><><<<><<><<>>><<><<<>>>><<>><<>>><<<>>>><<>>>><<><<>>><>>>><<>><<<>><><>><<<>>>><<>><>><<>>>><<<<>>>><<<<>>>><<<><<>><<<<>>><<<<>>><<<<>>><<<<>><<<<>>><<<>><<>>><<<<>>><<>>>><<<>><>><>>><>>>><>><<<<><><<>>>><>>><<<>>>><<<>>>><<>>><<<<>><>>><<<<>>>><><<<<><<>><>>>><>>><<>>>><><<><<<<>><<<><><<<<>><<>>>><<<<>><>><<>><<>><<><<<>>><><>>><<<>>>><<<<><>>>><><>>>><<<<>>><<>><<>><<<<>>>><<>>>><<<<>>>><><<<><<>>><<<<>>>><<>>>><>>>><<<<>><<<>><<>>><<<<>>>><<<<>>>><<<<>><<<<><>>>><>>><<<<><<<<>>>><<<><<<<><<>>><>>>><<<>>><<<<>>><<>>>><<>>><<<<><<<<>>>><>>>><<<>><<<<>><>>>><>>><<<<>>>><>>>><<>>><<<>>>><>><<<<>>><<>>><<><<<><<<<>><<<<>><<><<<<><<<>>><<>>>><<<><<<<>>><<>><<<<>>>><>><<>>><<<<>>>><<<>>>><><>>><>>><<<<><>><<>>>><>>>><<>>>><<<<><>>>><<<>>>><<<<>>>><>><<<<><<<<>><<<>><<>>><<><<>>><<>><>>>><><<<>>>><<<<><<<>><<<<><<><>>><<>>>><<><<<<>><><<<>>><<<<>>><<<<><<<<>><>>>><<><<<>>><<>><<<<>>>><>>>><>>>><>><<<<><<<>>>><<<>><<<>>>><>>>><<<<>>>><<<>>>><<><<><<>><<><<<>>><<<<>><>>><<><<<<>><<<<>>>><<<<>>><<>>>><>><<<<>><><<<<>><<>><<<<>>>><<>>>><<<<>><>>><<<>><<><>>><<>><<<><<<<>>><>>>><<>><<>>><<>><<><<>>><<<<><<>>>><<>>>><<>><>>>><<>><>><>><<<<>>>><>>>><<<>>>><<<<>>>><<><<>>><><<>>><>>><><<<>><<<<>>><<<><<<<>>>><<<>>>><><>>><<<><<<>>><<<<><<<<>>><<>><<>><><<>>><<<><<<<>><>><<><<<>>><<>>><<>>>><>><>>><<<>><>>>><<<<><<<<>>>><><>>><>><><<<>>>><<<<>><<>><><>>><<<><<><<>>>><<<>>><>>>><<<<>>>><>><<<<><>>>><>>>><<<>>><<><<>>>><<>>><<<>>><<<>>><><<<>><<<<>>>><<>>>><<<<>>><<<>>><<<<><<>><>>>><>>>><<><<<<>><<<<>>><<<<>>><>>><><<>><<<><<<><<<>><<>>>><>><>>><><<<><<><>>>><<<<><<<>>>><><<><>>><<<<>>><<<>><<<<>>><<>>>><>>><>><<>><<<<>><<><<>><>>>><<>>><<<>><><<>>>><<>>><<>><<>><<<>>><<<>>>><<<<><<<<>>><<<>><>>><<<>><<<>>><<<>>>><<<<>><<<<>>><<><<<<>>><><<>>>><<<><<<<>>><<<<>>><<<>>>><<><<<<>>>><>>><<><<<<>>><>>>><<<<>>><><<<>>><>>><<>>>><<<>>><<<<>><<<<>><<>>><<<<>><>>>><<<<>>>><<<<>>><>><<>>>><<<<>>>><<<<>><<<>>><<<>>><>>><>>>><>><><>><<><<><><<>><>>><<<><<<>><<<>><<<>>><>><<>>>><<>><<<>>>><><<<><<>><<<<><<<><<>>>><>><<><<>><<>>><<<><>>><<<>>>><<<<>><<>>>><<<>>>><><>>><><<<<><<>>><>><<<><<<>>>><><>>>><>>>><<<<>>><><<<>><<<>>><<>>><<<><<<<>><<>>>><<<>>>><<>><<><<<>>>><<>>><<<>><><<><<<<>>><><>>>><<>><><<<<>>>><>>>><<<<><<>>>><<>>>><<<<><>><<<>>>><<<<><<<<>>><<<>><<<<><<<>>><>>>><<<<>>><<<>>><<>>><<>><<<><<<>>><<<>>>><<<><<<<>>><<<>><>>>><>><<<<>>>><><<<>><<>>>><<<<>>><><>><<>><>>><<<>>><>>>><<<<><><<<<>><<>>>><<<<>>><<><<<<>>><<<>>>><<<<><>>><>><><<>><<<><>>><<<><><<>><<<>><<<<><<<>>>><><><<<<><<<>>>><>>>><<>>><<>>><<<>><<>>><<<><<>>>><><<><><>>><<<>><<<<><<<><<>><<><<<>>>><<>>>><<><>>>><<>>><<<<><<<<><<<<>><<<<>>>><<><<<><>>><<<<>>><<<>><<<<>>>><<<>>>><<<>><<><><><><<><<<<><<<>><<<>><<<>><>><<<<>><<>>><<><<>>><<<><<<<>><<<>>>><<>>>><>>><<><>><<<<>>><>><<<>>><<<><<>>>><<<<>>><<<<>>><<<<>>><>>><>>><>><<>>>><<<><<<><<<>><<<>><<<>><<<>>><>>><<>>><<<<><>>><<<<><<<>>><<<>>>><<<<>>><<>><>>><>>><>><<<<>>><<<<><><<<><<>><<<>>>><<<>>><<><>>><<>><>>><<<>>>><<<>>>><<<><>>>><<><<><<<<>>><<<<><<><<>>>><<<>><<<<>>>><<<<>>>><><<<<>><<>>><<<<>>>><<>>><<<>>><>>><>>>><<<>><><<>>><<<>>><<><<<><<<<><<<<><>><<>>><<<<>>>><<<><<><<<<>>>><<<>><<<<><<>><<<><<<>><<<>>>><<<<>>><<<>><<<<><<<>>><<<<>><<>>>><<<>><<><<<<><<<>><>>><>>><<>>>><<<<><<<><<<<>><<<<>>>><><>>><<>>>><<>>><>><<>>><<<>>>><<<>><>>><<>><<><<<>>><<<><<<>>>><<>>>><<<<>>><<>>>><<<>>>><<><>>><<>>><<>>><<<>>><><<><<<<>><<>><><<<>>>><<<>>><<<><><<<<><<<<><<>>>><>>><>>><<<>>><<>>><<<<>>>><<<><<><<<<><<<><<<<>>><>>>><>>>><<<>>><<<<>>>><<<>><<>><<>>><<>><><<>>><<<>>><<>><<<<>><<<>>><<>><<<<>><>><><>>><><<<<>>>><<>>>><<<>><><<<<>><<<<><<<>><<<<>><><<<><<>><<<>>>><>><<<>>><><<<<>><<>><<>>>><<>><<<<>><<<<>><<>><<<<><<<<>>><<<><<<<>>>><<><>><<<<><>>><<<<><<><<<<>><>><<><<<>>>><<<<>>>><<<<><<>>>><<<<><<<><<>><>><<<>>>><>><<>>><<<<><<>>><<><<<<>><<><<<>><>><<<>>>><<<<><<<<>><>><<<>><<<>>><<>>><<<<>>><<>>><<<<><<<<>><<<<>>><<<>><><<<><>><<<<><<<<>><<<<><<<>>>><<><<><>>><<<<>><<<<>>>><>>><>><<>><<>><<<<>><>>>><<<<>>>><<<>>>><<>><><<<<>>><<<<>>>><<<>>><<><>>><<<<>>>><<<<>>>><<><>>>><<<<><<<><<<<>>><<<<><<<>>>><<<<>><<<>>><<<>>>><<><<><>>>><>>>><<<<>><>><<>>><<<><><<>>><<<>><<>>><<<><<<>>><<>>><<>>>><<<><>>>><><<<>>><>><<<>><<><<<>>><>>><<<<>>>><<<>>><>>><<>><<<>>><>><<>><>>>><<<<><<<>>>><><<<<><<<<><<<<><<>>>><<>>>><<>><<<<>><<<>>><<><<<>>>><<<<>>>><<<>>>><<<><<<>>>><<>>>><<<<>><>><<>>>><>>>><<<>><<<>><>>>><<<>>><>><>>>><>><<<<>><<>>><>><<>>><<<<>><><<<>><<<<>>><>>>><<<<>>><<<><<<>><<><<>>>><>>><<<><<>><<<><<>>>><><<<<>><<<>>><<>>><>>>><>>><>>>><<<><>><<<>>>><>>><<<>>><<><<>><<<<><<><>><<<>>><<<>>><<<>>>><<<><<<<>>><<<<><<<><<<>>>><<>>><>>>><<<>><<>>>><<><<<<><<<<>><<>>><<><<>><<><>>>><>><<<<>>><<<<>>>><<<><<<<>>>><>>>><<<><<>><<>>><<<<>><<>><<>>>><>>><>>><<>><>>><<>><<<<>>><><<>>><<<<>><<<>>><<<>><><<<<>><<<<>>><<<>><<<>>><>>>><<<>>>><<>>><>><>><<<<>>>><<<>>>><<>><<<<>>><<<<>>><><>><<><>>>><<<<>><<>>><>>>><<<><<<<>>>><>>><<<<>>>><<><<<<>>><<<<>>><<<<>>>><><<>><<>><<<>><<><<<>>>><<<>>>><<>><<<<>><>><<<>>>><<<<><<<>>>><<<>>><<<<>>>><<>>>><<<><<<<>>>><><>><<>>><<<<><><<>>>><<<>>>><<<><<<<>><<<<>>><<<><<<>><<><<<>>>><<>>><>><>><<>>>><><<><<<<>>><<>>>><<<<>>><<<<><><<<><<<>>><<><<>>>><<<>>><<<>><<>>>><<<<>>>><>><<>>><<>>>><<<><<>>>><<<>>>><<<<>>>><<<<><<<<><<<><<<<>>>><<>>><<>>><<>><<><<>>><<<>>>><>><<<><<>>>><<>><<><<<>>>><>><>>>><<>>>><><>><<<<><<<<>>><<<><<>><<>>><<<<>>>><>>>><<><<<>>><<<>>>><<>>><<>><<>",i5=`19,8,6
 5,10,4
 4,11,15
 1,13,11
@@ -13428,7 +13431,7 @@ Valve UI has flow rate=0; tunnels lead to valves AR, CB`,R5=">>>><<<><<<>><<>>>>
 11,20,12
 5,16,5
 12,1,9
-12,15,2`,z5=`Blueprint 1: Each ore robot costs 4 ore. Each clay robot costs 4 ore. Each obsidian robot costs 2 ore and 11 clay. Each geode robot costs 2 ore and 7 obsidian.
+12,15,2`,A5=`Blueprint 1: Each ore robot costs 4 ore. Each clay robot costs 4 ore. Each obsidian robot costs 2 ore and 11 clay. Each geode robot costs 2 ore and 7 obsidian.
 Blueprint 2: Each ore robot costs 4 ore. Each clay robot costs 4 ore. Each obsidian robot costs 4 ore and 12 clay. Each geode robot costs 4 ore and 19 obsidian.
 Blueprint 3: Each ore robot costs 4 ore. Each clay robot costs 4 ore. Each obsidian robot costs 2 ore and 10 clay. Each geode robot costs 3 ore and 14 obsidian.
 Blueprint 4: Each ore robot costs 2 ore. Each clay robot costs 2 ore. Each obsidian robot costs 2 ore and 15 clay. Each geode robot costs 2 ore and 7 obsidian.
@@ -13457,5 +13460,7307 @@ Blueprint 26: Each ore robot costs 3 ore. Each clay robot costs 3 ore. Each obsi
 Blueprint 27: Each ore robot costs 4 ore. Each clay robot costs 4 ore. Each obsidian robot costs 4 ore and 8 clay. Each geode robot costs 4 ore and 14 obsidian.
 Blueprint 28: Each ore robot costs 4 ore. Each clay robot costs 3 ore. Each obsidian robot costs 2 ore and 19 clay. Each geode robot costs 3 ore and 13 obsidian.
 Blueprint 29: Each ore robot costs 2 ore. Each clay robot costs 4 ore. Each obsidian robot costs 4 ore and 20 clay. Each geode robot costs 3 ore and 14 obsidian.
-Blueprint 30: Each ore robot costs 3 ore. Each clay robot costs 4 ore. Each obsidian robot costs 2 ore and 15 clay. Each geode robot costs 2 ore and 13 obsidian.`,Z5="",$5="",U5="",_5="",S5="",T5="";var pn=Object.assign({"./solutions/solution-01.js":c1,"./solutions/solution-02.js":r1,"./solutions/solution-03.js":s1,"./solutions/solution-04.js":v1,"./solutions/solution-05.js":Y1,"./solutions/solution-06.js":i1,"./solutions/solution-07.js":g1,"./solutions/solution-08.js":w1,"./solutions/solution-09.js":D1,"./solutions/solution-10.js":z1,"./solutions/solution-11.js":_1,"./solutions/solution-12.js":M1,"./solutions/solution-13.js":y1,"./solutions/solution-14.js":P1,"./solutions/solution-15.js":H1,"./solutions/solution-16.js":x1,"./solutions/solution-17.js":I1,"./solutions/solution-18.js":c5,"./solutions/solution-19.js":r5,"./solutions/solution-20.js":a5,"./solutions/solution-21.js":e5,"./solutions/solution-22.js":s5,"./solutions/solution-23.js":l5,"./solutions/solution-24.js":m5,"./solutions/solution-25.js":v5}),hn=Object.assign({"./inputs/input-01.txt":d5,"./inputs/input-02.txt":f5,"./inputs/input-03.txt":Y5,"./inputs/input-04.txt":p5,"./inputs/input-05.txt":h5,"./inputs/input-06.txt":i5,"./inputs/input-07.txt":A5,"./inputs/input-08.txt":C5,"./inputs/input-09.txt":b5,"./inputs/input-10.txt":g5,"./inputs/input-11.txt":B5,"./inputs/input-12.txt":j5,"./inputs/input-13.txt":w5,"./inputs/input-14.txt":L5,"./inputs/input-15.txt":u5,"./inputs/input-16.txt":D5,"./inputs/input-17.txt":R5,"./inputs/input-18.txt":q5,"./inputs/input-19.txt":z5,"./inputs/input-20.txt":Z5,"./inputs/input-21.txt":$5,"./inputs/input-22.txt":U5,"./inputs/input-23.txt":_5,"./inputs/input-24.txt":S5,"./inputs/input-25.txt":T5});function M5(t,n,c){this.day=t||"0",this.input=n||"",this.part1=c.part1||null,this.part2=c.part2||null}function V5(){var t={},n={};Object.keys(hn).forEach(o=>{var s=/input-(..)/.exec(o)[1];t[s]=hn[o]||""}),Object.keys(pn).forEach(o=>{var s=/solution-(..)/.exec(o)[1];n[s]=pn[o]||null});var c={},r=Object.keys(t).sort();return r.forEach(o=>{c[o]=new M5(o,t[o],n[o])}),c}function An(t,n,c){const r=t.slice();return r[18]=n[c],r}function Cn(t){let n,c=t[18]+"",r,o,s;function a(){return t[8](t[18])}return{c(){n=D("span"),r=E(c),A(n,"class","button svelte-1cclp05"),mn(n,"current",t[18]===t[2])},m(e,l){Bn(e,n,l),i(n,r),o||(s=[G(n,"keydown",y5),G(n,"click",a)],o=!0)},p(e,l){t=e,l&2&&c!==(c=t[18]+"")&&I(r,c),l&6&&mn(n,"current",t[18]===t[2])},d(e){e&&tn(n),o=!1,y(s)}}}function X5(t){let n,c,r,o,s,a,e,l,m,v,d,Y,f,p,C,j,U,g,B,q,h,w,Z,L,z,M,T,an,S,k,en,V=t[1],R=[];for(let b=0;b<V.length;b+=1)R[b]=Cn(An(t,V,b));return{c(){n=D("div"),c=D("h2"),c.textContent="Advent 2022",r=_(),o=D("div"),s=D("div"),s.innerHTML='<h4 class="svelte-1cclp05">Days:</h4>',a=_(),e=D("div");for(let b=0;b<R.length;b+=1)R[b].c();l=_(),m=D("div"),v=D("h4"),v.textContent="Output 1:",d=_(),Y=D("div"),f=E(t[5]),p=_(),C=D("textarea"),U=_(),g=D("div"),B=D("h4"),B.textContent="Output 2:",q=_(),h=D("div"),w=E(t[6]),Z=_(),L=D("textarea"),M=_(),T=D("div"),T.innerHTML='<h4 class="svelte-1cclp05">Input:</h4>',an=_(),S=D("textarea"),A(s,"class","label svelte-1cclp05"),A(e,"class","day-list"),A(v,"class","svelte-1cclp05"),A(Y,"class","time svelte-1cclp05"),A(m,"class","label svelte-1cclp05"),A(C,"name","output1"),A(C,"id","output1"),A(C,"rows",j=W(t[3])),A(C,"class","svelte-1cclp05"),A(B,"class","svelte-1cclp05"),A(h,"class","time svelte-1cclp05"),A(g,"class","label svelte-1cclp05"),A(L,"name","output2"),A(L,"id","output2"),A(L,"rows",z=W(t[4])),A(L,"class","svelte-1cclp05"),A(T,"class","label svelte-1cclp05"),Pn(T,"align-self","flex-start"),A(S,"name","input"),A(S,"id","input"),A(S,"rows","14"),A(S,"class","svelte-1cclp05"),A(o,"class","layout svelte-1cclp05"),A(n,"class","outer svelte-1cclp05")},m(b,$){Bn(b,n,$),i(n,c),i(n,r),i(n,o),i(o,s),i(o,a),i(o,e);for(let u=0;u<R.length;u+=1)R[u].m(e,null);i(o,l),i(o,m),i(m,v),i(m,d),i(m,Y),i(Y,f),i(o,p),i(o,C),X(C,t[3]),i(o,U),i(o,g),i(g,B),i(g,q),i(g,h),i(h,w),i(o,Z),i(o,L),X(L,t[4]),i(o,M),i(o,T),i(o,an),i(o,S),X(S,t[0]),k||(en=[G(C,"input",t[9]),G(L,"input",t[10]),G(S,"input",t[11])],k=!0)},p(b,[$]){if($&134){V=b[1];let u;for(u=0;u<V.length;u+=1){const sn=An(b,V,u);R[u]?R[u].p(sn,$):(R[u]=Cn(sn),R[u].c(),R[u].m(e,null))}for(;u<R.length;u+=1)R[u].d(1);R.length=V.length}$&32&&I(f,b[5]),$&8&&j!==(j=W(b[3]))&&A(C,"rows",j),$&8&&X(C,b[3]),$&64&&I(w,b[6]),$&16&&z!==(z=W(b[4]))&&A(L,"rows",z),$&16&&X(L,b[4]),$&1&&X(S,b[0])},i:H,o:H,d(b){b&&tn(n),Fn(R,b),k=!1,y(en)}}}function W(t){var n=String(t||"").split(`
-`).length;return Math.min(n,Math.max(n,1,10))}const y5=()=>{};function F5(t,n,c){var r=[],o="xx",s="",a="",e="",l="1ms",m="1ms",v=V5(),d=()=>Object.keys(v).filter(h=>!!v[h].part1).sort();r=d();function Y(h=1){if(!f[h]){var w=v[o]||{},Z=h===1?w.part1:w.part2;!Z||(f[h]=!0,setTimeout(()=>{var L=performance.now(),z="(error)";try{z=Z(e)}catch(T){z=String(T);var M=/:(\d+:\d+)\)/.exec(T.stack||"");M&&(z=`(${M[1]}) ${z}`)}j(h,z,performance.now()-L),f[h]=!1}))}}var f=[!1,!1,!1];function p(h=""){h&&c(2,o=h),c(0,e=v[h].input)}function C(h){Y(1),Y(2)}function j(h,w,Z){var L=`(${Math.round(Z)}ms)`;h===1&&c(3,s=w),h===1&&c(5,l=L),h===2&&c(4,a=w),h===2&&c(6,m=L)}setTimeout(()=>{p(r[r.length-1]),C()},100);const U=h=>p(h);function g(){s=this.value,c(3,s)}function B(){a=this.value,c(4,a)}function q(){e=this.value,c(0,e)}return t.$$.update=()=>{t.$$.dirty&1&&C()},[e,r,o,s,a,l,m,p,U,g,B,q]}class G5 extends In{constructor(n){super(),On(this,n,F5,X5,Xn,{})}}new G5({target:document.querySelector(".app")});
+Blueprint 30: Each ore robot costs 3 ore. Each clay robot costs 4 ore. Each obsidian robot costs 2 ore and 15 clay. Each geode robot costs 2 ore and 13 obsidian.`,C5=`-3883
+-1293
+1605
+9076
+653
+-3831
+1661
+-2344
+-469
+2706
+-511
+-6909
+7039
+7403
+-7542
+1928
+8732
+-1987
+-5274
+5199
+914
+-9733
+-7242
+9359
+-5527
+1689
+4014
+-3884
+-3778
+-2474
+3778
+4428
+-2968
+-5076
+6816
+-1660
+-5668
+2108
+2568
+-7621
+6784
+-1554
+-4669
+-8236
+1552
+-2953
+6029
+-2425
+-2299
+2395
+4523
+3233
+1892
+3428
+5353
+9264
+-8739
+3234
+2598
+-556
+2790
+6840
+2926
+-8570
+2509
+6782
+4780
+803
+8509
+-2601
+8058
+-5302
+-9715
+5848
+3139
+3153
+-9727
+-3530
+-6346
+-4649
+1089
+3761
+7346
+-5517
+-2798
+6764
+-7881
+9870
+-6611
+4705
+-5778
+-6832
+2537
+-778
+-7788
+3624
+-4239
+956
+7807
+-5736
+4523
+9171
+3970
+-5215
+-1132
+2430
+8391
+-9831
+-535
+8100
+803
+7422
+1951
+3658
+2598
+-7619
+-3652
+1193
+7666
+-738
+-8918
+-9917
+-8676
+4977
+-9623
+97
+-5358
+902
+-8758
+8194
+-9615
+2094
+-3810
+6420
+-3322
+8891
+-9871
+3369
+8270
+910
+-1518
+-7317
+-9501
+4330
+-5062
+1347
+9085
+8489
+5578
+3078
+3352
+-6689
+-4381
+4983
+-2986
+7892
+672
+-8775
+3303
+2589
+9444
+2343
+-7589
+-1473
+-7651
+-91
+4437
+-9044
+-4262
+6448
+3499
+5966
+7608
+-3839
+-8765
+-440
+4196
+8265
+950
+-6814
+-8768
+5348
+-2335
+-6856
+2347
+5910
+-7392
+-6179
+-4994
+938
+-8328
+-5205
+3643
+1934
+5843
+311
+8422
+6150
+-3733
+-3750
+7295
+8801
+-7818
+-9752
+5183
+-2854
+-2921
+-2039
+-5387
+-5232
+-3740
+-2766
+8079
+-5225
+7315
+-7484
+-787
+9645
+627
+7289
+-4490
+-3881
+-5076
+6166
+5439
+8709
+8714
+-5682
+-4156
+-5653
+-5590
+-6629
+-1428
+-6263
+-8317
+-6470
+3677
+-3454
+-7789
+-7873
+9444
+8156
+50
+4587
+-2068
+6221
+-969
+-4803
+-5266
+1576
+-307
+-3807
+-8934
+-6623
+4335
+-7091
+7814
+8398
+4121
+153
+5578
+-3195
+4298
+7755
+4159
+5758
+8509
+2505
+-6084
+1811
+-7198
+5794
+-9551
+-6577
+5839
+9587
+3128
+-175
+-1714
+-8028
+5596
+-8669
+7851
+-1659
+9628
+7340
+-5032
+-6176
+-3788
+777
+6983
+6905
+-787
+9882
+-3953
+-2069
+1830
+7225
+-1151
+4049
+-4750
+-3361
+445
+-9667
+-7234
+7467
+2919
+8959
+-6492
+2281
+-2480
+-9886
+-8575
+-2991
+9645
+-9044
+4046
+3596
+1163
+-809
+-1834
+-6328
+3150
+-1722
+-163
+-7834
+6764
+-4391
+2271
+-9796
+6810
+5189
+8735
+-6065
+-9164
+6870
+448
+2934
+-3689
+-7326
+7894
+-8556
+8295
+5502
+6983
+9417
+9213
+-9618
+-8765
+-6940
+3121
+8419
+-8818
+8543
+9966
+-637
+2752
+4059
+6254
+9779
+7056
+-698
+-5205
+8047
+2281
+-5921
+4239
+-2354
+-4625
+7832
+9348
+4713
+1340
+7559
+-5507
+416
+9415
+-8522
+-4272
+-2134
+-4301
+-5677
+2014
+672
+687
+309
+-1802
+2610
+-6470
+-8401
+-1072
+-6078
+-1086
+-5263
+-7166
+5728
+7159
+1853
+6101
+-4582
+-2954
+3217
+-5359
+-9332
+4236
+-183
+-5188
+-121
+1497
+-5652
+-7897
+-4228
+818
+-5381
+-9242
+-4170
+-2779
+-389
+6615
+-9551
+-1944
+-497
+-5652
+9659
+-5740
+1697
+-1889
+3795
+-5201
+510
+2594
+5603
+356
+7339
+-2929
+6236
+-8270
+-9893
+2905
+-1202
+2243
+-4386
+7677
+3596
+7875
+8462
+2513
+9815
+-4360
+-4206
+-3260
+2862
+-2246
+-4845
+-6736
+-296
+-5336
+-5520
+-5139
+-1762
+1901
+-8908
+-928
+9336
+-7005
+821
+218
+-3591
+71
+-5809
+-2120
+-6859
+-4184
+-1784
+-4902
+-7135
+7321
+-7729
+8154
+6732
+5098
+-3083
+-5714
+2243
+-6367
+1255
+-6052
+331
+4463
+-1271
+1235
+-5714
+-8816
+4908
+5869
+-8120
+-602
+9764
+-5730
+2666
+-5580
+8834
+6393
+-6834
+-285
+478
+9337
+-6729
+-6460
+-4625
+-4381
+-3404
+680
+7485
+4059
+381
+-2982
+-1004
+9417
+-4166
+-8271
+5782
+8841
+863
+-2607
+215
+9693
+48
+4088
+6816
+4169
+6577
+6920
+-1557
+6393
+9566
+8832
+-3089
+8732
+6769
+3216
+-6328
+-9760
+1663
+-1717
+6580
+1403
+-8598
+-606
+4485
+-2315
+8714
+-7203
+-3743
+-5274
+-5354
+-4979
+-7900
+9978
+-6610
+-3635
+3557
+-6577
+-9225
+-4451
+-2849
+-378
+7942
+7614
+-7284
+7710
+-7748
+-8017
+4236
+-5140
+-986
+-2866
+-6550
+-5943
+2424
+5792
+3951
+8783
+-3682
+5746
+2554
+-4314
+-9826
+-9698
+5797
+5222
+-9526
+8068
+2586
+-1190
+538
+-5602
+-9887
+-2815
+2790
+5348
+7611
+6897
+2761
+5238
+8273
+702
+3945
+-8647
+-7578
+-6195
+9632
+-6400
+-6846
+7309
+5672
+-7898
+5993
+-8994
+6274
+-2953
+-9133
+5189
+-4093
+-1945
+-3553
+-1042
+-588
+80
+-4135
+-8377
+-8128
+577
+-7250
+-4569
+-718
+2463
+3788
+214
+1497
+-2275
+4238
+-5178
+2417
+-4151
+7825
+-6504
+5297
+-9473
+-3518
+6451
+5582
+3488
+1125
+-1757
+-9779
+-952
+-6113
+-9190
+-5599
+-6874
+-6221
+-6881
+-3352
+3830
+-3898
+-2854
+-7808
+-4381
+-753
+4504
+8345
+4945
+-2503
+5356
+543
+5603
+-5430
+-6784
+-5232
+-1758
+-6408
+8882
+-2875
+-5968
+7118
+-8731
+9653
+-3831
+3192
+-6934
+9754
+-2470
+-4162
+7554
+-2690
+8000
+1524
+-4908
+-7093
+8445
+9297
+-3518
+4935
+-9733
+-1110
+-3617
+-173
+9010
+3421
+-2106
+-642
+-9566
+7355
+1949
+47
+6010
+-8182
+4843
+-1220
+-6714
+9225
+1303
+5021
+9353
+-9554
+528
+-2278
+175
+-7229
+-6956
+-6248
+-6017
+5961
+3855
+-4245
+-6812
+-9010
+2240
+-2555
+4711
+7907
+7793
+5913
+7779
+-7429
+-873
+6806
+1762
+-8852
+-369
+-4371
+-6066
+-7865
+-8916
+6062
+1221
+2253
+2804
+-3831
+-7533
+2695
+-9432
+-389
+-2480
+-3041
+-6041
+-3631
+8377
+6162
+-8375
+-679
+-7162
+2328
+-5941
+-2439
+5518
+-6127
+-5605
+7699
+-5274
+-8266
+-7894
+-5520
+-2814
+-4045
+4409
+-8804
+-154
+4248
+-3772
+9706
+-3882
+-3715
+-7276
+-6207
+8753
+9226
+-9628
+-7720
+3034
+2508
+8882
+9376
+1296
+2344
+5846
+-6819
+4543
+-5287
+3378
+-1792
+9441
+-6397
+-1199
+3067
+5144
+-5814
+1773
+6344
+805
+5271
+5214
+-8492
+9004
+-8118
+-5940
+8807
+1667
+-8329
+2093
+4452
+6492
+3855
+-3309
+-874
+-1702
+3968
+6756
+6255
+7846
+-6255
+-7235
+6628
+9802
+-1907
+3066
+-1474
+1499
+9639
+-3224
+7283
+474
+8255
+-6978
+-2169
+-998
+-6768
+2244
+-805
+5281
+153
+2706
+262
+-5708
+-8487
+161
+-3124
+-2052
+6645
+-7333
+-4138
+545
+-2624
+5356
+-857
+-6083
+-1838
+3652
+-1314
+-640
+6970
+1136
+653
+7210
+4622
+-7977
+-9621
+-632
+-2692
+-531
+6094
+7710
+6608
+-6949
+7999
+2267
+1580
+-8934
+-8687
+-1967
+-4560
+-8118
+-408
+2933
+6515
+-1728
+-6327
+-4157
+5681
+7090
+7583
+-2191
+-267
+-4671
+5846
+-4520
+-3215
+-852
+-1591
+-2183
+2144
+-1541
+-1243
+-9706
+7334
+-2757
+8801
+24
+2704
+4249
+1535
+7322
+4887
+-7396
+2689
+246
+-7082
+-5926
+5322
+692
+-843
+6451
+3046
+-317
+6598
+3328
+4658
+-4043
+9425
+9312
+7887
+-8236
+-9509
+-505
+3351
+7985
+2025
+2407
+3525
+-2746
+-1996
+7147
+1611
+-924
+-3304
+-4866
+-7696
+-5590
+5371
+-1099
+6635
+9655
+9439
+-621
+-9816
+-2838
+7346
+4387
+-7207
+-390
+-4780
+3591
+-5765
+-1162
+-3428
+-7286
+-2218
+-4780
+-7759
+9424
+6870
+6209
+-4239
+-2779
+9769
+-7364
+-3954
+1751
+2089
+3688
+-5631
+2782
+2793
+-398
+-3322
+-5387
+5949
+9610
+-6778
+-1878
+6804
+-9340
+3603
+3491
+7129
+-6832
+6674
+4114
+5483
+-643
+-9682
+7181
+-7865
+-6665
+-1010
+6658
+7084
+9004
+-8797
+7108
+6208
+5449
+9779
+-8669
+-8337
+-6912
+-3715
+4073
+-5019
+3454
+480
+-422
+-3267
+-5670
+4732
+-5206
+9213
+4073
+-5243
+1967
+-5085
+5745
+-3976
+-1951
+9172
+536
+-7687
+-4638
+852
+-1992
+7303
+2448
+4694
+-6215
+-6504
+-9729
+7954
+-5415
+878
+846
+-6747
+-9812
+8037
+-263
+1445
+5960
+-4563
+-4137
+8364
+3308
+867
+9938
+-6799
+-2480
+5531
+-1886
+-2706
+-4475
+8218
+7649
+9125
+9875
+-3379
+-7910
+756
+5711
+2621
+7330
+9799
+6877
+8430
+-7950
+-8058
+-118
+-4563
+-9180
+533
+7017
+-3839
+7882
+-5808
+4424
+780
+-9760
+8560
+4121
+4339
+5563
+1870
+-4381
+8272
+-5215
+5130
+-8328
+3189
+6930
+8207
+-4083
+6889
+2473
+-1210
+-2797
+5864
+-7547
+8201
+9406
+-9660
+-5696
+-4924
+7862
+7585
+-8795
+-8449
+-6222
+5365
+1516
+1438
+-9387
+-2397
+-375
+1597
+-4437
+9632
+-5206
+-5546
+-9489
+3624
+-2120
+-8778
+-3443
+8083
+-9618
+-3037
+3339
+-8574
+4141
+-3138
+-843
+-1951
+1836
+-9316
+8387
+-1699
+-2625
+6127
+-3529
+6449
+4608
+4448
+7339
+159
+5625
+6892
+-1402
+-8617
+4744
+-3053
+3439
+-3405
+1806
+8863
+-7160
+7599
+5128
+2689
+3421
+-8439
+9616
+7200
+-5778
+-9088
+-5774
+1627
+-8669
+-2599
+-4509
+-3707
+-4548
+-3207
+-6563
+2729
+-4424
+4188
+-7952
+-1853
+117
+-5528
+-2087
+-5553
+-3417
+5916
+9737
+3286
+3407
+1924
+-3008
+3054
+-7210
+7947
+-769
+199
+-1562
+-345
+-7553
+-7650
+-4093
+-3621
+-8294
+-4262
+-2094
+8685
+-3260
+-392
+3267
+-7229
+-6466
+-1612
+-9682
+2514
+9570
+-3639
+5966
+-4825
+-2899
+2849
+-1558
+336
+-4868
+-6865
+5176
+218
+-571
+1095
+4065
+-4844
+5725
+3110
+-1687
+5387
+9725
+4619
+-6610
+-9133
+2754
+-8770
+-2583
+1441
+7702
+-5034
+-7900
+-4615
+-4846
+-3766
+4842
+6062
+7694
+3197
+-4511
+7470
+-5652
+-173
+5432
+8778
+2644
+301
+4363
+-3086
+8888
+-5590
+-5177
+-6359
+-8346
+7115
+-9758
+-2743
+3383
+438
+8799
+-1687
+7244
+-9886
+-6934
+-5177
+-5358
+-4515
+-6658
+375
+-3352
+-1390
+8237
+-5387
+5087
+-2902
+-9080
+-5073
+772
+3106
+-3141
+3198
+4437
+-3550
+-4780
+7649
+-6420
+-6624
+-3246
+-2336
+3906
+3465
+-8654
+5212
+-7761
+-6888
+-6063
+7273
+-3515
+2278
+912
+-5574
+2440
+-9447
+2714
+5659
+-4145
+8555
+8656
+-6032
+900
+6372
+1625
+-8686
+-8074
+-3661
+-8128
+-6039
+-7215
+-2114
+-7889
+-6951
+6539
+5848
+-3730
+-2583
+3151
+4956
+-8575
+9578
+1892
+-4630
+1175
+-5710
+3518
+973
+71
+2723
+-8437
+-468
+5132
+-1845
+-8477
+375
+-3015
+-4716
+427
+-5974
+4636
+-7448
+-5015
+-9393
+4365
+3436
+3703
+7158
+3369
+932
+5652
+1375
+-6863
+772
+2282
+-2827
+2490
+9752
+1853
+705
+7169
+476
+5685
+-4737
+5673
+5953
+-6119
+5016
+5422
+1111
+-5213
+3881
+-7300
+1286
+7292
+-6100
+4160
+-4203
+-6911
+-2711
+8894
+-9817
+4583
+-676
+8623
+-648
+-8271
+6672
+2884
+4761
+-9098
+6033
+6140
+9147
+5507
+-3786
+-5519
+-9362
+-8243
+-3877
+-8618
+4267
+811
+91
+6538
+3994
+7960
+765
+5979
+938
+-5243
+2175
+-9635
+-5102
+-3315
+-1906
+-1317
+-2577
+-5986
+-5374
+6943
+8198
+8709
+6094
+8498
+1382
+638
+6317
+-8575
+4516
+-8441
+-3717
+6472
+5153
+9496
+6460
+-8147
+-6279
+9036
+8615
+-5046
+7143
+-2467
+347
+7625
+-1653
+3941
+9113
+-6635
+6022
+8771
+-3378
+5639
+4396
+4931
+-1322
+4653
+-8337
+5692
+-6472
+8846
+8223
+-4934
+4476
+-2690
+8550
+6255
+-3096
+-824
+8227
+5561
+2410
+-2583
+3120
+5944
+5515
+1272
+-8522
+8078
+-7190
+9529
+8609
+-4391
+8764
+975
+-4770
+-3030
+4821
+-1064
+-781
+-506
+1023
+-8687
+-7049
+3133
+-2728
+1129
+422
+6775
+-1497
+-3530
+-4625
+-5955
+5404
+9212
+-4991
+3533
+-4391
+687
+-1746
+6397
+8658
+-8080
+5163
+7309
+-6126
+2579
+-3097
+-7227
+-9150
+8064
+5636
+2322
+2313
+-5588
+2749
+8222
+3307
+6083
+-3324
+-6785
+-805
+7469
+2228
+-5621
+-7539
+-4208
+6938
+-9982
+-665
+-2126
+3384
+8373
+-9830
+6406
+6274
+-2290
+-3810
+-3120
+950
+8492
+-320
+8338
+-9808
+4211
+6529
+4437
+40
+-1568
+7860
+4885
+4653
+1704
+439
+-5004
+-4214
+3058
+-9321
+3553
+5996
+-8116
+-2592
+9588
+-2825
+6594
+5328
+8065
+-6546
+-7858
+-535
+-6835
+8686
+907
+-7406
+-9229
+-8262
+-700
+-3224
+6602
+-7915
+-9892
+-7543
+-7909
+-9108
+-9549
+7874
+-6035
+9234
+-2514
+1819
+9690
+4351
+-7239
+-5992
+547
+4530
+8479
+-2134
+5978
+-127
+9085
+-4745
+-7493
+-1757
+-8940
+-6119
+4189
+-2788
+-4973
+5028
+-5939
+2578
+4001
+9172
+6303
+2891
+-2669
+-4324
+-19
+9376
+1893
+-4606
+-1007
+8919
+-5656
+5979
+5229
+6910
+-2473
+3197
+9885
+6663
+961
+6705
+-1987
+636
+-5274
+-8674
+7677
+-7779
+4119
+-8342
+-9623
+1135
+4796
+-6278
+-4249
+2129
+-7051
+-4017
+-3454
+8836
+4784
+4363
+-3033
+3734
+-4421
+3570
+-3532
+4297
+5094
+-6661
+-4870
+-5893
+-5595
+9829
+-6399
+2736
+-483
+-5937
+5661
+2094
+-5689
+6437
+-3980
+2272
+4232
+4202
+-2437
+-5858
+-171
+2627
+-2801
+7801
+5561
+-6634
+9690
+5978
+2391
+3785
+8891
+2243
+-9776
+5353
+-5664
+6217
+-1762
+6764
+-3447
+-4436
+-807
+-5158
+-4991
+4442
+2156
+8584
+7842
+-2467
+-183
+-493
+1185
+9784
+-317
+2619
+1394
+8969
+6519
+8144
+-8879
+5554
+-8150
+-5168
+-91
+-7174
+3754
+1443
+-9040
+9510
+7540
+-6470
+-89
+2607
+4079
+-6165
+6883
+-4212
+3300
+-2039
+1033
+-1433
+5862
+9421
+-7630
+8103
+-7222
+8768
+5753
+7371
+-6178
+-8556
+2105
+-3097
+-2403
+9027
+-8813
+-9279
+6315
+1175
+-3398
+-503
+9875
+-8665
+-9476
+-506
+438
+9349
+-4549
+9408
+-9024
+-5376
+-8293
+6610
+4149
+352
+1542
+7701
+-3941
+-3988
+-7075
+8987
+2170
+-6327
+-3374
+-6645
+-8896
+-2375
+-588
+-2205
+-1411
+-5723
+8143
+-8559
+-7898
+-9058
+7289
+-1992
+-4582
+-2243
+2083
+7346
+-3244
+-1980
+4293
+2068
+2006
+-5819
+-9032
+2649
+-9308
+-3843
+2675
+4129
+-7910
+218
+-6280
+3512
+-6856
+-6069
+-3234
+8647
+-2090
+9409
+4890
+-7227
+9276
+-1618
+-263
+1527
+-2452
+5502
+-3558
+-3144
+-7300
+-3608
+-7533
+1202
+-267
+8273
+-9199
+2339
+-896
+5902
+-4729
+-8282
+3959
+-2899
+-7668
+1534
+3121
+2916
+-3256
+3153
+9312
+1989
+-3263
+5079
+-3254
+-4464
+-1850
+-1813
+-4914
+7550
+3066
+-1785
+8857
+5322
+3582
+-5113
+2660
+97
+-6425
+-5673
+-398
+1099
+-7368
+-4329
+6401
+4915
+-6176
+9895
+5216
+-8760
+-3296
+2391
+4478
+674
+7550
+-6062
+336
+-8288
+4670
+-5595
+5941
+6079
+-7858
+-3117
+2340
+-5098
+8839
+-2305
+3576
+-8792
+-9818
+3821
+-5926
+6340
+-2353
+-9221
+-8642
+7814
+4087
+-8343
+8809
+8094
+-7961
+-5335
+1236
+-4724
+-9808
+8220
+2094
+-3263
+1672
+-9952
+-9143
+6066
+3133
+5963
+990
+-8940
+-7910
+-9133
+-2867
+8577
+-1906
+7985
+9751
+5035
+7331
+2213
+6367
+-9447
+-6154
+-7893
+-6689
+582
+2278
+-7373
+9408
+9287
+5796
+-4075
+1736
+2330
+-6289
+-4135
+8037
+-2354
+-6292
+-3224
+-5561
+-8089
+9745
+-3223
+6397
+-5289
+-4723
+6083
+-125
+9305
+-5974
+5711
+6518
+-7647
+-4548
+8355
+5901
+581
+5358
+-8144
+-5319
+-3690
+3788
+-5048
+-6635
+-2072
+2612
+3535
+-2599
+-4771
+4020
+-5415
+820
+3644
+-3918
+336
+-7910
+5479
+7232
+-4280
+4654
+3192
+7183
+5813
+-6141
+-7542
+9952
+-9457
+7846
+9798
+7905
+-446
+-6853
+-5943
+8878
+-8619
+-4564
+8776
+-9906
+-1357
+1391
+8718
+7666
+-3037
+9972
+-5580
+4134
+-1771
+-5690
+2872
+-1021
+220
+-5696
+7823
+-2628
+-1295
+-5765
+-8794
+6617
+-3033
+2319
+276
+4894
+7803
+5436
+-2746
+9191
+2609
+8430
+1185
+-796
+349
+2159
+7198
+3308
+-1965
+-407
+-2275
+9491
+-2729
+4280
+5334
+-8669
+-3928
+-2326
+3285
+-2804
+-9232
+-280
+311
+7794
+-8947
+3640
+-2094
+9795
+242
+3166
+-3008
+-3398
+7796
+-1427
+188
+8839
+9109
+-1195
+-3084
+-7842
+-5596
+4139
+-8144
+-4626
+-440
+3491
+8911
+-7763
+8462
+8079
+-8956
+-397
+9901
+-8006
+2962
+-6263
+2528
+7680
+6889
+-8266
+4097
+5500
+232
+-7763
+-9521
+-874
+6078
+-5327
+-5893
+6517
+8877
+-3100
+8332
+4873
+-5900
+3378
+-4008
+-6221
+-8762
+2063
+-3585
+-1206
+-8978
+-5699
+5686
+2083
+-6431
+-7495
+9212
+-7219
+2226
+-5939
+6148
+-3888
+-1780
+-3840
+2031
+9570
+4169
+2026
+-2596
+5796
+-6183
+3175
+2116
+1934
+7245
+-5283
+-6577
+2988
+-3183
+6806
+-612
+4653
+-6845
+1095
+7472
+-7678
+-5575
+-6720
+5596
+-9974
+-5076
+-7005
+-9067
+4513
+7223
+7770
+-3288
+5104
+7364
+3044
+7485
+-1677
+1924
+3081
+883
+-4543
+296
+-5955
+-9906
+3447
+-7213
+6388
+4634
+7287
+-8654
+8844
+-9317
+-3012
+-6304
+-3267
+9608
+-8670
+3952
+2150
+2669
+6520
+-8618
+-148
+9973
+-7979
+4210
+3060
+2548
+4980
+7127
+6064
+-7390
+-3160
+-978
+-1188
+-5146
+-5360
+-2610
+-2560
+-6439
+2270
+7282
+-6192
+3633
+9436
+-8624
+-6735
+3076
+-3933
+7070
+9219
+3959
+6793
+5014
+3139
+-3309
+5381
+7089
+-1039
+9716
+-7691
+4634
+-7722
+-3309
+-3198
+5177
+-5877
+7369
+-8022
+8715
+3757
+8378
+-8377
+-3260
+1547
+6964
+9637
+7608
+5238
+-8288
+475
+1085
+7360
+181
+6367
+-8286
+2460
+3319
+3912
+-2875
+372
+-5026
+4225
+-4751
+7609
+4726
+-3920
+7618
+8157
+-4088
+3203
+7245
+-2270
+4313
+-1612
+-1709
+7614
+-5755
+4054
+5088
+-1328
+-9257
+-6359
+-8918
+9649
+5857
+-2607
+-5768
+-392
+9014
+-9360
+-9313
+-4288
+-2672
+2339
+5905
+852
+6773
+6235
+4742
+8858
+-8930
+-6371
+-3324
+9172
+3540
+8508
+2021
+2677
+-6679
+4339
+-9165
+-422
+-1484
+5142
+9704
+8497
+-1182
+1337
+1964
+-6272
+-968
+-1225
+-2514
+-9562
+7063
+-5873
+6078
+-389
+-8556
+-1551
+7771
+-3461
+7159
+-9501
+-1950
+-3705
+8257
+7677
+506
+-3223
+-1560
+5997
+3050
+-7842
+-2624
+-7388
+5578
+-8804
+9736
+6217
+-3637
+-1818
+-2491
+7814
+9130
+-5912
+994
+-9976
+-7126
+7999
+-1333
+3145
+-9473
+-6872
+-469
+5176
+-7070
+-8606
+8782
+5791
+-5034
+5242
+-3599
+7408
+8355
+-6418
+4552
+1426
+2547
+6611
+2514
+-4352
+9930
+-320
+9154
+-896
+-6978
+-9067
+1047
+-8732
+372
+7299
+3951
+-7900
+-4861
+4034
+8096
+8944
+-5167
+8592
+-8089
+-8906
+-7545
+9028
+5199
+-6934
+611
+-6408
+9287
+-773
+-3740
+7807
+-3533
+-2322
+-7924
+-2794
+-1608
+-1517
+-5501
+-496
+692
+-3120
+2920
+-1784
+-4482
+-8829
+-4424
+-4136
+-3931
+-9298
+-108
+-1475
+8380
+-8388
+-1262
+-3291
+7559
+-9001
+-9085
+-8731
+-9229
+7778
+7056
+5080
+7677
+-7865
+5009
+2004
+-2573
+-743
+-5380
+-8978
+-4384
+-7458
+-7482
+-559
+1910
+-3528
+-4015
+3746
+7777
+-9676
+8799
+-1274
+3238
+-7392
+-3988
+-4374
+-2094
+8219
+536
+7054
+1310
+-3898
+-5595
+-7834
+6796
+6029
+6013
+-1944
+-7651
+-6254
+-509
+8659
+7936
+-7213
+5154
+-7913
+-9314
+-1306
+4417
+4339
+1616
+5195
+-2299
+5430
+-3035
+4482
+5681
+-7724
+-1216
+8535
+2355
+6109
+3462
+-3973
+739
+4779
+-6447
+-998
+6233
+-2336
+4927
+1982
+7339
+4357
+4437
+9546
+3412
+-7067
+242
+5593
+5189
+-7407
+-8429
+-8958
+242
+6794
+3326
+388
+-302
+1606
+-2855
+4906
+-7884
+2528
+-2374
+103
+7896
+-4825
+-5048
+-7006
+9960
+-787
+-2177
+-4479
+1433
+-9507
+419
+8901
+-2328
+-6195
+7259
+7184
+-2471
+-4662
+8373
+-5289
+-9658
+9168
+5680
+-7499
+-7720
+87
+-708
+-9280
+7322
+8058
+-1416
+8332
+-7365
+-9332
+-256
+5328
+3573
+-5663
+5297
+8445
+1917
+6515
+-1077
+772
+-1784
+-928
+-1463
+-6772
+8479
+2068
+5939
+6483
+-7449
+-3779
+-7487
+-3765
+975
+9836
+7681
+821
+6798
+7666
+-8365
+8456
+8248
+5858
+-3239
+-485
+-1131
+-588
+-1858
+-5749
+2228
+4681
+-4908
+-4865
+7755
+3166
+-3770
+8809
+6754
+-8322
+6761
+-1151
+-8022
+-4317
+-2284
+-798
+-5961
+-6302
+2774
+-5501
+6720
+-4145
+-2067
+-8793
+272
+6243
+7143
+9455
+-4592
+2439
+5791
+-4043
+8052
+-4083
+4653
+8923
+6377
+672
+4982
+-2328
+-1184
+-5622
+-9778
+-5063
+2430
+-6185
+-6570
+-699
+-9892
+-588
+5708
+570
+-7449
+9955
+-8422
+-5084
+283
+7084
+2108
+445
+-1208
+-9730
+7599
+-4490
+2621
+-8978
+-8669
+-7305
+-2094
+2430
+4204
+-2056
+6978
+-2515
+7778
+-5655
+5841
+3712
+4165
+2395
+3478
+8995
+-6685
+7687
+8331
+-3676
+-3835
+-6104
+8941
+-247
+-493
+6793
+-8797
+-2754
+8327
+-991
+-1595
+-5558
+-4511
+-7093
+-8574
+-1509
+3939
+-6327
+-9577
+-1249
+1143
+1875
+6386
+-3873
+900
+-2706
+8154
+-6728
+7027
+7315
+504
+-8949
+-8775
+7297
+2644
+-4007
+-407
+-2672
+-857
+6346
+8111
+5796
+-2843
+-9265
+-1838
+-2019
+4166
+-4212
+-1626
+4671
+4251
+698
+-4693
+1535
+-2408
+-5243
+-6645
+-9075
+6768
+8136
+6948
+7138
+-5501
+8387
+5446
+2219
+-6546
+6348
+7350
+6248
+8967
+8835
+5487
+2103
+-4900
+-1790
+390
+-5974
+-1545
+9838
+8419
+8172
+2011
+4142
+5951
+8038
+-6817
+4515
+4550
+5122
+-108
+-5590
+-7173
+4044
+-5609
+6884
+6186
+-4391
+-9360
+-2449
+-4036
+-6585
+-5020
+7043
+-4569
+-3565
+6566
+8867
+-125
+772
+-2583
+-5977
+9109
+-5940
+5094
+2899
+5960
+-9489
+6474
+-5245
+-8022
+-4563
+3488
+-4478
+-6745
+4622
+301
+-7065
+7972
+-2538
+6401
+6023
+9305
+2962
+6777
+-6340
+5908
+5648
+-3978
+6263
+401
+5012
+5362
+6401
+3912
+8503
+-3116
+-9225
+-2471
+6630
+6470
+7090
+-4322
+9732
+2182
+-4381
+9004
+3757
+-7469
+3067
+-5289
+6436
+-5911
+-8765
+772
+-118
+-3983
+-3927
+-1560
+2793
+-9353
+-4426
+9028
+-4910
+-6472
+4857
+5168
+3300
+-5415
+6066
+6943
+8636
+4850
+-9212
+-4203
+9624
+-3609
+-8777
+178
+-5531
+5238
+-626
+-1240
+-91
+-5793
+-8554
+-8647
+8207
+3239
+1373
+9338
+-2328
+128
+-6179
+7159
+-9606
+5144
+2682
+7905
+66
+-924
+-6316
+1934
+-4050
+-7506
+-9088
+2780
+-7626
+6360
+3757
+-9010
+-7858
+-6234
+7540
+-469
+-2469
+-556
+5587
+2212
+1945
+-588
+-5796
+-4043
+2555
+4965
+7244
+6045
+-4973
+6905
+-5736
+-8859
+-3819
+1610
+-9871
+-8518
+-3075
+6062
+5976
+9615
+-50
+-8233
+-6856
+3311
+1817
+1337
+-3975
+-215
+-6364
+-2799
+8776
+7120
+-3991
+9769
+-4002
+8150
+764
+3001
+513
+-2100
+-5747
+3795
+7494
+-8369
+1846
+3222
+-8925
+7354
+-4528
+-4240
+7391
+-2356
+7264
+5673
+6617
+6610
+-3765
+-3021
+1538
+-9745
+5821
+5401
+2043
+9445
+9347
+-998
+4220
+9767
+-2814
+7836
+-9468
+7330
+8896
+-7079
+-9384
+7677
+-974
+-8441
+805
+-9017
+4357
+7391
+-8002
+8379
+-967
+7482
+1991
+8799
+-6065
+-1762
+-2316
+2716
+-6091
+-5008
+-3012
+9073
+8345
+-9779
+1892
+-8933
+6259
+3970
+-8570
+9598
+2555
+1025
+8142
+-7279
+-4563
+-6835
+-4667
+7304
+-6543
+-8885
+964
+-7743
+-8355
+-8642
+9301
+4226
+-4064
+-6748
+4667
+6663
+-7603
+4839
+-6647
+4584
+9561
+-9518
+8668
+7141
+9766
+-4314
+8065
+8867
+-5285
+-1541
+50
+4268
+-3605
+6976
+8503
+-4407
+-9472
+-8463
+5755
+9831
+1827
+-2651
+1851
+-8867
+-1780
+950
+-5919
+2182
+1255
+-4174
+5852
+9929
+-2693
+882
+-9760
+-8978
+-3657
+1575
+4617
+5578
+8157
+-3089
+-4045
+5791
+-2875
+9976
+4670
+-2070
+-5599
+8275
+7900
+-5046
+3470
+2500
+162
+3080
+-969
+2982
+7658
+932
+5242
+-973
+-4381
+-1186
+-4739
+-6458
+-3417
+5606
+2779
+-7367
+-1417
+1725
+406
+-4136
+6679
+5951
+-5527
+1806
+-2690
+8336
+-4146
+-7790
+-4298
+8173
+7371
+5328
+6840
+7714
+4523
+2246
+-2894
+2330
+-2669
+-875
+-8371
+2436
+2083
+2388
+-4987
+-7744
+2384
+-9598
+3633
+8809
+-3888
+4344
+8515
+-6257
+-1458
+-912
+4037
+821
+3457
+-5627
+9598
+5926
+487
+5855
+6544
+-3349
+-7732
+9270
+-9826
+-5337
+2920
+-3636
+-3086
+-8088
+-9614
+-1321
+6256
+-9282
+-3541
+9510
+8020
+-6472
+-693
+-6735
+-1178
+-2885
+7411
+-1086
+3457
+-1702
+-9040
+4068
+-3515
+7350
+9113
+7152
+5331
+-1431
+289
+9804
+7882
+9119
+6406
+-1246
+-1968
+9690
+-8355
+3363
+-2503
+-3288
+1762
+7299
+9161
+4552
+-4137
+7159
+4691
+1346
+-9947
+3352
+1701
+-9967
+-4485
+-4027
+4037
+-8894
+8953
+-5399
+-2037
+-7863
+6131
+-1813
+5698
+5019
+-3792
+-6348
+240
+-7401
+839
+-6487
+-888
+9826
+-5109
+3216
+-8246
+9598
+72
+5223
+-4527
+529
+-696
+-7963
+5
+-3480
+-4563
+-4900
+4500
+7918
+-3763
+-6674
+9679
+1171
+5857
+-7169
+1255
+994
+-5074
+7283
+1141
+6521
+-5914
+9031
+-3933
+8308
+1286
+372
+-8689
+5021
+7920
+-3162
+1689
+-1529
+-3565
+6084
+-2854
+8239
+-1208
+3367
+-6538
+3080
+4332
+-8246
+-401
+-9379
+-7499
+3331
+6431
+8145
+3092
+-7729
+1885
+-3635
+-767
+8258
+-2878
+-6934
+466
+569
+-5765
+8281
+-904
+-8943
+9447
+-3790
+-922
+-9926
+-6645
+-9045
+-1474
+2020
+-1740
+-6846
+-3244
+-8134
+5192
+8917
+1843
+-1762
+5839
+-9468
+6979
+6308
+949
+-8145
+-1826
+6690
+-2563
+4515
+8504
+6645
+9016
+3828
+-4318
+4553
+-7646
+5606
+-4262
+-8916
+7729
+4725
+-2690
+7558
+9490
+-1388
+-5590
+4670
+-9893
+7348
+727
+-493
+2598
+42
+-5665
+4339
+-5677
+6044
+6084
+7494
+2093
+6733
+-7284
+353
+8698
+2007
+-7614
+-7448
+-6972
+-261
+-4450
+7039
+-7863
+28
+2228
+3672
+4365
+2439
+-5510
+6420
+8489
+382
+-2177
+-2165
+5275
+6993
+8047
+2054
+-9397
+-3473
+7924
+8497
+4540
+-3676
+-8212
+-3574
+-9232
+-8204
+-268
+3535
+7349
+-5396
+5516
+9690
+-3415
+6690
+-814
+5939
+-1209
+-374
+-5939
+-770
+3363
+1546
+2025
+-5653
+7874
+-2315
+-6255
+2236
+-6610
+-8113
+-7054
+2735
+-6949
+5737
+5151
+9353
+-2378
+-3779
+-3973
+-8958
+-4866
+-9851
+-4549
+4458
+6938
+-7109
+7739
+3580
+-5069
+3047
+-9888
+9735
+-7686
+-4689
+-7162
+1314
+-8043
+-5564
+3190
+-2336
+1030
+221
+3104
+8529
+-2920
+43
+-9514
+3800
+5447
+7567
+-4560
+2213
+-1416
+3643
+5794
+1438
+9165
+6229
+-2108
+7282
+8574
+8570
+-2181
+-8441
+-9758
+4673
+336
+-1906
+-7408
+9815
+3855
+-4415
+7626
+533
+-8536
+-617
+8227
+3233
+8473
+-2693
+-1310
+5452
+9431
+-531
+-8323
+-4770
+-3647
+-8270
+-6920
+-4007
+2598
+3761
+-1540
+-6154
+3426
+3351
+3941
+-8994
+2133
+9823
+-2847
+6226
+-267
+4807
+-219
+5329
+1949
+218
+-7107
+4206
+-2322
+9036
+6277
+3440
+2236
+7256
+931
+-4644
+4417
+2390
+-3296
+8965
+-3867
+-8898
+-2921
+4879
+7384
+8835
+8809
+-9954
+-729
+-3263
+-1276
+-9812
+-1789
+4500
+1331
+3210
+217
+-2480
+-4243
+5977
+3671
+6754
+7259
+1605
+-3263
+-8639
+9027
+2599
+8413
+6346
+-4879
+-6769
+8560
+1292
+-4865
+-4621
+7059
+5805
+-3976
+-7482
+-9829
+-3465
+-5734
+5737
+-8377
+1099
+-9967
+-4395
+-3162
+-1127
+-4813
+-6516
+-9651
+-1327
+-7109
+6437
+6518
+-5174
+-5649
+-4674
+6465
+6404
+-8520
+-5462
+1753
+9273
+-5770
+3226
+67
+-7229
+-8803
+-4145
+-7722
+8884
+-6459
+358
+3825
+735
+-8266
+3964
+2619
+-7070
+753
+4139
+7828
+-5851
+-4051
+3434
+8505
+-5076
+-5233
+5199
+-6932
+9138
+8839
+-6718
+6949
+-3474
+9708
+-1353
+-4813
+-1814
+8058
+9875
+-6926
+-6314
+7059
+-6769
+1627
+-2429
+-5531
+7757
+5447
+-8638
+2218
+7646
+-5007
+-5881
+-3150
+-2235
+-7881
+798
+-874
+-6248
+-4988
+749
+8824
+-7273
+6675
+-9578
+-261
+8222
+9473
+-3304
+4225
+-4595
+3476
+-1906
+-5048
+8911
+-9285
+4807
+8237
+1943
+8891
+-2100
+-3698
+-1363
+-7061
+4686
+-6604
+-2539
+1804
+-3515
+-5210
+9774
+-1951
+4771
+7618
+-7624
+4857
+-1056
+-924
+1987
+-9697
+2238
+627
+2173
+-4968
+2224
+-2089
+759
+-3837
+-6408
+8929
+1286
+7761
+5397
+2277
+2908
+9085
+-1505
+-8654
+9798
+9047
+-2310
+-9005
+4965
+-6949
+5697
+-8748
+-9240
+-1595
+132
+-8305
+1480
+6033
+-9851
+-446
+4890
+8428
+-3115
+9471
+1209
+8219
+4648
+-4280
+-59
+7408
+4945
+1563
+6372
+3210
+4463
+2660
+7464
+3225
+-4358
+9573
+6467
+-4455
+-1663
+1555
+-5839
+7922
+8394
+-1946
+-893
+-5622
+-6074
+-4813
+6309
+-4162
+1442
+7512
+-7229
+4185
+-6331
+9947
+-2819
+-2610
+-231
+6522
+1798
+-1133
+7576
+-6369
+-559
+-8859
+4833
+6186
+2531
+4528
+5240
+-4877
+4580
+4310
+-325
+6397
+-8760
+3464
+-4578
+2213
+8799
+-6062
+5531
+-5501
+-9607
+4857
+-3609
+5015
+-4206
+-5777
+5322
+6451
+-4111
+4085
+3757
+-1187
+-9183
+8608
+-5943
+4145
+-4735
+7842
+-9342
+4335
+-511
+-4606
+-3858
+-2284
+-6813
+1207
+8225
+2660
+-9851
+7261
+2514
+6798
+7236
+-5465
+2481
+-897
+-4135
+-3272
+-8522
+-9808
+9852
+9870
+-9768
+-225
+-3779
+-2806
+-1897
+3073
+-654
+9058
+-5201
+298
+-7391
+-3838
+-968
+8154
+2738
+-9301
+-6732
+-216
+3352
+-3349
+-9188
+465
+1240
+-5435
+-8599
+-5903
+9534
+-1414
+5393
+9396
+-573
+-2107
+-7568
+3748
+6352
+-4846
+-805
+5587
+2440
+-3243
+649
+-3663
+8627
+1319
+2094
+3582
+9922
+-8867
+1272
+4282
+4049
+6109
+8105
+4396
+-2151
+-3295
+-612
+2156
+-3352
+3239
+3716
+-6729
+5071
+7860
+-8575
+6465
+-2077
+2910
+-2708
+2180
+2599
+-4424
+7694
+-5633
+7639
+-5634
+4509
+-3041
+-1696
+682
+5036
+-873
+4404
+5659
+-6359
+-6893
+663
+-6177
+5395
+6948
+-1250
+6977
+5908
+309
+-2972
+-5201
+3215
+745
+5009
+5858
+-9796
+-5267
+7694
+-2552
+-7207
+-6803
+5388
+-4329
+-7889
+-45
+-4016
+2411
+-6989
+-5166
+334
+9079
+4705
+3870
+-5075
+438
+9522
+-1853
+-4527
+3068
+6465
+9612
+-129
+1257
+2102
+3530
+-6352
+-4401
+-5075
+4232
+-3291
+-8999
+-3629
+7371
+6793
+-5007
+8056
+8692
+6010
+-3263
+-4152
+-469
+7377
+798
+3646
+-4145
+-1659
+-9353
+-6817
+-8633
+3208
+-3840
+-3099
+-2896
+-2951
+-5494
+7819
+9259
+7308
+-6630
+-8717
+4482
+-2601
+-6323
+4844
+2492
+9455
+1659
+-2094
+4020
+9681
+-2520
+-9733
+2591
+-2177
+-493
+-1895
+7612
+-4877
+-1452
+3761
+-7489
+-6714
+4556
+6648
+9212
+4757
+-5949
+-2555
+7246
+663
+-9265
+9421
+2884
+-6412
+-3547
+-8918
+8662
+-8983
+-3033
+1351
+4455
+-3167
+3121
+5606
+-4425
+6675
+24
+-5749
+-961
+-6811
+-1144
+-8256
+-4829
+-6
+1849
+7570
+-1389
+4811
+3737
+-6679
+-4348
+-729
+1269
+-2785
+9997
+7208
+-5738
+4629
+840
+-1676
+-4548
+1191
+-8243
+-4967
+1058
+-5673
+-3083
+-5936
+8553
+8328
+7188
+1633
+6512
+7282
+-5231
+-9871
+-9133
+-3459
+8356
+-8859
+-8328
+-1668
+-6432
+-5369
+-5981
+-531
+3573
+-3224
+3106
+-6321
+9443
+3384
+-3462
+-5665
+7476
+9140
+6384
+7623
+3964
+-7410
+2925
+-7293
+-5350
+6225
+9852
+7642
+-3843
+2104
+-375
+-9284
+4671
+2328
+-7820
+4908
+2407
+1567
+5781
+-1727
+-5392
+-6729
+-6215
+-729
+124
+-8201
+-4571
+-263
+5949
+5945
+-9918
+-5911
+-3667
+-968
+-4694
+6341
+-6808
+-1517
+3377
+-3260
+2011
+9423
+1266
+-2181
+2038
+-5172
+-339
+-5086
+4332
+-2282
+6437
+3756
+-7619
+-4553
+-2768
+-7603
+-2480
+4619
+4965
+7112
+-8497
+3303
+1848
+2548
+9157
+-2924
+-8233
+6029
+5949
+8801
+-4375
+2372
+883
+-5754
+7846
+2790
+3746
+1538
+-1680
+6584
+272
+-6017
+7172
+-2903
+7611
+3990
+919
+2158
+-8434
+7614
+8491
+6066
+-7909
+-3396
+-1044
+-484
+2083
+-2706
+833
+-3001
+3192
+8851
+798
+-5152
+-3081
+8073
+-5012
+-8971
+8731
+496
+-5519
+-780
+1187
+-8494
+-9409
+-8351
+-5586
+6388
+-7609
+3270
+1851
+0
+-5364
+-775
+3067
+2598
+-2336
+-2107
+-9641
+1917
+-3120
+3082
+-7279
+-1889
+-8013
+2344
+6658
+-2434
+8799
+-3698
+6594
+-4693
+4037
+-9462
+7890
+1153
+2186
+-5215
+9303
+-8102
+-2854
+-7888
+-722
+-4578
+9707
+-4804
+6848
+-9186
+-8765
+2496
+-3366
+7754
+-6252
+6826
+-2795
+7828
+8047
+-89
+4104
+6274
+-2411
+-2666
+1443
+6127
+6217
+-5013
+6475
+-4649
+-1266
+8261
+-8897
+7964
+4726
+7084
+2859
+-3831
+1107
+-5928
+5997
+7039
+4601
+5846
+7340
+3557
+7893
+3825
+-8994
+3653
+-6596
+659
+-2935
+9510
+6951
+47
+-9391
+-5658
+-50
+4744
+-4739
+-9590
+-4879
+-3885
+9504
+-3194
+-8859
+-4203
+-8765
+-7882
+8115
+2477
+-8412
+975
+5130
+7095
+428
+6102
+-6978
+8755
+-734
+2218
+9552
+-1123
+-6121
+-3144
+2382
+7239
+-1135
+-1483
+-9967
+-5651
+7058
+7855
+-5907
+6919
+-8375
+-844
+4068
+7835
+-3454
+1441
+-9250
+9293
+2870
+-5474
+-211
+-7213
+6131
+-1551
+9378
+-1334
+-4358
+-8875
+3224
+-7070
+9624
+-4364
+6397
+7920
+2528
+-8294
+7540
+9746
+-8536
+-5109
+-9642
+-1264
+1268
+2596
+2621
+282
+-1358
+-4527
+-8511
+-760
+-1420
+7714
+-9489
+5708
+1433
+-9927
+-2497
+-3792
+-6504
+8835
+1610
+4500
+-1551
+-183
+-5474
+-2270
+9379
+-7317
+-8596
+-5889
+-9136
+8547
+2913
+8002
+-9887
+5053
+476
+-8987
+3531
+7637
+-6505
+-9454
+1023
+-1260
+-7150
+-766
+361
+-1905
+-9884
+8097
+-3854
+159
+2738
+-3753
+-7174
+-8337
+8038
+6263
+438
+-131
+-796
+5781
+-2218
+3467
+7871
+1440
+-9841
+-8969
+3182
+220
+2074
+9929
+7435
+-952
+-8089
+4861
+457
+-7763
+6205
+1071
+6242
+620
+-4075
+5154
+-9123
+-5926
+-1483
+-6879
+-6431
+-2797
+2919
+431
+-7858
+-3976
+-9308
+8079
+-2243
+-9083
+-2094
+1702
+-9730
+-9238
+-9428
+-8026
+-682
+8144
+-2840
+-1501
+-5450
+-3550
+46
+-8734
+-8320
+6983
+-8786
+9922
+7860
+-4453
+6896
+-9758
+-4423
+-8145
+-174
+7882
+-1490
+-9776
+2941
+-3603
+-4880
+-3141
+-1208
+8435
+-7486
+5474
+5262
+3734
+-307
+9027
+8832
+-6215
+466
+5178
+6066
+-5008
+9353
+8186
+7846
+6347
+-3404
+8489
+-6348
+-1290
+-5621
+3966
+5198
+-6548
+8154
+6228
+6548
+-2666
+4505
+-4364
+-9384
+-7398
+103
+-4307
+20
+9246
+-6176
+8476
+-2624
+1342
+-2356
+-8376
+9444
+-8264
+-3132
+7871
+6663
+-1060
+6457
+9418
+5199
+1524
+-9321
+8587
+749
+-2200
+8111
+-7913
+-6546
+-2640
+-1133
+2916
+-9572
+-9299
+-2335
+-766
+4044
+-2315
+-6637
+-3859
+9225
+-6325
+-5006
+-5673
+1071
+8822
+3198
+-3635
+-8786
+-9472
+-1001
+4277
+4954
+39
+8021
+-3649
+372
+4429
+1761
+-2283
+-1358
+4310
+5216
+2538
+1108
+1559
+1804
+9831
+-7210
+5934
+4761
+2660
+260
+1032
+2902
+-5888
+2613
+-6627
+86
+1568
+-5232
+-6369
+-3969
+4448
+7671
+-1680
+-6835
+-770
+6445
+-3304
+2440
+6905
+5430
+8156
+4978
+-5449
+1611
+7159
+-1677
+-6579
+-7820
+8078
+-3459
+-6969
+7049
+749
+1513
+6943
+9608
+-2168
+598
+-1514
+-8218
+2484
+6186
+9875
+3455
+7924
+-402
+6788
+-2073
+833
+253
+5452
+-781
+-5889
+-6684
+-4973
+-8483
+-8930
+-7489
+-3532
+7951
+-101
+3374
+1478
+-786
+1374
+8543
+-4067
+-7970
+3319
+-621
+-6874
+-2590
+187
+-174
+-1897
+-2986
+2735
+6425
+-6242
+-7208
+7786
+9973
+-2597
+-2177
+4513
+-7042
+-776
+-9559
+2383
+4830
+-4825
+-7083
+3153
+-5520
+522
+6942
+-8100
+-5225
+9017
+-2847
+-3485
+7559
+-7508
+6291
+-5020
+-8994
+5926
+-6658
+-5102
+4733
+150
+-4519
+-4386
+4614
+4997
+9225
+-9337
+3203
+-4644
+5154
+7974
+-7392
+-7750
+-2056
+1204
+-7988
+2876
+-5851
+-805
+3279
+3770
+509
+4523
+-9676
+-6899
+9047
+-6062
+3642
+5385
+-1028
+9401
+-1944
+2901
+-2663
+-3228
+9735
+3591
+9050
+7112
+152
+8555
+-5622
+8505
+5233
+-3627
+9085
+3471
+5942
+-4932
+8681
+3261
+9623
+5515
+-1779
+5746
+216
+-7913
+-2949
+-5500
+-4515
+7777
+8817
+1725
+7605
+4850
+-428
+-952
+753
+2579
+-5710
+2578
+-6082
+5488
+-4548
+4280
+-3554
+-2039
+8958
+1591
+-2378
+6645
+3532
+-3647
+3587
+557
+1095
+4743
+6217
+9344
+9690
+-4597
+-9285
+-2307
+-3547
+-7135
+5000
+7786
+-3307
+-183
+-1269
+2152
+2318
+-4365
+6672
+6372
+1557
+-8266
+7107
+-9199
+6796
+4760
+3294
+83
+-217
+-8816
+5103
+-1663
+2083
+5470
+-1277
+-2953
+-5981
+5673
+-1535
+-7428
+9231
+-7791
+-3508
+801
+-378
+7056
+-3883
+-2137
+-9501
+-994
+-8887
+-8765
+-9948
+-9469
+2063
+-2814
+-5900
+8799
+4500
+-8352
+7846
+-9639
+8198
+1828
+6067
+-7881
+-2308
+6347
+-2843
+8838
+5905
+3352
+5639
+2372
+73
+-8790
+7882
+5269
+4201
+1885
+470
+8668
+304
+4278`,B5=`tsnz: 2
+hrfv: smns - nfng
+wfhj: 2
+rlqf: 3
+pngc: vdvn + qtgs
+hmtl: 3
+jdtd: 8
+vgvd: 2
+gmnw: tlgd - ddzn
+bnpd: gwfw + gscj
+fpjq: 3
+vdlz: ldbn + snzt
+vbbn: 8
+qhln: 14
+zlsh: 1
+fbqb: lldv + tmjt
+bgzv: 2
+hgsl: 2
+ffrl: hbqz + hntc
+bzvc: vqgz - smth
+vnbc: nwwm + jgjc
+humn: 2906
+gpsg: fqvb * mgjd
+gqrv: llwb + dmmt
+nrdl: 5
+tnsc: ttvc * mdwt
+hhfl: zhhl + flmf
+rgzn: glpv + sgjf
+bvsz: 2
+cfsn: 2
+pthd: tnmf * zdfh
+pnfz: wqhs * rhhz
+vrjs: 4
+cdsv: jbtg + flbv
+gzgv: mgcv + tjbj
+cntt: hspg * cdjb
+cngl: qvct * rwnf
+zlvt: dwgs / vdrj
+zjhr: 2
+snpf: bsdr * plqn
+qvwm: 3
+sjqr: 6
+dclg: 4
+pzqq: htbt + fwzw
+lpll: 15
+tgvz: 16
+ldtb: wsnp - tbfp
+tjcf: wvcr / pjzb
+sjgr: 3
+hthb: 3
+dnhg: mnvs / wcvd
+cdfp: jvqz * vlmb
+djfl: jdvn * pqcz
+mhvw: zrqd + vvdm
+zmsf: jqtt * jwbg
+hswt: 1
+thgv: 2
+vnmq: lgrn + ggst
+zhmr: 1
+tvbh: nwmr + wshw
+vdcv: mvsl + mcsn
+nmbj: 3
+mrfp: 2
+wdwr: cffj - fhgj
+bpzt: 7
+ltgr: 2
+qqhj: 12
+tljh: tvvh * qwll
+bnbt: mgwn * mqmn
+vppf: hflt * pqmd
+dqlr: zzsr * lzqb
+ctdm: 2
+vqgz: dzfv / qhtn
+wlnq: 4
+lzqb: cblv - tqhf
+dmgs: frjn * jvsb
+rsvc: 2
+llqh: 4
+mlzq: 12
+nnvb: 4
+bwnd: qvld / rdgg
+gmlr: dvgd * mjgc
+lzvh: 9
+jqrj: 5
+mcdw: 5
+jhwl: swvn * tvgn
+dgvr: ggbb * hftm
+rvps: pjgq * rcfj
+vnsz: 2
+ptdp: dhhj * grcr
+bcdw: 13
+thrn: 5
+ljwm: 5
+hwff: 8
+zmgm: 2
+mqcr: tmvb * vjdl
+bbll: gnfq * qjgn
+dvgd: 12
+dwnn: dprq * qllt
+gbtm: 3
+stcg: 7
+hfjr: jwqz * tpdj
+jzph: 2
+gjvw: 9
+tzqc: vmvt + plns
+lpvd: 6
+ncwt: 3
+fpjv: vvvg + rdvm
+cppz: 3
+cvpm: sbjl + lwzj
+gmjj: 19
+lvzp: jfbp * vhbj
+wrjd: bdsq * fpjq
+dsgb: wrln * cfvz
+cpzd: jbgs + tsnz
+bjhw: qhlz * jlzr
+mzgv: vjwj + ddzj
+njzd: nqwh / lsqj
+szqn: scld + gpmd
+grcf: 6
+dwhs: phpv * pqrf
+rsqm: 2
+phph: 2
+gsch: 8
+prmq: fcdn * vrjs
+qfpf: sffn / dbqv
+pqvp: 2
+nzdw: dflp * cwvd
+wvjf: ggzg - rnqm
+cndj: pngc * sctr
+sncp: ccvd + gnpg
+fpgb: tnsc + tpqn
+zrqd: ccvj + ztlj
+fvvn: 2
+wlgd: 5
+nwgv: jjcs * tfjv
+lwwz: 3
+tmsh: gqrv + rdtl
+djcm: 1
+qqhl: 3
+rvbc: 5
+grrv: nlrq + npfl
+ppsl: twlj + lwrl
+zjsj: fjlr + dqlr
+zpwd: tsdd + tbpn
+mpln: mvjg * vrgj
+fjbr: hrcd * rgrb
+mzvz: qppg * fdsf
+gfng: 2
+gszj: dfjb + llfc
+zvpd: mzwb + rvps
+dmbf: znzh / jvpl
+pwlc: dmgs - ltbw
+jjzd: lvlg / vmdq
+dbvq: jjzd - prtp
+hflt: 2
+pmff: 2
+dhmt: 5
+shbm: 2
+dhnm: 11
+lppn: 4
+zrtm: bzzm * pvmw
+glnt: 5
+gwfw: lzzq + bbrz
+zbqv: jvlw * gvjd
+sgdh: jtbg / wtdm
+prpb: 3
+tndt: 5
+qhct: pjsw + mmwv
+qnzc: 3
+gngd: gjtv + pwtd
+thht: 4
+bcjl: 5
+rhcc: 2
+zsjp: vshj + wqdv
+tctm: vnbp * rpnz
+mlpv: hwbs - wmsj
+twvh: 3
+jggt: tcdm * blch
+pgbf: djwl * jnvb
+tbfp: 3
+gzwf: 4
+mrfl: bgct + ljhn
+jqpc: zhfv + zjcf
+zprb: hfjr + szcz
+flmf: thht * fbdc
+znjr: 2
+rwwm: 3
+fpmz: zrpz + frzn
+cdmz: 4
+qvlv: gfwh + ggzj
+jmlr: 12
+rfsb: jtsf * dhdp
+tfjv: 3
+ndvn: hdgm * tnsp
+lclw: bbtg + qqdg
+tfdg: brln + jwlm
+jzhs: 3
+prtw: 3
+qwlr: 4
+sczz: wzls * gwmt
+smth: bnpd * phdc
+gwmt: 5
+mlqw: hvtz + gcmd
+fchm: humn - fspz
+lvdd: 2
+lmmj: wssz * jzhs
+llmf: jvnn * sjlh
+fnsp: 16
+wmrp: rsvc * rqws
+spjr: 5
+pqmd: 3
+sgdg: 3
+cdjn: zlvt - dsqj
+nvwv: 4
+bbrm: hzlt * fnsp
+dncm: 2
+gvbm: 9
+bptj: mtzt + fmbq
+qbqz: jrmb + mqcr
+lgwd: sdhf * smsc
+nhch: lzjb + zqcj
+frjn: jdgz / bnhz
+jpth: 4
+jdhj: 9
+chgb: jrvr * zqnz
+ncqp: cczj + djwg
+ngwj: 2
+tgts: hqsf * llpp
+htbt: 9
+tlgd: nvlb * hjnq
+phdc: pgwd * qsrl
+qrfq: 12
+ddqj: 2
+nrmz: jzwc * nltb
+rvch: nslv + mlzq
+qgnm: 5
+rvcc: 3
+bggd: 1
+rgvf: 3
+pvmw: 2
+ggbb: 2
+rsvr: 7
+srjw: ptbj + mdlj
+llfc: 16
+ncwb: 18
+zlzc: 2
+wlpf: 2
+vqbr: tgtm + rlrm
+vjlc: dzft - cjbr
+mvcc: 18
+fqgf: 3
+mgcw: 2
+gvqs: 20
+cqrb: jlzj * ldgf
+mgjd: 3
+fsrh: 3
+fqhq: 2
+mjjv: 9
+tjwd: fpgb + jggt
+vqtr: 5
+mwtq: 2
+wcvd: 3
+rzsf: vhrd + dplg
+szfn: 4
+ltsz: 2
+lsqj: 2
+bfpt: 13
+btvz: 5
+mcpq: gfng * sbng
+qhtn: 2
+lbhp: 2
+dbqv: 2
+swvn: 2
+phpv: rgzn * bvdc
+mwjg: 1
+srmj: 3
+srch: nqsr + bnqv
+nfds: 2
+hsdn: lzwq + gmjg
+cjbr: 2
+rmzm: 3
+hgsb: bsjl - zlsh
+sfpd: 2
+qdgf: hznr * lvdd
+fmfj: mqww + bmwh
+nhtm: pqhz / tjlc
+fhhd: 4
+cjdg: 2
+hnbg: 5
+rrvd: jqmj + hvfn
+hdbp: 4
+jcwt: nqrp - msth
+lzwq: zbjp + bqbr
+nfhl: 2
+flbl: qmwt + btvz
+fpgp: 3
+jtqj: 5
+mdlj: ccfh + gwrw
+sflj: nbvb * gjmv
+lfms: fcvp + rpgm
+tfln: tvbr * mchw
+pstz: scbt * cclm
+pvpl: vfjc / qgng
+nqcl: pqvp + wjdd
+jcrg: 7
+ftzt: lpqf * plmd
+zqmj: 2
+ldgf: 3
+zrns: zjsj / ldtb
+ztlj: 15
+ppmn: 8
+btdm: qsbn * zzml
+lmmh: 13
+gcqv: 3
+dbcq: lhrr * jmwz
+tcqc: 2
+drmd: 11
+mdcn: ppfr + vbbp
+mwtw: 2
+hhnv: 2
+gfmw: 2
+htrv: qfmt * gqzc
+pzvn: 3
+ldgc: lhfj * sqtg
+wmsj: 1
+zlrf: ndhv * pgbf
+cvbm: sdrq * wmnf
+szcz: 2
+svht: nlsq * lnzg
+hzgt: 5
+pmqf: 4
+bjsm: lmdl + lghh
+wcvv: grft + zcnw
+prvf: 13
+rmmb: 5
+hwlv: 5
+fnlp: dtjn * zvll
+pzms: 4
+ncct: hqjm + ncrp
+lpfw: znjg + mglg
+plbl: hhhz * wczz
+nfng: grgr / rtrc
+vmvt: wrlq + cntt
+jrtw: 7
+zjcf: fjhz + tcdt
+ldgq: 16
+tnzz: 2
+cmpz: mrmj - pdmd
+lqts: hqsr / tcvf
+mgfw: gdgw - ddtw
+pfzv: ppsl * jpmm
+cghd: 5
+wgcs: 3
+sgnh: 4
+qbzt: mprm - pgrt
+nwcj: 3
+zcpn: smjh * npbh
+zbfr: jcwt * fsfs
+dcfv: zsng + fmfp
+zczb: mvlb + zrtm
+ltsj: 9
+fhpr: bcsr + chvj
+fhcp: 17
+srll: 4
+sqzv: 5
+rnbp: jpwc * dgbd
+jtfc: 4
+ppsh: sfng * bsjn
+nrdf: 2
+fdhh: 3
+qlpz: 4
+gvwj: dqgj * vmtv
+plqn: 19
+tvdn: 2
+bnnf: 4
+bsdr: 2
+qbqh: 5
+brdh: zvjz + wmzb
+hjcd: qfwq + mbtr
+mrwd: 4
+nqsr: rllf * wrnm
+zvrl: rcwl * rcbn
+vjwj: clqz / twvh
+brct: 3
+zjjw: sjgr * fbzw
+gmrr: qsqq * nnvb
+twnv: 3
+cvfh: tzjw * vjlc
+jmbw: pmff * rhqs
+bbfr: 4
+fcgn: sgvz + plbl
+gnfq: 3
+hnph: wvfg + vrfj
+njgc: 2
+pmwl: 2
+ztfs: 2
+cbwd: lppj * gsch
+zgpt: jtzc / vbbn
+vsjb: 2
+ptqm: 3
+lfzg: 2
+phft: grnz * hswd
+vczf: 2
+tmjt: 2
+psbz: 9
+sgvz: 5
+trhm: dqcj * szvj
+zfnq: cbzv * rvch
+wjvh: vvml * fdhh
+jdqd: tldf + bnnj
+qwtr: ppmn * sqbc
+zdfm: 10
+fmbq: 4
+bpwg: 2
+cqmb: 1
+zpwc: sgdh * lmmh
+rjcw: 5
+wfnh: 9
+btqz: qrhp * lqts
+rczr: 3
+llsf: 2
+wllz: 2
+hswd: nrdl * tnzz
+pswf: 5
+jpwc: gqpp * twbm
+fjzt: slqb * jrvd
+pvww: 5
+qmnt: rbdl * fnhf
+qwvg: zpwc + zqdh
+gdgw: whgc + btwc
+vmzb: 2
+csvj: 19
+ggqb: 1
+zscp: 6
+mrdj: nrhc + jjmt
+gnpg: 20
+gjmv: vbdm / lppn
+gcmd: sdfb * hczv
+czwt: 3
+wfpd: 2
+lrnc: mhmb * vtgw
+hmvv: 11
+qsbn: 5
+nvds: pzpg + dbvq
+wbzd: 3
+sppw: rpcz * gtqq
+wmzb: pftp + ndlz
+wldr: cmpz * nsjv
+pzlq: fjzt + tjwd
+vdhd: phrp * djln
+sgjs: vzsp - fjbr
+lzpg: qwtz * nrmz
+bbtg: zcwj + wzmd
+svzm: 14
+vtbj: vblq + rvgc
+hzdb: 3
+scld: 2
+mghq: 2
+hzvd: vqcr + tcpw
+qtwm: 20
+zjhn: 11
+rtnc: 9
+tfsg: gfmw * dcvl
+scnw: 2
+mrhl: cltl + ggpz
+fcbf: tmsh / qzhh
+mlfn: bdnf * hmtl
+rcmz: 4
+zpqp: 2
+chls: 2
+rzns: 2
+frbh: mgfw / dncm
+vsmn: 2
+plmd: 3
+bnwg: hnhd * hnbg
+jdvn: 5
+whjg: vpdp + cpzd
+wntf: bccq + ttmp
+zbgs: 3
+nfts: 16
+tdfs: 9
+tjsl: 2
+mwpz: tlrn + wddr
+tbpn: 4
+vhrd: prtw * gpsg
+rgnc: 6
+grcs: qmwl / vspg
+tsdd: jrjp + phqn
+mbtr: 4
+whnf: 20
+hrgz: qnhp + sjqr
+zhdz: fwss * mlfb
+lhcc: 5
+thrw: hwff * dstj
+tnwd: llzt / hcrf
+qsgl: 2
+sjfm: 9
+ddzn: 7
+zdcc: 2
+prtp: 5
+rpvv: 2
+lfvv: 11
+pcjn: 3
+dzfv: qrvj + zrns
+qsqq: 4
+twlb: 19
+grsp: lpfw + cbwd
+qfmt: 2
+plhh: wqcg * gtwn
+tnmf: 4
+fmfp: 3
+hrbj: 6
+jwlm: 17
+gmjg: snwr - zsdn
+jpqg: 2
+djlr: 5
+lgpq: qhcd * rvbc
+qsll: swjw * mwsf
+glcq: lmnn / tccp
+cqzp: cnvf * vbbs
+hvfn: tmlp * nrsb
+nslv: 5
+cgqr: 3
+jnff: 2
+ccvd: 9
+sgqs: 2
+vnlt: 2
+nrhc: zbfr + rmqc
+hwtr: 3
+vlfc: 7
+rqwp: 1
+wjdd: vnsz * sbrr
+gsps: wntf + svzm
+jllb: 2
+zzsr: hgsl * tsvp
+ggzg: jrtw * ptss
+bccq: 1
+fngd: 14
+gtqt: 19
+hpbd: 6
+gtgj: 2
+nwhf: nhdw * pmwl
+dpwb: 2
+nhrp: mfjw * gbfl
+hlpm: vrsh + zdhc
+wnfb: lfnh + hwbq
+drtf: 3
+gtzf: 2
+tmvb: dznp * nfjf
+twbw: 3
+fcdn: 4
+mrjl: 4
+zhhh: 4
+htsg: tpfw / lmmj
+sffn: hbcj * sncp
+dddl: 2
+mzdz: tvbh + tmcr
+nbvb: rtnc + wdmc
+vsdp: lwwz * mgcw
+cbzl: gbdb + fdrz
+pgwd: 3
+qzjs: 3
+lqcf: grrv * zfbp
+dqln: rvjn * wblv
+qdgn: pdsm * fnlp
+qppg: 2
+ccfh: gmrr - fddz
+hmzw: wlqg + qnwr
+tgtm: fsqw * rzns
+vvhb: 2
+jbtg: mvvj + nvds
+qpqz: fvwz + gqnt
+vpjl: 6
+ddts: fcbf * wwrg
+jcwm: vldd / qsgl
+msjf: vdcv - ngtp
+pdmg: 9
+ncmd: 3
+nhfn: 4
+zsdn: rlmd / jzzf
+mvdv: tgts + gzdv
+gfdp: pmjz / rsgc
+jgbd: 3
+fqpd: 2
+bpnc: 2
+zsrw: glwz + qtjv
+zmvq: zqmh * rpth
+tbls: 2
+wmhn: 20
+bbdw: tzsc + mjlg
+jhmb: 7
+zgnm: ctbb * bqzs
+nsdq: 5
+rhqs: 3
+gmqd: 11
+twmp: 18
+dgbj: 1
+nlcw: hmmj + ssfg
+zgbn: 4
+vtvb: crdf + jczt
+mvls: zjhr * qznl
+bjhz: 2
+lgsh: 2
+hwrm: nzdw * jfvl
+ppqg: cjpb * gdrr
+cfsp: wrjd * sljm
+pgvc: jwsg * bdbt
+ppnn: 4
+hntc: gszj * bwqc
+mglg: rhbl * rrwd
+gwzg: vpph * mwhb
+ndhc: 2
+qzpj: 2
+qfwq: 3
+sjqv: twqw + nccc
+bcjn: hnnt * pdwr
+rfnq: 2
+fvld: hvvc * fqpg
+lncn: wscd + vmbv
+sdww: rgnc + pzrl
+vqbp: 3
+psmc: 2
+lvlg: nnff + csdd
+hnrm: wjvh - frbh
+cwzf: 2
+lhmg: 16
+jgjc: gtgs + wgjd
+dfjb: dfrz + mtts
+tgmh: gmlr - fvmq
+hcrj: hmvv * sbpf
+wshw: 2
+jwll: hssq - zgbn
+wrln: 2
+wcws: 2
+jffs: tndt * rwzq
+jdlb: nsbp * rbjd
+rwzn: 2
+fwzw: 2
+mthn: 3
+ftrj: qsll / vvhb
+ttfq: 8
+tnjj: qmfq * dsrb
+vdnr: 6
+vsdz: 3
+zqvn: 5
+bsss: 4
+fcts: tcqc * bmpt
+dzdd: 5
+gjjw: 3
+brqs: cgqr + mqnz
+dglf: 16
+rpjc: 2
+nwgg: 2
+hphf: 8
+dshg: 2
+bmgg: jbns * ssrr
+jrmb: hphf * hcrq
+ghsg: 3
+mwgd: 3
+wdmp: gcgw + sdww
+tldf: hcvc + hfrb
+fjhz: qhdg + lgpq
+nhzs: ssbn - pfqg
+dznp: stpm + mzvs
+bllq: 2
+gdvt: qhct * zjqf
+wqcj: 3
+wgjd: spjr * vrjj
+lvnh: 2
+bnff: 11
+gvbg: zwnm + vppf
+ztnw: 5
+qzrc: zpnw + wtgt
+qprg: 2
+ttvc: dcfv - cfhv
+mtbg: 8
+mccf: 2
+wvfg: vgvd + hbqv
+fzdr: tcfc / htrv
+jnsz: 3
+njnn: 3
+wtgt: dtdw * cfqn
+qwll: 6
+lnzg: fqgf * hzdb
+vltd: zbsc * bbfr
+zcwj: lztj * vlsw
+rrzl: 13
+lbhc: nbzg * gmqd
+qvgv: zfnq / zcsm
+cbzv: 2
+vpph: 2
+ctjz: fsjv - fztr
+rdsh: 2
+qfgs: 4
+pqsc: 3
+djwg: ldgc + wptw
+ssdc: 5
+pqwg: wpql * vptr
+bhqh: qgsh + gtpb
+bchq: lpqp * fwpp
+nrdn: 3
+tpdl: gcqv * gngd
+pgrt: 2
+sfvc: 5
+fdrz: 4
+dsqj: hhhl + wnfb
+ggzj: qfpf + pthd
+cltl: 11
+tcfc: pfzv - bmgg
+rvqd: 1
+zhll: hbnn * rfsq
+ljmw: 5
+wzfq: twrv + rddp
+vzsp: hczw * chls
+bstt: 5
+cbgz: jllb * zpzf
+szjv: 3
+qlrl: 1
+fbmd: 2
+fqsm: 5
+fglf: 2
+vbqf: 5
+sctr: 2
+wrhn: 6
+lgjv: ffrl / tjsl
+cgdm: 7
+hgsh: sjpv * jhmb
+cpsb: 2
+rjhr: cwzf * pwgs
+ccvj: zsjp * jcgs
+lpqp: zqvn * bwvr
+jrvr: 2
+pvjs: 3
+gbpr: lttb + vpjl
+jwqz: 3
+jlfd: vvnn + sfpn
+lgrn: tjjh - rmmb
+lqqs: lzzf + bttm
+smns: smlb + brpt
+bqlh: 3
+bzzm: 11
+pqcl: 7
+lljz: qqhl * qvwm
+mvjf: 2
+zpff: wlgd * pqjz
+zvll: qmlh / cjdc
+rbhw: 7
+tmcr: qhqq + gwzg
+jwrj: 3
+qgng: mwmv * wfhj
+jqmj: hprb * tfsg
+tjlc: 2
+dwvq: 3
+dtwl: pmqf + sqms
+hmmj: wzfq + vdnr
+wmnp: fbfl * bnrl
+zrgc: 3
+jvsb: jjpg + hzvf
+rcnf: cmcj * ddqj
+qhqq: wlnn + rvmv
+cjpb: 2
+prqf: 14
+vwzf: vbqf + ldgq
+dqcj: gsvt + vphq
+fvsv: 2
+ftfh: ncwb * lpll
+shlq: 6
+tmlp: 5
+ffcl: 5
+fmng: pmpj + grtv
+hmbd: rgbg - gqrt
+qlvl: fbqb + tnmv
+gjwh: mdcn * fhzg
+gggc: 4
+zrsw: 5
+hnnt: chtc * stfd
+zqmh: stcg * mwpz
+lhvs: 2
+vjss: lfvv * dqdg
+wmnf: lclw + srjw
+zmtj: njnn + jdsz
+nlsq: 3
+cclm: jcwm + zhmr
+vtgw: 2
+bfvp: 3
+wshl: 2
+bnlq: 5
+zsnp: 3
+hhtr: tgds * bzvc
+jmwz: 19
+rhbl: 3
+bjrz: 9
+vgqd: rbsn - pqsc
+zsdd: trzs * ggvj
+ljbs: 2
+hnrl: prvf + mqll
+wqcg: 11
+sfpn: tcdl * cfsn
+wzdw: vsdp + ttdf
+bsjl: 8
+gscj: 14
+hjnq: 17
+sfng: 11
+tpjd: npjd + qwtr
+wjwq: tvpb * hjcd
+dwhf: hwlv * zznc
+mqww: 5
+cscs: 19
+gnth: gmfd + prfn
+qvld: tjrt + fsrp
+wmpf: lfms * ncbz
+mfzt: 2
+bwvr: 5
+rvzz: zwjt + plhh
+cvnn: vltd + qtwm
+fhfv: qnnn + bslh
+lmdl: 4
+mdqz: 16
+tdbz: 3
+hrvz: 2
+fcvp: nwhn + sczr
+nzmz: 7
+thwd: vcqv * fhcp
+tvvh: 14
+fwfg: vnlt * rczr
+cqcj: pwvr + jsqd
+lrfs: tdhd * nchn
+nrrs: gmjh + qvlv
+wssz: 4
+mmwv: hcnn * nnhl
+dfrz: bcjl * gvlr
+czlz: vprh + gqgz
+mfjw: 3
+wdjs: fvvn * nhzs
+hljw: scnw * mdlw
+bdnf: vdgg + hpdd
+hvwt: mfmh + vvdp
+vqfz: 1
+qmwl: qrjg * qbph
+pqjz: 5
+fzmh: rnpg * srll
+nccc: jhwl * zqmj
+rnqm: 4
+mdwt: 3
+phvm: gtdp * hcqp
+tjjh: qcqp * ffbs
+hfjm: 3
+chbf: nhgv + nrms
+ncbz: 5
+ddvr: 1
+mhmb: dwmw * dcjm
+nsvg: 15
+ddtw: brdh * llhf
+mwmv: 3
+rvmv: 2
+qqdb: 3
+clgq: zrsw + dwzs
+vbdm: vtvb * jdtd
+jqtt: cdsv + rpcb
+zjqf: gtqt + rnbp
+bbrz: 14
+mcgj: bjrj + tcld
+tzgg: 13
+frzn: 1
+lqmh: 3
+gtqq: fhfs - twmp
+jdsz: 4
+vspg: 4
+mbnq: 3
+wrmc: 2
+grcn: 3
+pwjt: 1
+dhdp: 7
+czjv: 3
+szsv: pqzt * hcsb
+mprm: wdrz + ljjn
+wblq: llmf / nnhg
+lqsz: blrl - jwzt
+hrjs: 4
+gsvt: 6
+tfgc: 3
+fsrf: 2
+cfrh: gffs * bnlq
+ptbj: cdhg + fjnh
+zbsc: 5
+llbt: 7
+qwjc: 4
+msdb: ctzw * lbhp
+dcjm: 2
+jbgs: mfbb * fwht
+dnjz: 9
+hcpm: 7
+dwgs: tgbf + zdsl
+twrv: vzcp + gvbm
+nrvn: rzhc + vmrd
+gpzm: hlpm * dnjz
+lzrf: jwll * jnhs
+chzq: 6
+nbzg: lwtg / qzpj
+cczj: dgjd / qwlr
+hrcd: 19
+lmnn: rssw * whjg
+vvdp: 6
+dgbd: 2
+hnhd: 5
+rltv: 2
+ngcg: bsmt * qshb
+fzdn: nwhf * fqpd
+rdgg: 2
+dtdw: 2
+mjgc: 3
+bdbt: mqjm + hcmm
+rwgg: 11
+cdcv: qvbd * jqmw
+zzsc: zqvv + dglf
+lzjb: 3
+crrb: lbhc + gpzm
+nqrp: wdmp * btzf
+wwmt: ngcg - hjln
+hcmm: scjr * wdwr
+dstm: qhln + drlw
+nltb: 3
+qcqp: wrmc * rnhn
+gcdn: htcl + hcbz
+rczp: mmrp + rsvv
+fjlr: fchm * njsj
+zcnw: 9
+twds: 2
+dflp: 2
+bccv: 6
+pdwr: 2
+dwzs: bsgl * fgjv
+hfrg: 4
+gbfl: 2
+mtzt: 3
+qmfq: wjbl * wlpf
+dhvn: bdvh * ccps
+llbs: 2
+jwsg: 6
+jlwz: 7
+hzlt: 4
+qwtq: ppld / twbw
+gqzc: 3
+qvbd: 5
+wgsj: tpjd + pptt
+rpcb: gqsf + rtsw
+jqdf: dbzd / rpvv
+vdjz: ljwm * njgc
+pgdm: mrjl + wgcs
+npwg: 3
+zgvw: pvpl - vjss
+npbh: pbzh * sgmz
+fzjd: zrcm + qncj
+tjrt: mccf * cdjn
+jbns: csvj * shbm
+mcvf: vwzf + ncqs
+hpdd: ccwd / hhnv
+wpql: psvd + pzlq
+rsvv: hhfl + mwhm
+ttrq: 2
+dbnp: lvzp * thrn
+dzwz: 3
+pqcz: 5
+dprq: rwnw * bftj
+ljhn: 5
+llpp: djlr + jzph
+dhhj: 10
+gtwn: cfrh + rvjs
+jndn: 2
+llgd: ltsz * msdb
+frnp: tljh + zsrw
+dbgc: 2
+smjh: wpbt - szqn
+qmlh: ljbs * bwch
+dphb: mwtq * gqtb
+lggw: wdlb + zvrl
+qznl: 5
+fnhf: 4
+vmrd: 10
+lztj: 2
+pzpg: 8
+rnpw: lzqq / nlwz
+pvln: 5
+mbsc: wmgn * hsgr
+lpwg: 2
+vwtd: svht * dbfq
+bmpt: 4
+fpmd: pvjs * sjtt
+vtlz: dtwl * zmgm
+nvlb: 2
+gwrw: ndcf + ljsr
+wvcr: ssdc * wvbg
+rjzt: 14
+vzrv: 2
+gtpb: wldr + qwvg
+zccz: 2
+hwwb: 5
+sbvw: 7
+sbrr: 4
+zntf: 2
+cdsl: 2
+tcvf: 4
+fdgq: dgwj * htfd
+ltbv: psmc * grcn
+mblw: wptb + wshl
+cqrp: cnsb + rgqr
+nlrq: 9
+ptss: 5
+zqvv: 3
+fdfj: bptj * mngq
+gcgw: 2
+mjlg: glcq * cjqm
+pjzb: 5
+bnrl: jnff * hmzw
+mvwb: 5
+dlbj: srch + vnmq
+wmgn: 3
+qjgp: rhcc + pdmg
+zsrq: lptf / bqzn
+vshj: 3
+zdhc: 12
+swnn: 4
+msnd: 6
+nhdw: zntf * nlcw
+wzls: bqlz + vtbj
+qnnn: vlcb * vjgg
+nsbp: jcrg + qrfq
+hwbs: mjqt + hrsl
+cjqm: 7
+prdz: zrfj + dsln
+pzzl: czlc * nmgj
+twhf: 6
+mgwn: tvdn + chgb
+ggst: 1
+dgwj: pvln * ccdj
+qwbj: 5
+cwvd: 13
+mcsn: rjhr + ndtn
+frbg: rjhc + mdzl
+bhcz: 2
+jcsf: 8
+zwjt: mlfn + hhtr
+dqgj: 3
+dhpp: zjhn * nvwv
+rcwl: 2
+mqjm: 4
+pcnn: 9
+vfch: 2
+nnhl: vdjz + tdfs
+sprb: zjjw + djdj
+nwhd: 4
+jjcs: 3
+ctjb: 4
+zbbq: fsrf * nsvg
+vmvh: phph + ppsh
+mgzp: nmbj * mrfl
+dfsn: 4
+cffj: szfn * nhfn
+ddzj: 1
+btzf: vwtd + wqnw
+fsjv: 8
+lrhm: 4
+crhb: bpbc * vhwj
+ldrv: 2
+pqwq: prnb * ghsg
+llrf: 12
+tlzg: 14
+qnml: qwbj * rltv
+ctbb: 9
+hrnb: lvnh * tgmh
+hvtz: mzbj * gzwf
+hbqv: mjjv + lmfl
+ggpz: 12
+bmch: 2
+sdjz: mspf * rswd
+wjbl: 3
+mjqt: nrvn + pzzl
+tmjg: dbgb + chzq
+rfsq: ldtw * dpwb
+zhfv: rsvr * hfrg
+fddz: 2
+grcr: pcvz + jfrl
+vmtv: ctjz + mblw
+zznc: 5
+dsln: 1
+hprb: 2
+lrqp: fngd * cdcv
+cnvf: jtfc + nfvc
+nffp: 2
+znmj: 2
+cwlb: 3
+zmbn: 2
+nqwh: bllq * ppqg
+bwcm: dhzq + dgbj
+rgqr: 20
+qqdg: znjr + bcjn
+jbpr: 7
+whcz: jtcl + zscp
+hfgs: lnjr * nrdn
+ssqt: hwts * pbwn
+nhrv: wlqp + bwsm
+cfhv: 3
+psgr: 1
+qvqf: thgv + dhnm
+vlsw: 5
+lldv: 5
+rcmn: 2
+tcdm: 19
+rzmq: 1
+dprw: 5
+nhgv: 4
+tccp: 2
+tnmv: mrwd * mzvz
+mdzl: 7
+vdzl: 5
+fbdc: 2
+dwvd: 2
+bpbc: plzd * lggw
+wmmz: 1
+qwdp: zfbv * gmjj
+gqrt: jbpr * msjf
+wrsc: 3
+phml: hwtr * dwvq
+crfq: smdq * fczq
+vgwz: sgdg * lqcf
+pbwn: 5
+jzwc: dvbw / mvjf
+mzbj: 8
+crdf: fvvp * pgdm
+wlqg: 1
+jnhs: 3
+bsww: 1
+qjgn: 3
+fspz: sppn + gccm
+fsfs: 2
+scdb: cgdj + psjm
+dbzd: gfbl * bbdw
+wvmd: tzdh * dmwv
+mlcf: 3
+dlqv: 16
+wptb: 5
+cpgj: zbbq + sprb
+tcld: jqrj * mfzt
+bhsg: ltbv + jpnj
+sbpf: pwpf / qnzc
+wtdm: 2
+ztgr: qqzh * cpgj
+nsdh: 4
+glpv: gqzl + qdgn
+scqh: 5
+rzhc: jdhj + dhtm
+mzvb: 8
+dhtm: nfts * gtgj
+mptr: whwc / chmm
+pjsw: zcgf * zngt
+qwtz: qrzb * cqzp
+cjdc: 2
+tjlr: 8
+wlnn: phvm / qmmc
+ccww: 9
+dhgn: 2
+zhhl: vzbp * fsph
+lptf: dgdm + jqdf
+hjlw: brcj + lhcc
+vqcr: 4
+jrlh: 2
+pczh: frnp - cndj
+mmsr: 1
+jvpl: 3
+jvqz: pbnq + jnml
+rllf: 2
+cfvz: dbgc * twsc
+mfmh: 7
+zcjg: 2
+stfd: 5
+hczv: 2
+mrmj: prnv * bqrg
+gqsf: drmd * brct
+gbsp: hdbp * fndn
+ddwj: 4
+zdfh: 6
+zmjf: dchs + fdfj
+qhvc: 5
+wqnw: sgjs / flbl
+gmnd: pwbw * fpgp
+nlwz: 6
+nhzn: 12
+bhhw: gjvw * pcjn
+fcjr: 2
+fztr: 2
+rlrm: dqhs * phml
+tzsc: whcz * fmvb
+rssw: 2
+clqz: cqmb + whnf
+scjr: 3
+tgbf: wwmt * ltgr
+jgnt: vqrz + hcfh
+mtts: mvjq + bdzr
+hqls: 10
+qhlz: 13
+gqgz: 5
+cbmh: hgsh * mgzp
+hczw: cqpc - ztgr
+jtsf: 2
+sppn: rcnf + rrvd
+csfd: bhrh * mbnd
+tfgn: hrnb * zdfm
+sgjf: fhhd * zsrq
+svdl: 2
+ppfr: dfsn * bhsg
+zrff: dstm + bbrm
+tzdh: 3
+ppld: nszn * szjv
+bdhg: nhrv / rfnq
+npjd: brqs * scqh
+flnz: gcpr * qlpz
+wqtd: 3
+zbct: hljw * jnsz
+jvnn: 3
+srws: 2
+qrmh: tfln - sflj
+dqtn: 5
+mnjg: wmhn * dcbt
+rdvm: hgrl * fbmd
+grtv: wvmd + qbzt
+gwgb: bsrv / mghq
+sjtt: 13
+hgrl: 5
+bdzr: mnqb + gsps
+twsc: zccz * ffsp
+spmz: sczz - zgpt
+mqmn: pcpq + lgwd
+pdsm: 2
+qgsh: vmvh - bsss
+vptr: 2
+tvgn: 3
+qqzh: wbzd * hthb
+ffnm: zbrc / rsqm
+gqtb: cvpm + schq
+hcrf: 2
+hhhl: ncmd + mptr
+rpgm: 1
+fqpg: 2
+lwrl: sbsn * cmwj
+plzd: 3
+nwzz: 4
+ncqs: zpqp * cmch
+mvjq: 20
+bslh: ndvn + qvhw
+thsh: lhrv - czwt
+zbjp: gwgb / mwsp
+wblv: 3
+nbfp: 2
+phqn: twnv * jpqg
+lmfl: hqls + mvls
+dgjd: dgrd + crhb
+mbgh: nrhz * vlfc
+dqhs: 5
+rgrb: 11
+nrhz: llbt + ztfs
+qrvm: 7
+zrfj: hrjs + wcws
+wztc: wjjg + bvsw
+bttz: 2
+vzcp: 1
+pwgs: pwlc * vdzl
+lpqf: zljz + lrnc
+vvnn: 3
+jjbn: 4
+ngtp: glml * nfds
+llhf: 2
+stpm: 6
+wnst: 3
+pwvr: 1
+flbv: vgwv - ttfq
+mvsl: spmz + whlr
+rblr: 5
+twbm: 3
+smvw: 15
+njsj: 4
+vvdm: qwdp * prqf
+rths: pqlz * shnl
+fndn: 2
+qvtz: 3
+btwc: gbpr * dmbf
+thqw: 2
+hgph: 13
+ljsr: 10
+vphq: 7
+hcnn: crrb + hzvd
+rcjm: 2
+ffss: pcgs * bscg
+jpnj: wfnh + njzd
+zzml: 2
+sbng: dlqv + smvw
+mfqg: 5
+nszn: zlrf + dqzg
+sqbc: 4
+pzrl: 3
+mnzd: 5
+sdhf: 2
+jcmp: cjgg * wnst
+qlzn: thwd - mvcc
+dlmg: frbg + zsdd
+mjbj: 15
+mnqb: 14
+vvml: htsg + tpdl
+mwsp: 2
+dzsr: rths * dprw
+dtbh: qttw * dszc
+ctqm: 4
+dnqs: 17
+gbdb: 3
+qvhw: bjbh * gvwj
+bwqc: 4
+jgdn: nqcl + dhmt
+nrmd: tjcw * cdsl
+zzjv: rbhw * mgwv
+rrpz: 7
+zvjz: zcjg * mvzs
+tlrn: zmsf * jfzs
+ztrc: 1
+pcvz: 2
+hftm: bdhg - phpz
+hspg: 3
+jczt: 3
+zngt: gmnd + bnwg
+ncrp: ztnw * tmjg
+vhwj: 3
+ldbn: ddfp + rwjv
+gzrp: 3
+jlzr: 2
+jfvl: 2
+mrvr: bhcz * ffcl
+zqdh: flwb + jnbr
+tcpw: jffs - hwrm
+gfbl: 2
+fccf: 3
+flwb: 2
+dthl: 7
+gccm: llgd * zpwd
+wdrz: sqlt + cdrg
+hcqp: 17
+lwtg: zmbn * cqcj
+nnff: mwgd + rczp
+ptzv: qmsn + rlqf
+rpth: ddts * gzgv
+ljjn: 7
+ttdf: 1
+szdc: czlz * nrdf
+hbmm: dzsr / zrgc
+lbzj: 4
+hbnn: 3
+qhtt: qqpp * pgmh
+gvlr: 7
+pjgq: qvtz * hbtr
+bdvh: wdjs - zhdz
+jzzf: 7
+wzmd: 13
+jlwd: mrvr + gdmv
+pptt: dlbj * gggc
+gzrs: 2
+hsmj: zczb * rcjm
+csfb: cngl + rrpz
+hcbz: lqqs + cbgz
+brsf: lssl + tzgg
+vsjn: lphc * nvhj
+dchs: jcmp + qdgf
+vrjj: 2
+bjbh: csfd - nrlg
+drnl: jznt / snjp
+jfbp: 2
+bqrq: czjv * bpzt
+mmgl: wjtj * sgnh
+grgr: mwhz * dtbh
+bbwz: 6
+dwmw: 4
+cfhp: 4
+djwl: 3
+twlj: mrdj / ngwj
+srnd: glnt * jgnt
+lmgj: tzqc + nrmd
+jznt: gnth * jndn
+czhj: hrfv * bccv
+ssbn: qswz / whrf
+mzwb: dlmg + vqbr
+wqmn: sdjz + rdjh
+cfqn: 5
+wrlq: lrhm * tmvq
+root: dbcq + zmvq
+dszc: 17
+gzdv: 2
+mrgs: 3
+zqnz: zlzc * wlnq
+plns: 4
+gqpp: 13
+fwwb: 3
+rvct: wzdw + psgr
+fjnh: 5
+dcbt: 5
+twqw: 17
+whlr: wrwt * mlqw
+tgds: zjdj * sdqn
+lzzq: 5
+spbb: 1
+bvsw: wrgd * mbsc
+rwnw: 2
+rpnz: bstt * fvbg
+jwzt: rjzt * rlmj
+hqsr: gnbd * hnrl
+fbfl: mvsn * mcdw
+chvj: 5
+cfwm: hsdn / bpwg
+blch: 3
+vjdl: mzgv - qlrl
+gblf: dddl + sjfm
+bnhz: bpnc + qgnm
+chtc: 3
+sbjl: 3
+tpfw: bchq + fhfv
+sgmz: 2
+gcdw: 2
+zfbv: 2
+rmqc: wblq * bjcd
+ldtw: pcnn + mrfp
+bqlz: 3
+qvvs: mdqz + tjcf
+rwnf: 10
+vggv: 3
+gjtv: pjvd + zmjf
+zpzf: 4
+qrjg: 17
+pmjz: drnl - dsmw
+bsjn: 5
+fdvc: 2
+czlc: 5
+ddfp: 4
+npfl: 2
+ndlz: vzrv * zspz
+pjhg: 3
+tnrg: 1
+vlmb: 2
+wdlb: 1
+pgmh: tfgn + lmgj
+cqds: 2
+grdf: fmng + njjs
+trzs: 3
+fhzg: 2
+wvbg: ptzv + mnzd
+pwbw: 3
+tpqn: qqhj + hjlw
+jnbr: dntw + zsnp
+vqrz: qwjc * zhhh
+smdq: 3
+fwht: vhzm + zcld
+qzhh: 2
+wcrq: 5
+zbzt: mvdv * qvsg
+bbqm: 13
+phpz: cqqw + ffnm
+swjw: 2
+djjq: hfgs + tzmw
+qhcd: 5
+dzft: vsjn - cqrp
+qsrl: 2
+sqms: bfvp + rnjb
+rdtl: prpb * nfwg
+hpct: zcvd * hwwb
+pjvd: rfqt * sjqz
+zsng: twhf + vqfz
+grft: 8
+dlvl: nwzz + gbsp
+cjgg: rvcc * bhjf
+tzjw: rsgn - lncn
+zspz: dzrg + vdpb
+cqqw: ljmw * hrgz
+nvhj: fvfz * bttz
+nrms: 2
+srwt: 5
+mfbb: 2
+vqth: mlcf + nzmz
+hwts: 17
+gcpr: tnrg + crfq
+ffll: 5
+wblz: 2
+jqmw: 5
+wrgd: 7
+qhdg: fglf * qvvs
+cgdj: 10
+rvgc: qdrw + msnd
+hsbs: lhvs * lhtz
+qnhp: ftzt + nwgg
+blws: fzjd / rvct
+frbf: dlvl / rcmn
+gtdp: 3
+tnsp: 2
+hwbq: 18
+ccdj: cbzl + dclg
+ndtn: ntcc + ptdp
+jfrl: rqwp + dlbp
+dmwr: ffll * tnwd
+hzvf: qgrh + fmfj
+zwrj: 2
+mbnd: nhzn - bggd
+ffbs: 3
+vrsh: cghd * fwlh
+pfcj: 3
+jvlw: qfgs * pfcj
+vpdp: 15
+fcvl: 4
+dqzg: 11
+szvj: 2
+nsjv: 3
+qgrh: 1
+rbjd: 4
+bjcd: 3
+spdg: jtzs + fzmh
+dsrb: 2
+brcj: 14
+tcmb: 12
+zrpz: 11
+wqdv: scgt * qbqh
+ldjc: 3
+qgcr: 7
+pwtd: rzmq + lljz
+whwc: wjwq + fcts
+schq: rwgg * zdcc
+vmdq: 2
+vtnj: 1
+wscf: bnff * wqtd
+wsnp: 9
+zrcm: qslc * qndn
+bsgl: 2
+gpmd: mzdz * vnzf
+gvjd: 2
+mngq: hfsz + wmmz
+hssq: mvwb * jlwz
+bwsm: dhvn + mhvw
+vdgg: szdc * pszf
+htlp: dhpp / stdr
+wrwt: mrhl * rqhj
+mchw: 4
+qrzb: btdm + bqrq
+scgt: 2
+bhjf: 3
+wqtw: fhpr + gfdp
+rvjn: 2
+dzrg: fflf + qzjs
+ggvj: 3
+gtgs: 5
+snjp: 2
+sqlt: 8
+pszf: 3
+whrf: 2
+phrp: 2
+cdhg: 12
+dvbw: zrff * gtzf
+lssl: 16
+djln: qprb - ncwt
+pfqg: ftfh + hbmm
+mwhm: 11
+jjpg: nwgv * lqmh
+cdrg: 10
+bmwh: 4
+cbrw: 4
+dmwv: qgcr + rngp
+jfzt: 3
+bqrg: zbzt / thqw
+twtl: dzdd * scdb
+jrjp: 8
+zjwp: 16
+chmm: 2
+lpms: dwvd * bcmf
+gprr: zbqv + hzgt
+znjg: wmrp * ldrv
+qmsn: 5
+phlv: wscf + bpjm
+rwjv: 3
+pqzt: lpvd + djcm
+sgrd: cqrb - zvpd
+ggsl: zprb * pzvn
+vjcd: gdvt * sznf
+dhzq: gqwl * vjlh
+wlqp: ldfw / hfjm
+bcsr: 2
+zgzb: 8
+jnvb: 5
+fshw: mlhp / hdmg
+slmh: hswt + jgdn
+hqsf: 5
+zpnw: jfzt * drtf
+qshb: lgjv - wmnp
+qvct: 3
+tqhf: 3
+vrgj: 3
+njjs: hgph + wmpf
+cqpc: rvzz / dggd
+qslc: npwg + ctcj
+rswd: 13
+slqb: 3
+vfjc: fzdr + nrrs
+vcqv: 5
+ccwd: rwzn * bwcm
+llwb: hlnd * ptrt
+bdsq: 3
+ndhv: 2
+rhhz: 12
+qmmc: 3
+hjvb: 4
+tcdj: 17
+vzbp: 3
+tpdj: qqlw - ztrc
+lngh: 2
+dplg: 8
+bwch: dwwh + qjvs
+ssrr: 10
+ngtq: 6
+bhrh: 3
+pqlz: wbnj * wzwd
+rnjb: 4
+sdqn: 4
+dtjn: chbf + ggqb
+wqnv: 3
+drlw: wcvv + jmlr
+gqnt: qhcz * tctm
+jdgz: nwcj * szsv
+zhzw: 2
+zwgp: 2
+bvdc: 3
+rtrc: 3
+jwbg: hsmj - vdlz
+szqq: vggv * cwlb
+ntpp: mlpv * bvht
+hcsb: 2
+fwpp: fqsm * mzvj
+vbbs: 4
+dglt: mwtw + jjbn
+dmmt: thsh * wrsc
+bpjm: grcf * rwwm
+wjjg: fzdn + gjwh
+qqlw: nsdh + fcvl
+fwss: wllz * swnn
+ztht: vsmn * bfpt
+mtrq: ffss / qhvc
+vblq: 6
+shnl: 2
+sdrq: 3
+gwbj: 7
+vnbp: 2
+jtzc: fpjv * tnjj
+wpbt: sgrd + twtl
+wdmc: flnz * sfpd
+vdvn: ddvr + rjbf
+stdr: 2
+sjtc: 2
+tvpb: 2
+jnzv: 5
+prnv: 3
+zdsl: hgsb * mcvf
+rlmd: vqth + hnrm
+hdgm: dnhg - fdgq
+ctzw: bsww + wrhn
+dqdg: bcdw * rblr
+wqhs: njhj + llrf
+zcvd: 3
+whlf: 4
+fwlh: 5
+zfbp: 3
+nwhn: 6
+rgbg: qrmh - dwhs
+dbfq: rcmz + pstz
+rcfj: 3
+scbt: 2
+prnb: 9
+zjdj: ggsl / nnth
+qjvs: cvlt / zbgs
+gdrr: 11
+hcrq: 4
+pbzh: 4
+cdjb: bmch + pqwq
+nfvc: 2
+wczz: 2
+fsph: 5
+bscg: 5
+lppj: blws + tgvz
+tsvp: lzrf / qqdb
+fdsf: cfsp + srws
+mlfb: sgqs * vnbc
+whgc: cqds * bhqh
+lhrv: rdsh * nsdq
+mlhp: sjqv * ftcp
+njhj: qjgp + hpbd
+gcdm: 2
+rjbf: zjwp * rjcw
+nrsb: 5
+brln: fcjr * ptqm
+dlbp: 5
+dvzd: brsf * gcdm
+jnml: 11
+vjlh: 12
+dntw: cjbj * dshg
+bfjm: nffp * snpf
+smqn: 4
+rnpg: wnvp + mtbg
+pftp: hsbs + vgwz
+znzh: mcpq * dqln
+mzvs: 1
+lwzj: 4
+cjbj: pwzr + sfvc
+zgnh: 3
+pcgs: vnct + wdnq
+bftj: 5
+mqll: 1
+tmvq: 4
+pwpf: gvqs + jlvr
+bvht: 3
+sjpv: 3
+pqrf: 3
+psjm: jnzv * pvww
+pqhz: lzpg / tbls
+bsrv: ttrq * pqwg
+cmch: fvsv * tcdj
+jmls: 3
+rcbn: mbnq + jnhd
+gdmv: cvnn - pqcl
+bqzn: 6
+rjhc: 4
+mtpq: 2
+cvlt: hcrj + cfhp
+vdpb: grzf + djfl
+lnjr: lrfs / jmls
+bqzs: mjbj + qrvm
+vmbv: zpff + vtlz
+vlcb: jpth + fsrh
+wddr: zcpn * czhj
+ffpr: 3
+qllt: 4
+cnsb: 1
+zwnm: ssqt + prmq
+qbph: 4
+hcvc: nhrp * bbll
+qtgs: dnqs * cdmz
+zljz: 1
+vprh: 8
+snzt: 2
+jtbg: zhzw * qvqf
+ccps: 2
+jlvr: 1
+brpt: wgsj + grdf
+bgct: 2
+sljm: 5
+wdnq: vgqd * rpjc
+nmgj: dglt + ppnn
+qqpp: 2
+hfsz: jwrj * vmzb
+nwwm: fqhq * pzqq
+cpcf: 2
+nchn: 4
+jtzs: lmvz * mtrq
+qttw: 3
+llzt: gvbg * twds
+mgcv: dhgn * gmnw
+fmcd: 12
+qncj: svdl * ffnp
+hqjm: znmj * ffpr
+bqbr: 8
+ndcf: 1
+wzwd: 3
+sjlh: qpqz * lfzg
+pdmd: qzrc + clvv
+ssfg: mtpq + hjvb
+tcdt: 4
+sjqz: 5
+gnbd: 2
+blrl: rrzl * jlfd
+lfhq: srwt * plwr
+hmzh: 7
+rbdl: 13
+fhgj: 2
+snwr: vjcd * bnbt
+ttmp: pwjt + mzvb
+nfwg: 3
+lnhj: vdhd + fshw
+qprb: vvzv * sqzv
+pwzr: 2
+rsgc: cbrw + wqcj
+jtcl: ddwj + wqnv
+qrhp: qnml - szsn
+gffs: 5
+cmwj: pgvc + wvjf
+jrvd: tfdg * fwwb
+glwz: sppw * zwgp
+lphc: 4
+tdhd: frbf + mrgs
+mzsw: spbb + hrbj
+prfn: jmbw * ltsj
+fvmq: 10
+fgjv: 4
+wjtj: 7
+hfrb: nwhd + gjzd
+ztgg: qhtt / nfhl
+szsn: 3
+vvvg: 6
+fvdc: rvqd + bbwz
+zqcj: 5
+rvjs: 18
+wnvp: qlzn * qprg
+hbcj: 2
+clvv: 3
+lttb: 1
+gqwl: cjdg * tjlr
+gjzd: 9
+hvvc: lbzj * fdvc
+nnth: 3
+dstj: 17
+tvbr: phft - cvfh
+lzzf: cpsb * slmh
+tbgt: 5
+dggd: 3
+mnmz: 10
+rtsw: nzpv - vczf
+gvnr: hrvz + vqtr
+flzm: shlq * ngtq
+ffnp: 11
+cblv: ccww * lgsh
+hdmg: 3
+mvsn: 2
+hcfh: dzwz * zwrj
+qrvj: zgnm + rzsf
+hjln: bjhz * grsp
+lfnh: wqtw + cdfp
+nrlg: cpcf * wcrq
+htfd: 5
+ftcp: 3
+rdjh: hnph + tlzg
+rngp: 4
+pmpj: lfhq + srnd
+tjbj: lngh + pswf
+ffhz: 7
+fvvp: fvld + mmsr
+dcvl: gzrs + srzh
+qndn: 2
+vhzm: gvnr * dqtn
+gmjh: dbnp + zmtj
+dwwh: 14
+fbzw: 7
+mdlw: 4
+smsc: rnpw * pjhg
+qbtg: dphb * bgzv
+mwhz: 3
+ltbw: tbgt * hvwt
+fczq: 4
+bcmf: 3
+fsrp: dmwr + qbqz
+zcgf: clgq * nhch
+sqtg: pzms + ffhz
+qtjv: cbmh + wqmn
+llvf: mzsw * tfgc
+qnwr: szqq + gbtm
+bnqv: fccf * tdbz
+rsgn: pnfz - bfjm
+mvzs: vtnj + flzm
+dgrd: jlwd * fvdc
+fqvb: 5
+qvsg: 2
+lzvr: 4
+grnz: rmzm * wztc
+srzh: 5
+jlzj: cvbm + jdlb
+hzfw: gcdw * rfsb
+ldfw: jgbd * ztgg
+fhfs: dvzd + srmj
+wptw: fpmd + mmgl
+qdrw: 1
+wscd: nbfp * bbqm
+mmrp: 4
+jpmm: 2
+rqhj: 2
+lhrr: pczh + cfwm
+fvfz: 8
+mgwv: 3
+nnhg: 2
+mwsf: phlv - fbzp
+dgdm: csfb * zzsc
+zcld: lpwg * ctqm
+zcsm: 2
+vbbp: bvsz + qwtq
+bsmt: 2
+htcl: zvcw + zbct
+msth: cppz * fcgn
+ptrt: 2
+hhhz: zzjv + mpln
+gqzl: mbgh + thrw
+tjcw: gwbj * ctjb
+bttm: 1
+jqqz: 8
+vgwv: mthn * tcmb
+nzpv: dwhf + fpmz
+fflf: jrlh * prdz
+glml: mnjg + ntpp
+vdrj: 3
+hbqz: zgvw * llvf
+pbnq: zgnh * lzvr
+grzf: wblz + bjrz
+hlnd: 4
+ctcj: 14
+rnhn: 3
+rpcz: 2
+pcpq: dwnn * ncqp
+mwhb: smqn + jqqz
+lghh: 3
+ntcc: vqbp * hcpm
+nfjf: 3
+bjrj: llsf * qwmp
+qhcz: 2
+mzvj: hzfw / llqh
+jfzs: ncct * lqsz
+fdsq: hmzh * lnhj
+rqws: bjsm + dsgb
+fvwz: 3
+gmfd: mfqg * djjq
+qwmp: 8
+rrwd: 5
+vjgg: gblf * bnnf
+smlb: qbtg * sjtc
+jjmt: qlvl + lrqp
+vrfj: bjhw * vsdz
+qmwt: 2
+fmvb: wfpd * grcs
+fbzp: vsjb * cgdm
+mvvj: hpct * cgvg
+lhfj: 3
+lmvz: 3
+csdd: twlb + jcsf
+ffsp: 3
+rwzq: sbvw + trhm
+wwrg: btqz - fwfg
+vnzf: 3
+sdfb: 3
+vvzv: 5
+lzqq: nhtm + hmbd
+mspf: 13
+qswz: bwnd + spdg
+mvjg: 4
+wrnm: 3
+qmqj: vfch * jqpc
+tzmw: 1
+dbgb: 1
+lhtz: 14
+rlmj: 3
+mnvs: dgvr + fdsq
+rfqt: 15
+rbsn: lzvh + mwjg
+tcdl: 5
+zbrc: qmqj + htlp
+vldd: fmcd * llbs
+sczr: mnmz * whlf
+gfwh: jdqd + bhhw
+mqnz: 8
+mvlb: 1
+wbnj: 3
+psvd: gprr * qvgv
+cgvg: 2
+vhbj: 4
+djdj: 2
+nwmr: zgzb + lhmg
+hznr: cscs * ndhc
+hsgr: 17
+jnhd: 8
+hrsl: 9
+fsqw: ctdm * ftrj
+jcgs: 4
+rddp: mcgj + jtqj
+sbsn: 3
+jsqd: lpms * rgvf
+bnnj: zhll + gcdn
+zvcw: 10
+vnct: dthl + qmnt
+dsmw: ztht + bqlh
+sznf: 2
+fvbg: 2
+plwr: 5
+cmcj: psbz * gzrp
+hbtr: ldjc * gjjw`,u5="",L5="",D5="",R5="",Z5=`1000
+2000
+3000
+
+4000
+
+5000
+6000
+
+7000
+8000
+9000
+
+10000`,$5=`A Y
+B X
+C Z`,_5=`vJrwpWtwJgWrhcsFMMfFFhFp
+jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+PmmdzqPrVvPwwTWBwg
+wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+ttgJtRGJQctTZtZT
+CrZsJsPPZsGzwwsLwLmpwMDw`,U5=`2-4,6-8
+2-3,4-5
+5-7,7-9
+2-8,3-7
+6-6,4-6
+2-6,4-8`,S5=`    [D]    
+[N] [C]    
+[Z] [M] [P]
+ 1   2   3 
+
+move 1 from 2 to 1
+move 3 from 1 to 3
+move 2 from 2 to 1
+move 1 from 1 to 2`,y5="mjqjpqmgbljsphdztnvjfqwrcgsmlb",T5=`$ cd /
+$ ls
+dir a
+14848514 b.txt
+8504156 c.dat
+dir d
+$ cd a
+$ ls
+dir e
+29116 f
+2557 g
+62596 h.lst
+$ cd e
+$ ls
+584 i
+$ cd ..
+$ cd ..
+$ cd d
+$ ls
+4060174 j
+8033020 d.log
+5626152 d.ext
+7214296 k`,M5=`30373
+25512
+65332
+33549
+35390`,x5=`R 4
+U 4
+L 3
+D 1
+R 4
+D 1
+L 5
+R 2`,V5=`addx 15
+addx -11
+addx 6
+addx -3
+addx 5
+addx -1
+addx -8
+addx 13
+addx 4
+noop
+addx -1
+addx 5
+addx -1
+addx 5
+addx -1
+addx 5
+addx -1
+addx 5
+addx -1
+addx -35
+addx 1
+addx 24
+addx -19
+addx 1
+addx 16
+addx -11
+noop
+noop
+addx 21
+addx -15
+noop
+noop
+addx -3
+addx 9
+addx 1
+addx -3
+addx 8
+addx 1
+addx 5
+noop
+noop
+noop
+noop
+noop
+addx -36
+noop
+addx 1
+addx 7
+noop
+noop
+noop
+addx 2
+addx 6
+noop
+noop
+noop
+noop
+noop
+addx 1
+noop
+noop
+addx 7
+addx 1
+noop
+addx -13
+addx 13
+addx 7
+noop
+addx 1
+addx -33
+noop
+noop
+noop
+addx 2
+noop
+noop
+noop
+addx 8
+noop
+addx -1
+addx 2
+addx 1
+noop
+addx 17
+addx -9
+addx 1
+addx 1
+addx -3
+addx 11
+noop
+noop
+addx 1
+noop
+addx 1
+noop
+noop
+addx -13
+addx -19
+addx 1
+addx 3
+addx 26
+addx -30
+addx 12
+addx -1
+addx 3
+addx 1
+noop
+noop
+noop
+addx -9
+addx 18
+addx 1
+addx 2
+noop
+noop
+addx 9
+noop
+noop
+noop
+addx -1
+addx 2
+addx -37
+addx 1
+addx 3
+noop
+addx 15
+addx -21
+addx 22
+addx -6
+addx 1
+noop
+addx 2
+addx 1
+noop
+addx -10
+noop
+noop
+addx 20
+addx 1
+addx 2
+addx 2
+addx -6
+addx -11
+noop
+noop
+noop`,X5=`Monkey 0:
+  Starting items: 79, 98
+  Operation: new = old * 19
+  Test: divisible by 23
+    If true: throw to monkey 2
+    If false: throw to monkey 3
+
+Monkey 1:
+  Starting items: 54, 65, 75, 74
+  Operation: new = old + 6
+  Test: divisible by 19
+    If true: throw to monkey 2
+    If false: throw to monkey 0
+
+Monkey 2:
+  Starting items: 79, 60, 97
+  Operation: new = old * old
+  Test: divisible by 13
+    If true: throw to monkey 1
+    If false: throw to monkey 3
+
+Monkey 3:
+  Starting items: 74
+  Operation: new = old + 3
+  Test: divisible by 17
+    If true: throw to monkey 0
+    If false: throw to monkey 1`,F5=`Sabqponm
+abcryxxl
+accszExk
+acctuvwj
+abdefghi`,G5=`[1,1,3,1,1]
+[1,1,5,1,1]
+
+[[1],[2,3,4]]
+[[1],4]
+
+[9]
+[[8,7,6]]
+
+[[4,4],4,4]
+[[4,4],4,4,4]
+
+[7,7,7,7]
+[7,7,7]
+
+[]
+[3]
+
+[[[]]]
+[[]]
+
+[1,[2,[3,[4,[5,6,7]]]],8,9]
+[1,[2,[3,[4,[5,6,0]]]],8,9]`,P5=`498,4 -> 498,6 -> 496,6
+503,4 -> 502,4 -> 502,9 -> 494,9`,J5=`Sensor at x=2, y=18: closest beacon is at x=-2, y=15
+Sensor at x=9, y=16: closest beacon is at x=10, y=16
+Sensor at x=13, y=2: closest beacon is at x=15, y=3
+Sensor at x=12, y=14: closest beacon is at x=10, y=16
+Sensor at x=10, y=20: closest beacon is at x=10, y=16
+Sensor at x=14, y=17: closest beacon is at x=10, y=16
+Sensor at x=8, y=7: closest beacon is at x=2, y=10
+Sensor at x=2, y=0: closest beacon is at x=2, y=10
+Sensor at x=0, y=11: closest beacon is at x=2, y=10
+Sensor at x=20, y=14: closest beacon is at x=25, y=17
+Sensor at x=17, y=20: closest beacon is at x=21, y=22
+Sensor at x=16, y=7: closest beacon is at x=15, y=3
+Sensor at x=14, y=3: closest beacon is at x=15, y=3
+Sensor at x=20, y=1: closest beacon is at x=15, y=3`,H5=`Valve AA has flow rate=0; tunnels lead to valves DD, II, BB
+Valve BB has flow rate=13; tunnels lead to valves CC, AA
+Valve CC has flow rate=2; tunnels lead to valves DD, BB
+Valve DD has flow rate=20; tunnels lead to valves CC, AA, EE
+Valve EE has flow rate=3; tunnels lead to valves FF, DD
+Valve FF has flow rate=0; tunnels lead to valves EE, GG
+Valve GG has flow rate=0; tunnels lead to valves FF, HH
+Valve HH has flow rate=22; tunnel leads to valve GG
+Valve II has flow rate=0; tunnels lead to valves AA, JJ
+Valve JJ has flow rate=21; tunnel leads to valve II`,Q5=">>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>",N5=`2,2,2
+1,2,2
+3,2,2
+2,1,2
+2,3,2
+2,2,1
+2,2,3
+2,2,4
+2,2,6
+1,2,5
+3,2,5
+2,1,5
+2,3,5`,W5=`Blueprint 1: Each ore robot costs 4 ore. Each clay robot costs 2 ore. Each obsidian robot costs 3 ore and 14 clay. Each geode robot costs 2 ore and 7 obsidian.
+Blueprint 2: Each ore robot costs 2 ore. Each clay robot costs 3 ore. Each obsidian robot costs 3 ore and 8 clay. Each geode robot costs 3 ore and 12 obsidian.`,E5=`1
+2
+-3
+3
+-2
+0
+4`,k5=`root: pppw + sjmn
+dbpl: 5
+cczh: sllz + lgvd
+zczc: 2
+ptdq: humn - dvpt
+dvpt: 3
+lfqf: 4
+humn: 5
+ljgn: 2
+sjmn: drzm * dbpl
+sllz: 4
+pppw: cczh / lfqf
+lgvd: ljgn * ptdq
+drzm: hmdt - zczc
+hmdt: 32`,I5="",O5="",K5="",n3="";var Bn=Object.assign({"./day01/solution-01.js":w1,"./day02/solution-02.js":q1,"./day03/solution-03.js":B1,"./day04/solution-04.js":R1,"./day05/solution-05.js":U1,"./day06/solution-06.js":M1,"./day07/solution-07.js":G1,"./day08/solution-08.js":Q1,"./day09/solution-09.js":k1,"./day10/solution-10.js":n2,"./day11/solution-11.js":s2,"./day12/solution-12.js":m2,"./day13/solution-13.js":p2,"./day14/solution-14.js":w2,"./day15/solution-15.js":i2,"./day16/solution-16.js":u2,"./day17/solution-17.js":$2,"./day18/solution-18.js":y2,"./day19/solution-19.js":V2,"./day20/solution-20.js":Q2,"./day21/solution-21.js":k2,"./day22/solution-22.js":O2,"./day23/solution-23.js":n5,"./day24/solution-24.js":t5,"./day25/solution-25.js":o5}),un=Object.assign({"./day01/input-01.txt":s5,"./day02/input-02.txt":a5,"./day03/input-03.txt":d5,"./day04/input-04.txt":l5,"./day05/input-05.txt":m5,"./day06/input-06.txt":v5,"./day07/input-07.txt":e5,"./day08/input-08.txt":f5,"./day09/input-09.txt":p5,"./day10/input-10.txt":h5,"./day11/input-11.txt":b5,"./day12/input-12.txt":g5,"./day13/input-13.txt":w5,"./day14/input-14.txt":Y5,"./day15/input-15.txt":j5,"./day16/input-16.txt":z5,"./day17/input-17.txt":q5,"./day18/input-18.txt":i5,"./day19/input-19.txt":A5,"./day20/input-20.txt":C5,"./day21/input-21.txt":B5,"./day22/input-22.txt":u5,"./day23/input-23.txt":L5,"./day24/input-24.txt":D5,"./day25/input-25.txt":R5}),Ln=Object.assign({"./day01/test-input-01.txt":Z5,"./day02/test-input-02.txt":$5,"./day03/test-input-03.txt":_5,"./day04/test-input-04.txt":U5,"./day05/test-input-05.txt":S5,"./day06/test-input-06.txt":y5,"./day07/test-input-07.txt":T5,"./day08/test-input-08.txt":M5,"./day09/test-input-09.txt":x5,"./day10/test-input-10.txt":V5,"./day11/test-input-11.txt":X5,"./day12/test-input-12.txt":F5,"./day13/test-input-13.txt":G5,"./day14/test-input-14.txt":P5,"./day15/test-input-15.txt":J5,"./day16/test-input-16.txt":H5,"./day17/test-input-17.txt":Q5,"./day18/test-input-18.txt":N5,"./day19/test-input-19.txt":W5,"./day20/test-input-20.txt":E5,"./day21/test-input-21.txt":k5,"./day22/test-input-22.txt":I5,"./day23/test-input-23.txt":O5,"./day24/test-input-24.txt":K5,"./day25/test-input-25.txt":n3});function c3(t,n,c,o){this.day=t||"0",this.input=n||"",this.testInput=c||"",this.part1=o.part1||null,this.part2=o.part2||null,this.knownAnswers=(o.knownAnswers||[]).map(r=>String(r))}function t3(){var t={},n={},c={};Object.keys(Ln).forEach(d=>{var a=/input-(\d+)/.exec(d)[1];t[a]=Ln[d]||""}),Object.keys(un).forEach(d=>{var a=/input-(\d+)/.exec(d)[1];n[a]=un[d]||""}),Object.keys(Bn).forEach(d=>{var a=/solution-(\d+)/.exec(d)[1];c[a]=Bn[d]||null});var o={},r=Object.keys(n).sort();return r.forEach(d=>{var a=n[d],s=t[d],l=c[d];o[d]=new c3(d,a,s,l)}),o}function Dn(t,n,c){const o=t.slice();return o[23]=n[c],o}function Rn(t){let n,c=t[23]+"",o,r,d;function a(){return t[9](t[23])}return{c(){n=A("span"),o=rn(c),Y(n,"class","button svelte-eaii1m"),y(n,"current",t[23]===t[2])},m(s,l){Un(s,n,l),g(n,o),r||(d=[M(n,"keydown",o3),M(n,"click",a)],r=!0)},p(s,l){t=s,l&2&&c!==(c=t[23]+"")&&an(o,c),l&6&&y(n,"current",t[23]===t[2])},d(s){s&&vn(n),r=!1,Q(d)}}}function r3(t){let n,c,o,r,d,a,s,l,m,v,e,p,f=t[5][0]+"",h,q,w,u,z,i,Z,$,U,x=t[5][1]+"",G,P,b,B,V,C,S,N,K,hn,X,bn,F,gn,T,on,wn,J=t[1],R=[];for(let j=0;j<J.length;j+=1)R[j]=Rn(Dn(t,J,j));return{c(){n=A("div"),c=A("h2"),c.textContent="Advent 2022",o=_(),r=A("div"),d=A("div"),d.innerHTML='<h4 class="svelte-eaii1m">Days:</h4>',a=_(),s=A("div");for(let j=0;j<R.length;j+=1)R[j].c();l=_(),m=A("div"),v=A("h4"),v.textContent="Output 1:",e=_(),p=A("div"),h=rn(f),q=_(),w=A("textarea"),z=_(),i=A("div"),Z=A("h4"),Z.textContent="Output 2:",$=_(),U=A("div"),G=rn(x),P=_(),b=A("textarea"),V=_(),C=A("div"),S=A("h4"),S.textContent="Input:",N=_(),K=A("br"),hn=_(),X=A("span"),X.textContent="Real",bn=_(),F=A("span"),F.textContent="Test",gn=_(),T=A("textarea"),Y(d,"class","label svelte-eaii1m"),Y(s,"class","day-list"),Y(v,"class","svelte-eaii1m"),Y(p,"class","time svelte-eaii1m"),Y(m,"class","label svelte-eaii1m"),Y(w,"name","output1"),Y(w,"id","output1"),Y(w,"rows",u=cn(t[4][0])),Y(w,"class","svelte-eaii1m"),y(w,"known-good",t[6][0]),Y(Z,"class","svelte-eaii1m"),Y(U,"class","time svelte-eaii1m"),Y(i,"class","label svelte-eaii1m"),Y(b,"name","output2"),Y(b,"id","output2"),Y(b,"rows",B=cn(t[4][1])),Y(b,"class","svelte-eaii1m"),y(b,"known-good",t[6][1]),Y(S,"class","svelte-eaii1m"),Y(X,"class","button input-toggle svelte-eaii1m"),y(X,"current",!t[3]),Y(F,"class","button input-toggle svelte-eaii1m"),y(F,"current",t[3]),Y(C,"class","label svelte-eaii1m"),r1(C,"align-self","flex-start"),Y(T,"name","input"),Y(T,"id","input"),Y(T,"rows","14"),Y(T,"class","svelte-eaii1m"),Y(r,"class","layout svelte-eaii1m"),Y(n,"class","outer svelte-eaii1m")},m(j,D){Un(j,n,D),g(n,c),g(n,o),g(n,r),g(r,d),g(r,a),g(r,s);for(let L=0;L<R.length;L+=1)R[L].m(s,null);g(r,l),g(r,m),g(m,v),g(m,e),g(m,p),g(p,h),g(r,q),g(r,w),H(w,t[4][0]),g(r,z),g(r,i),g(i,Z),g(i,$),g(i,U),g(U,G),g(r,P),g(r,b),H(b,t[4][1]),g(r,V),g(r,C),g(C,S),g(C,N),g(C,K),g(C,hn),g(C,X),g(C,bn),g(C,F),g(r,gn),g(r,T),H(T,t[0]),on||(wn=[M(w,"input",t[10]),M(b,"input",t[11]),M(X,"keydown",s3),M(X,"click",t[12]),M(F,"keydown",a3),M(F,"click",t[13]),M(T,"input",t[14])],on=!0)},p(j,[D]){if(D&134){J=j[1];let L;for(L=0;L<J.length;L+=1){const Yn=Dn(j,J,L);R[L]?R[L].p(Yn,D):(R[L]=Rn(Yn),R[L].c(),R[L].m(s,null))}for(;L<R.length;L+=1)R[L].d(1);R.length=J.length}D&32&&f!==(f=j[5][0]+"")&&an(h,f),D&16&&u!==(u=cn(j[4][0]))&&Y(w,"rows",u),D&16&&H(w,j[4][0]),D&64&&y(w,"known-good",j[6][0]),D&32&&x!==(x=j[5][1]+"")&&an(G,x),D&16&&B!==(B=cn(j[4][1]))&&Y(b,"rows",B),D&16&&H(b,j[4][1]),D&64&&y(b,"known-good",j[6][1]),D&8&&y(X,"current",!j[3]),D&8&&y(F,"current",j[3]),D&1&&H(T,j[0])},i:O,o:O,d(j){j&&vn(n),c1(R,j),on=!1,Q(wn)}}}function Zn(t){return`(${Math.round(performance.now()-t)}ms)`}function cn(t){var n=String(t||"").split(`
+`).length;return Math.min(n,Math.max(n,1,10))}const o3=()=>{},s3=()=>{},a3=()=>{};function d3(t,n,c){var o=b=>new Promise(B=>setTimeout(B,b)),r=[],d="xx",a="",s=!1,l=["",""],m=["",""],v=[!1,!1],e=t3(),p=()=>Object.keys(e).filter(b=>!!e[b].part1).sort();r=p();var f=!1;async function h(){if(!f){f=!0,c(4,l=["",""]),c(5,m=["",""]),await o(10);var b=e[d]||{},B=performance.now(),V=await q(b.part1);c(4,l=[V,""]),c(5,m=[Zn(B),""]),i(1,V),await o(10);var C=performance.now(),S=await q(b.part2);c(4,l=[l[0],S]),c(5,m=[m[0],Zn(C)]),i(2,S),f=!1}}async function q(b){if(!b)return"";try{return b(a)}catch(C){var B=String(C),V=/:(\d+:\d+)\)/.exec(C.stack||"");return V&&(B=`(${V[1]}) ${B}`),B}}function w(b=""){b&&c(2,d=b);var B=e[d];c(0,a=s?B.testInput:B.input),h()}function u(b){b&&h()}function z(b){c(3,s=!!b),w()}function i(b,B,C){var C=e[d].knownAnswers||[],S=b===1?0:2;s||S++;var N=String(C[S]||""),K=!!(N&&N===String(B));c(6,v[b-1]=K,v),c(6,v)}setTimeout(()=>{w(r[r.length-1]),h()},100);const Z=b=>w(b);function $(){l[0]=this.value,c(4,l)}function U(){l[1]=this.value,c(4,l)}const x=()=>z(!1),G=()=>z(!0);function P(){a=this.value,c(0,a)}return t.$$.update=()=>{t.$$.dirty&1&&u(a)},[a,r,d,s,l,m,v,w,z,Z,$,U,x,G,P]}class l3 extends p1{constructor(n){super(),f1(this,n,d3,r3,Kn,{})}}new l3({target:document.querySelector(".app")});
