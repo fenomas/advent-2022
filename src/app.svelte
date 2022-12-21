@@ -1,4 +1,6 @@
 <script>
+  var sleep = (ms) => new Promise((r) => setTimeout(r, ms))
+
   /**
    *
    *    state
@@ -6,15 +8,19 @@
    */
   var dayNumList = []
   var currDay = 'xx'
-  var output1 = ''
-  var output2 = ''
   var input = ''
-  var time1 = '1ms'
-  var time2 = '1ms'
+  var useTestInput = false
+  var outputs = ['', '']
+  var times = ['', '']
+  var answersKnownGood = [false, false]
 
   /**
    *
+   *
+   *
    *    imports and HMR
+   *
+   *
    *
    */
   import { getDataByDay } from './advent/importer'
@@ -31,60 +37,93 @@
       if (mod && mod.getDataByDay) {
         dataByDay = mod.getDataByDay()
         dayNumList = makeDaysList()
-        onInput()
+        runSolutions()
       }
     })
   }
 
   /**
+   *
+   *
    *
    *    module running logic
    *
+   *
+   *
    */
-  function runPart(part = 1) {
-    if (busy[part]) return
+
+  var busy = false
+  async function runSolutions() {
+    if (busy) return
+    busy = true
+    outputs = ['', '']
+    times = ['', '']
+    await sleep(10)
     var data = dataByDay[currDay] || {}
-    var fn = part === 1 ? data.part1 : data.part2
-    if (!fn) return
-    busy[part] = true
-    setTimeout(() => {
-      var t = performance.now()
-      var out = '(error)'
-      try {
-        out = fn(input)
-      } catch (err) {
-        out = String(err)
-        var re = /:(\d+:\d+)\)/.exec(err.stack || '')
-        if (re) out = `(${re[1]}) ${out}`
-      }
-      setOutput(part, out, performance.now() - t)
-      busy[part] = false
-    })
+    var t1 = performance.now()
+    var out1 = await getSolutionOutput(data.part1)
+    outputs = [out1, '']
+    times = [formatTime(t1), '']
+    colorKnownGood(1, out1)
+    await sleep(10)
+    var t2 = performance.now()
+    var out2 = await getSolutionOutput(data.part2)
+    outputs = [outputs[0], out2]
+    times = [times[0], formatTime(t2)]
+    colorKnownGood(2, out2)
+    busy = false
   }
-  var busy = [false, false, false]
+
+  async function getSolutionOutput(fn) {
+    if (!fn) return ''
+    try {
+      return fn(input)
+    } catch (err) {
+      var out = String(err)
+      var re = /:(\d+:\d+)\)/.exec(err.stack || '')
+      if (re) out = `(${re[1]}) ${out}`
+      return out
+    }
+  }
+
+  function formatTime(t) {
+    return `(${Math.round(performance.now() - t)}ms)`
+  }
 
   /**
    *
-   *    view
+   *
+   *
+   *    view and bindings
+   *
+   *
    *
    */
   function setDay(day = '') {
     if (day) currDay = day
-    input = dataByDay[day].input
+    var dat = dataByDay[currDay]
+    input = useTestInput ? dat.testInput : dat.input
+    runSolutions()
   }
 
   function onInput(input) {
-    runPart(1)
-    runPart(2)
+    if (input) runSolutions()
   }
   $: onInput(input)
 
-  function setOutput(part, out, dt) {
-    var time = `(${Math.round(dt)}ms)`
-    if (part === 1) output1 = out
-    if (part === 1) time1 = time
-    if (part === 2) output2 = out
-    if (part === 2) time2 = time
+  function setInputType(test) {
+    useTestInput = !!test
+    setDay()
+  }
+
+  function colorKnownGood(part, output, known) {
+    var known = dataByDay[currDay].knownAnswers || []
+    var ix = part === 1 ? 0 : 2
+    if (!useTestInput) ix++
+    var ans = String(known[ix] || '')
+    var good = !!(ans && ans === String(output))
+    answersKnownGood[part - 1] = good
+    answersKnownGood = answersKnownGood
   }
 
   function getOutputRows(str) {
@@ -94,7 +133,7 @@
 
   setTimeout(() => {
     setDay(dayNumList[dayNumList.length - 1])
-    onInput()
+    runSolutions()
   }, 100)
 </script>
 
@@ -126,28 +165,43 @@
 
     <div class="label">
       <h4>Output 1:</h4>
-      <div class="time">{time1}</div>
+      <div class="time">{times[0]}</div>
     </div>
     <textarea
       name="output1"
       id="output1"
-      bind:value={output1}
-      rows={getOutputRows(output1)}
+      bind:value={outputs[0]}
+      class:known-good={answersKnownGood[0]}
+      rows={getOutputRows(outputs[0])}
     />
 
     <div class="label">
       <h4>Output 2:</h4>
-      <div class="time">{time2}</div>
+      <div class="time">{times[1]}</div>
     </div>
     <textarea
       name="output2"
       id="output2"
-      bind:value={output2}
-      rows={getOutputRows(output2)}
+      bind:value={outputs[1]}
+      class:known-good={answersKnownGood[1]}
+      rows={getOutputRows(outputs[1])}
     />
 
     <div class="label" style="align-self: flex-start;">
       <h4>Input:</h4>
+      <br />
+      <span
+        class="button input-toggle"
+        class:current={!useTestInput}
+        on:keydown={() => {}}
+        on:click={() => setInputType(false)}>Real</span
+      >
+      <span
+        class="button input-toggle"
+        class:current={useTestInput}
+        on:keydown={() => {}}
+        on:click={() => setInputType(true)}>Test</span
+      >
     </div>
     <textarea name="input" id="input" bind:value={input} rows="14" />
   </div>
@@ -200,6 +254,12 @@
     color: #112;
   }
 
+  .input-toggle {
+    display: block;
+    margin: 0.5em 0 0;
+    padding: 2px 0.4em 1px;
+  }
+
   .time {
     font-size: 80%;
     position: absolute;
@@ -214,5 +274,9 @@
     color: #ccc;
     border-color: #777;
     background-color: #10101a;
+  }
+
+  .known-good {
+    color: #0a0;
   }
 </style>

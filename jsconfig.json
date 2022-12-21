@@ -10,10 +10,11 @@
 		"checkJs": true,
 		"esModuleInterop": true,
 		"forceConsistentCasingInFileNames": true,
-		"resolveJsonModule": true,
+		// "resolveJsonModule": true,
 		"skipLibCheck": true,
 		"sourceMap": true,
 		"types": ["vite/client"],
+		"target": "ES6",
 		// "strict": true,
 	}
 }
