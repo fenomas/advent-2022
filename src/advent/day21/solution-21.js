@@ -17,11 +17,11 @@ function parseInputs(input) {
     return { known, todo }
 }
 
+
 function solveMonkeys(known, todo) {
     var k = known
-    var ct = 0
     while (todo.length > 0) {
-        if (ct++ > 1e5) throw 'overrun'
+        var before = todo.length
         todo = todo.filter(arr => {
             var [mon, a, op, b] = arr
             if (!(a in known)) return true
@@ -31,6 +31,7 @@ function solveMonkeys(known, todo) {
             else if (op === '*') { k[mon] = k[a] * k[b] }
             else if (op === '/') { k[mon] = k[a] / k[b] }
         })
+        if (todo.length === before) break
     }
 }
 
@@ -56,37 +57,35 @@ export function part2(input = '') {
         var kn = Object.assign({}, known)
         kn['humn'] = humn
         solveMonkeys(kn, todo.slice())
-        return Math.abs(kn['root'])
+        return kn['root']
     }
 
-    var guess = 100
-    var err = findError(guess)
+    var lo = 1
+    var err = findError(lo)
+    var hiTest = (err < 0) ?
+        err => (err > 0) :
+        err => (err < 0)
+
+    var hi = 10
     for (var i = 0; i < 100; i++) {
-        var e = findError(guess * 2)
-        if (e > err) break
-        guess *= 2
-        err = e
+        var e2 = findError(hi)
+        if (hiTest(e2)) break
+        lo *= 10
+        hi *= 10
     }
-
-    var range = Math.round(guess / 2)
 
     for (var j = 0; j < 100; j++) {
-        if (err === 0) return guess
-        var e1 = findError(guess - range)
-        if (e1 < err) {
-            guess -= range
-            err = e1
+        var mid = Math.floor((lo + hi) / 2)
+        var e = findError(mid)
+        if (e === 0) return mid
+        if (hiTest(e)) {
+            hi = mid
         } else {
-            var e2 = findError(guess + range)
-            if (e2 < err) {
-                guess += range
-                err = e2
-            }
+            lo = mid
         }
-        range = Math.ceil(range / 2)
     }
 
-    return guess + '???'
+    return ['??', lo, hi].join(', ')
 }
 
 
