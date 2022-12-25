@@ -37,83 +37,51 @@ export function part1(input = '') {
 
 export function part2(input = '') {
     var sensors = getSensors(input)
-    var isTestInput = sensors.every(s => (s.sx < 1000))
-    var range = isTestInput ? 20 : 4000000
-    sensors.sort((a, b) => a.dist - b.dist)
+    var sensDist = (a, b) => Math.abs(a.sx - b.sx) + Math.abs(a.sy - b.sy)
 
+    // this is fragile, and excludes some edge cases not in the problem
+    // e.g. the answer lying on a boundary, or exactly between 
+    // two sensors with the same x/y coord
 
-    var checkEdge = (x, y, x1, y1) => {
-        var dx = (x1 > x) ? 1 : -1
-        var dy = (y1 > y) ? 1 : -1
+    // find 4 different beacons mutually just the right distance apart
+    var findPair = (ignore) => {
+        for (var a of sensors) {
+            if (a === ignore) continue
+            for (var b of sensors) {
+                if (b === ignore || b === a) continue
+                if (sensDist(a, b) - a.dist - b.dist !== 2) continue
+                return [a, b]
+            }
+        }
+        return [null, null]
+    }
+    var [a, b] = findPair(null)
+    var [c, d] = findPair(a)
+    if (!c) return 'no hits :('
 
-        var clipStart = Math.max(-x, -y, y - range)
-        if (clipStart > 0) {
-            x += dx * clipStart
-            y += dy * clipStart
-        }
-        var clipEnd = Math.max(x1 - range, y1 - range, -y1)
-        if (clipEnd > 0) {
-            x1 -= dx * clipEnd
-            y1 -= dy * clipEnd
-        }
-        var iter = x1 - x
-        for (var i = 0; i < iter; i++) {
-            var hit = sensors.some(({ sx, sy, dist }) => {
-                var dx = Math.abs(sx - x)
-                var dy = Math.abs(sy - y)
-                return (dx + dy <= dist)
-            })
-            if (!hit) return { x, y }
-            x += dx
-            y += dy
-        }
-        return null
+    // use a skewed UV space where manhattan distances are rectangles
+    var xyToUV = (x, y) => {
+        var v = y - x
+        var u = x + y
+        return { u, v }
+    }
+    var uvToXY = (u, v) => {
+        var x = (u - v) / 2
+        var y = (u + v) / 2
+        return { x, y }
     }
 
-    for (var i = 0; i < sensors.length; i++) {
-        var { sx, sy, dist } = sensors[i]
-        dist++
-        var hit = checkEdge(sx - dist, sy, sx, sy - dist)
-            || checkEdge(sx - dist, sy, sx, sy + dist)
-            || checkEdge(sx, sy - dist, sx + dist, sy)
-            || checkEdge(sx, sy + dist, sx + dist, sy)
-        if (hit) return 4000000 * hit.x + hit.y
-    }
-
-    return 'no hit'
+    // find space between the four rectangles in that space
+    var res = [a, b, c, d]
+    var umin = Infinity
+    var vmin = Infinity
+    res.forEach(sens => {
+        var loc = xyToUV(sens.sx, sens.sy)
+        umin = Math.min(umin, loc.u + sens.dist)
+        vmin = Math.min(vmin, loc.v + sens.dist)
+    })
+    var { x, y } = uvToXY(umin + 1, vmin + 1)
+    return 4000000 * x + y
 }
-
-
-
-
-
-
-
-
-export function part3(input = '') {
-    var sensors = getSensors(input)
-    var isTestInput = sensors.every(s => (s.sx < 1000))
-    var range = isTestInput ? 20 : 4000000
-    sensors.sort((a, b) => a.sy - b.sy)
-
-    for (var by = 0; by <= range; by++) {
-        for (var bx = 0; bx <= range; bx++) {
-            var hit = sensors.some(({ sx, sy, dist }) => {
-                var xrange = dist - Math.abs(sy - by)
-                if (xrange < 0) return
-                var dx = Math.abs(sx - bx)
-                if (dx > xrange) return
-                bx = sx + xrange
-                return true
-            })
-            if (hit) continue
-            if (bx > range) continue
-            return 4000000 * bx + by
-        }
-    }
-    return 'no hits'
-}
-
-
 
 

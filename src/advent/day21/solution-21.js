@@ -11,7 +11,13 @@ function parseInputs(input) {
         if (/^\d/.test(val)) {
             known[mon] = parseInt(val)
         } else {
-            todo.push([mon, ...val.trim().split(/\s+/)])
+            var [a, op, b] = val.trim().split(/\s+/)
+            var fn = a => { throw a; return a }
+            if (op === '+') fn = (a, b) => a + b
+            if (op === '-') fn = (a, b) => a - b
+            if (op === '*') fn = (a, b) => a * b
+            if (op === '/') fn = (a, b) => a / b
+            todo.push({ mon, a, b, fn })
         }
     })
     return { known, todo }
@@ -19,17 +25,13 @@ function parseInputs(input) {
 
 
 function solveMonkeys(known, todo) {
-    var k = known
     while (todo.length > 0) {
         var before = todo.length
-        todo = todo.filter(arr => {
-            var [mon, a, op, b] = arr
+        todo = todo.filter(obj => {
+            var { mon, a, b, fn } = obj
             if (!(a in known)) return true
             if (!(b in known)) return true
-            if (op === '+') { k[mon] = k[a] + k[b] }
-            else if (op === '-') { k[mon] = k[a] - k[b] }
-            else if (op === '*') { k[mon] = k[a] * k[b] }
-            else if (op === '/') { k[mon] = k[a] / k[b] }
+            known[mon] = fn(known[a], known[b])
         })
         if (todo.length === before) break
     }
@@ -48,8 +50,8 @@ export function part1(input = '') {
 
 export function part2(input = '') {
     var { known, todo } = parseInputs(input)
-    todo.forEach(arr => {
-        if (arr[0] === 'root') arr[2] = '-'
+    todo.forEach(obj => {
+        if (obj.mon === 'root') obj.fn = (a, b) => a - b
     })
 
     // return value seems to decrease monotonically towards answer...
