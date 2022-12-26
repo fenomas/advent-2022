@@ -10,6 +10,7 @@
   var currDay = 'xx'
   var input = ''
   var useTestInput = false
+  var catchErrors = true
   var outputs = ['', '']
   var times = ['', '']
   var answersKnownGood = [false, false]
@@ -58,36 +59,74 @@
     busy = true
     outputs = ['', '']
     times = ['', '']
-    await sleep(10)
-    var data = dataByDay[currDay] || {}
-    var t1 = performance.now()
-    var out1 = await getSolutionOutput(data.part1)
-    outputs = [out1, '']
-    times = [formatTime(t1), '']
-    colorKnownGood(1, out1)
-    await sleep(10)
-    var t2 = performance.now()
-    var out2 = await getSolutionOutput(data.part2)
-    outputs = [outputs[0], out2]
-    times = [times[0], formatTime(t2)]
-    colorKnownGood(2, out2)
+    await sleep(5)
+    var [out1, t1] = await getSolutionOutput(currDay, 1, input)
+    renderOutput(1, out1, t1, currDay)
+    await sleep(5)
+    var [out2, t2] = await getSolutionOutput(currDay, 2, input)
+    renderOutput(2, out2, t2, currDay)
     busy = false
   }
 
-  async function getSolutionOutput(fn) {
-    if (!fn) return ''
-    try {
-      return fn(input)
-    } catch (err) {
-      var out = String(err)
-      var re = /:(\d+:\d+)\)/.exec(err.stack || '')
-      if (re) out = `(${re[1]}) ${out}`
-      return out
+  async function getSolutionOutput(day = '', part = 1, input = '') {
+    var t0 = performance.now()
+    var fn = (dataByDay[day] || {})['part' + part]
+    if (!fn) return ['', 0]
+    if (!catchErrors) {
+      out = fn(input)
+    } else {
+      try {
+        return [fn(input), performance.now() - t0]
+      } catch (err) {
+        var out = String(err)
+        var re = /:(\d+:\d+)\)/.exec(err.stack || '')
+        if (re) out = `(${re[1]}) ${out}`
+        return [out, performance.now() - t0]
+      }
     }
   }
 
-  function formatTime(t) {
-    return `(${Math.round(performance.now() - t)}ms)`
+  function renderOutput(part = 1, output = '', time = 0, day = '') {
+    outputs[part - 1] = output
+    times[part - 1] = `(${Math.round(time)}ms)`
+    outputs = outputs
+    times = times
+    if (day) {
+      answersKnownGood[part - 1] = outputIsKnownGood(day, part, output)
+      answersKnownGood = answersKnownGood
+    }
+  }
+
+  async function runAllSolutions() {
+    if (busy) return
+    busy = true
+    var strs = ['', '']
+    var dts = [0, 0]
+    var allGood = [true, true]
+    dayNumList.forEach(async (dayStr) => {
+      for (var part = 1; part <= 2; part++) {
+        if (!(dayStr in dataByDay)) throw ''
+        var dat = dataByDay[dayStr] || {}
+        var inStr = useTestInput ? dat.testInput : dat.input
+        var [out, dt] = await getSolutionOutput(dayStr, part, inStr)
+        var isGood = outputIsKnownGood(dayStr, part, out)
+        allGood[part - 1] &&= isGood
+        strs[part - 1] += isGood ? '★' : 'ー'
+        dts[part - 1] += dt
+        renderOutput(part, strs[part - 1], dts[part - 1])
+        await sleep(5)
+      }
+    })
+    answersKnownGood = allGood
+    busy = false
+  }
+
+  function outputIsKnownGood(day = '', part = 1, output = '') {
+    var known = dataByDay[day].knownAnswers || []
+    var ix = part === 1 ? 0 : 2
+    if (!useTestInput) ix++
+    var ans = String(known[ix] || '')
+    return !!(ans && ans === String(output))
   }
 
   /**
@@ -106,7 +145,7 @@
     runSolutions()
   }
 
-  function onInput(input) {
+  function onInput(input = '') {
     if (input) runSolutions()
   }
   $: onInput(input)
@@ -114,16 +153,6 @@
   function setInputType(test) {
     useTestInput = !!test
     setDay()
-  }
-
-  function colorKnownGood(part, output, known) {
-    var known = dataByDay[currDay].knownAnswers || []
-    var ix = part === 1 ? 0 : 2
-    if (!useTestInput) ix++
-    var ans = String(known[ix] || '')
-    var good = !!(ans && ans === String(output))
-    answersKnownGood[part - 1] = good
-    answersKnownGood = answersKnownGood
   }
 
   function getOutputRows(str) {
@@ -161,6 +190,13 @@
           on:click={() => setDay(day)}>{day}</span
         >
       {/each}
+      {#if dayNumList.length === 25}
+        <span
+          class="button run-all-button"
+          on:keydown={() => {}}
+          on:click={runAllSolutions}>run all</span
+        >
+      {/if}
     </div>
 
     <div class="label">
@@ -204,6 +240,18 @@
       >
     </div>
     <textarea name="input" id="input" bind:value={input} rows="14" />
+    <div />
+    <div class="catch-area">
+      Catch errors
+      <span
+        class="button input-toggle catch-button"
+        class:current={catchErrors}
+        on:keydown={() => {}}
+        on:click={() => {
+          catchErrors = !catchErrors
+        }}>x</span
+      >
+    </div>
   </div>
 </div>
 
@@ -278,5 +326,26 @@
 
   .known-good {
     color: #0a0;
+  }
+
+  .catch-area {
+    color: #999;
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .catch-button {
+    display: inline-block;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    line-height: 1.2em;
+    margin: 0.2em 0.5em;
+    padding: 0;
+  }
+  .run-all-button {
+    margin-left: 2em;
   }
 </style>
