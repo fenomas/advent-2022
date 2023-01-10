@@ -2,7 +2,7 @@
 	"name": "advent-2022",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "vite dev",
+		"start": "vite dev",
 		"build": "vite build"
 	},
 	"devDependencies": {

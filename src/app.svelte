@@ -73,7 +73,7 @@
     var fn = (dataByDay[day] || {})['part' + part]
     if (!fn) return ['', 0]
     if (!catchErrors) {
-      out = fn(input)
+      return [fn(input), performance.now() - t0]
     } else {
       try {
         return [fn(input), performance.now() - t0]
